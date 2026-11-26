@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story Maker</title>
+<link rel="stylesheet" href="css/site.css">
+<style>
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+  input, button { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font: inherit; }
+  button.primary { background: var(--accent); color: #04140c; border: 0; font-weight: 700; }
+  canvas { width: 100%; max-width: 360px; display: block; border-radius: 16px; border: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Story maker</h1>
+  <p class="muted">Makes a 1080×1920 Instagram story image from <code>data/picks.json</code>.</p>
+  <div class="controls">
+    <input type="date" id="date">
+    <select id="mode">
+      <option value="picks">Today's picks (before games)</option>
+      <option value="recap">Recap (after games)</option>
+    </select>
+    <button class="primary" id="dl">Download PNG</button>
+  </div>
+  <canvas id="c" width="1080" height="1920"></canvas>
+</main>
+
+<script type="module">
+import { summarize, profit, fmtOdds, fmtUnits, fmtRecord, fmtPct } from "./js/stats.js";
+
+const [cfg, picks] = await Promise.all(
+  ["data/config.json", "data/picks.json"].map((u) => fetch(u, { cache: "no-store" }).then((r) => r.json()))
+);
+const $ = (id) => document.getElementById(id);
+const C = { bg: "#0b0d12", panel: "#151923", line: "#262c3a", text: "#f2f4f8", muted: "#8a93a6", win: "#19e68c", loss: "#ff5468", push: "#f5c542" };
+const FONT = `system-ui, -apple-system, "Segoe UI", sans-serif`;
+const ctx = $("c").getContext("2d");
+
+$("date").value = new Date().toLocaleDateString("en-CA");
+const params = new URLSearchParams(location.search);
+if (params.get("date")) $("date").value = params.get("date");
+if (params.get("mode")) $("mode").value = params.get("mode");
+
+function text(str, x, y, size, color = C.text, weight = 700, align = "left") {
+  ctx.font = `${weight} ${size}px ${FONT}`;
+  ctx.fillStyle = color;
+  ctx.textAlign = align;
+  ctx.fillText(str, x, y);
+}
+function fit(str, max, size, weight = 700, min = 24) {
+  ctx.font = `${weight} ${size}px ${FONT}`;
+  while (ctx.measureText(str).width > max && size > min) ctx.font = `${weight} ${--size}px ${FONT}`;
+  return size;
+}
+function card(x, y, w, h, stripe) {
+  ctx.fillStyle = C.panel;
+  ctx.beginPath(); ctx.roundRect(x, y, w, h, 28); ctx.fill();
+  ctx.strokeStyle = C.line; ctx.lineWidth = 2; ctx.stroke();
+  ctx.fillStyle = stripe;
+  ctx.beginPath(); ctx.roundRect(x, y, 12, h, [28, 0, 0, 28]); ctx.fill();
+}
+
+function draw() {
+  const date = $("date").value;
+  const mode = $("mode").value;
+  const day = picks.filter((p) => p.date === date && p.result !== "void");
+  const list = mode === "picks" ? day : day.filter((p) => ["win", "loss", "push"].includes(p.result));
+  const overall = summarize(picks);
+  const W = 1080, M = 72;
+
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, 1920);
+  const g = ctx.createRadialGradient(W, 0, 0, W, 0, 1100);
+  g.addColorStop(0, "rgba(25,230,140,0.22)"); g.addColorStop(1, "rgba(25,230,140,0)");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, 1920);
+
+  text(cfg.brand.toUpperCase(), M, 200, fit(cfg.brand.toUpperCase(), W - 2 * M, 56, 800), C.win, 800);
+  const nice = new Date(date + "T12:00").toLocaleDateString("en-US", { weekday: "long", month: "short", day: "numeric" });
+  text(mode === "picks" ? "TODAY'S PICKS" : "RESULTS", M, 320, 104, C.text, 900);
+  text(nice, M, 390, 44, C.muted, 500);
+
+  if (mode === "recap" && list.length) {
+    const s = summarize(list);
+    text(`${fmtRecord(s)}  ${fmtUnits(s.units)}`, M, 490, 72, s.units >= 0 ? C.win : C.loss, 800);
+  }
+
+  const top = mode === "recap" && list.length ? 560 : 470;
+  const bottom = 1560;
+  const gap = 24;
+  const h = list.length ? Math.min(220, (bottom - top - gap * (list.length - 1)) / list.length) : 0;
+
+  if (!list.length) text(mode === "picks" ? "No picks logged for this date." : "No graded picks for this date.", M, top + 80, 44, C.muted, 500);
+
+  list.forEach((p, i) => {
+    const y = top + i * (h + gap);
+    const color = mode === "picks" ? C.win : C[p.result];
+    card(M, y, W - 2 * M, h, color);
+    const s1 = Math.min(64, h * 0.3);
+    text(p.pick, M + 48, y + h * 0.42, fit(p.pick, W - 2 * M - 360, s1), C.text, 800);
+    const sub = `${p.sport} · ${p.game}`;
+    text(sub, M + 48, y + h * 0.42 + s1 * 0.95, fit(sub, W - 2 * M - 360, Math.min(36, h * 0.17), 500), C.muted, 500);
+    const right = W - M - 40;
+    if (mode === "picks") {
+      text(fmtOdds(p.odds), right, y + h * 0.42, Math.min(56, h * 0.26), C.text, 800, "right");
+      text(`${p.units}U`, right, y + h * 0.42 + s1 * 0.95, Math.min(36, h * 0.17), C.muted, 600, "right");
+    } else {
+      const label = { win: "✓ WIN", loss: "✗ LOSS", push: "PUSH" }[p.result];
+      text(label, right, y + h * 0.42, Math.min(52, h * 0.24), color, 900, "right");
+      text(fmtUnits(profit(p)), right, y + h * 0.42 + s1 * 0.95, Math.min(36, h * 0.17), C.muted, 600, "right");
+    }
+  });
+
+  // Season record footer — always shown so losses are visible too.
+  ctx.fillStyle = C.line; ctx.fillRect(M, 1610, W - 2 * M, 2);
+  text("SEASON", M, 1680, 32, C.muted, 600);
+  text(`${fmtRecord(overall)} · ${fmtUnits(overall.units)} · ${fmtPct(overall.roi)} ROI`, M, 1740, fit(`${fmtRecord(overall)} · ${fmtUnits(overall.units)} · ${fmtPct(overall.roi)} ROI`, W - 2 * M, 52), C.text, 800);
+  text(`${cfg.instagram} · full record at link in bio`, M, 1810, 34, C.muted, 500);
+  text(cfg.disclaimer, M, 1870, fit(cfg.disclaimer, W - 2 * M, 24, 400, 12), C.muted, 400);
+}
+
+$("date").onchange = draw;
+$("mode").onchange = draw;
+$("dl").onclick = () => {
+  const a = document.createElement("a");
+  a.download = `${$("mode").value}-${$("date").value}.png`;
+  a.href = $("c").toDataURL("image/png");
+  a.click();
+};
+draw();
+</script>
+</body>
+</html>

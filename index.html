@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick Record</title>
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1 id="brand">Picks</h1>
+    <p class="muted">Every pick, posted before the game. Wins <em>and</em> losses.</p>
+  </header>
+
+  <section class="tiles" id="tiles"></section>
+
+  <a class="cta" id="cta" href="#">Join</a>
+
+  <section>
+    <h2>Pending</h2>
+    <div id="pending"></div>
+  </section>
+
+  <section>
+    <h2>History</h2>
+    <div class="filters">
+      <select id="sport"><option value="">All sports</option></select>
+    </div>
+    <div id="history"></div>
+  </section>
+
+  <footer>
+    <p id="unitNote" class="muted"></p>
+    <p id="disclaimer" class="muted small"></p>
+    <p class="muted small">Timestamps for each pick are public in this site's
+      <a id="repo" href="https://github.com/tylerhong3-creator/propselling/commits/main/data/picks.json">commit history</a>.</p>
+  </footer>
+</main>
+
+<script type="module">
+import { summarize, profit, byNewest, fmtOdds, fmtUnits, fmtRecord, fmtPct } from "./js/stats.js";
+
+const [cfg, picks] = await Promise.all(
+  ["data/config.json", "data/picks.json"].map((u) => fetch(u, { cache: "no-store" }).then((r) => r.json()))
+);
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+
+document.title = `${cfg.brand} — Record`;
+$("brand").textContent = cfg.brand;
+$("cta").href = cfg.joinUrl;
+$("cta").textContent = cfg.joinLabel;
+$("unitNote").textContent = cfg.unitNote;
+$("disclaimer").textContent = cfg.disclaimer;
+
+const sports = [...new Set(picks.map((p) => p.sport))].sort();
+$("sport").innerHTML += sports.map((s) => `<option>${esc(s)}</option>`).join("");
+
+function tiles(s) {
+  const t = [
+    ["Record", fmtRecord(s)],
+    ["Units", fmtUnits(s.units), s.units >= 0 ? "pos" : "neg"],
+    ["Win %", fmtPct(s.winPct)],
+    ["ROI", fmtPct(s.roi), s.roi >= 0 ? "pos" : "neg"],
+    ["Streak", s.streak || "—"],
+  ];
+  return t.map(([k, v, c = ""]) => `<div class="tile"><span>${k}</span><strong class="${c}">${v}</strong></div>`).join("");
+}
+
+function rows(list) {
+  if (!list.length) return `<p class="muted">Nothing here yet.</p>`;
+  return `<ul class="picks">${list.map((p) => {
+    const pl = p.result === "pending" || p.result === "void" ? "" : fmtUnits(profit(p));
+    return `<li class="${p.result}">
+      <div><strong>${esc(p.pick)}</strong> <span class="muted">${fmtOdds(p.odds)} · ${p.units}u</span>
+        <div class="muted small">${esc(p.sport)} · ${esc(p.game)} · ${p.date}</div></div>
+      <div class="res"><span class="badge">${p.result}</span><span>${pl}</span></div></li>`;
+  }).join("")}</ul>`;
+}
+
+function render() {
+  const sport = $("sport").value;
+  const scoped = picks.filter((p) => !sport || p.sport === sport);
+  $("tiles").innerHTML = tiles(summarize(scoped));
+  $("pending").innerHTML = rows(scoped.filter((p) => p.result === "pending").sort(byNewest));
+  $("history").innerHTML = rows(scoped.filter((p) => p.result !== "pending").sort(byNewest));
+}
+$("sport").onchange = render;
+render();
+</script>
+</body>
+</html>
