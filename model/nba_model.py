@@ -48,6 +48,8 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data", "nba_archive.json")
 PLAYERS = os.path.join(HERE, "data", "player_games.csv.gz")
+ESPN_GAMES = os.path.join(HERE, "data", "espn_games.csv")          # 2022-23 onward, from fetch_espn.py
+ESPN_PLAYERS = os.path.join(HERE, "data", "espn_player_games.csv.gz")
 OUT = os.path.join(HERE, "results")
 
 TRAIN_SEASONS = (2011, 2012, 2013)  # used to tune ratings / injury weights and as first regression window
@@ -90,9 +92,29 @@ def load_games(path=DATA, extra=None):
             continue
         games.append(dict(season=int(r["season"]), date=game_date(int(r["season"]), r["date"]),
                           home=h, away=a, hpts=int(hs), apts=int(as_), margin=hs - as_,
-                          close=cs, open=os_, total=tot))
+                          close=cs, open=os_, total=tot, src="archive"))
+    if os.path.exists(ESPN_GAMES):
+        games += load_espn_games()
     games.sort(key=lambda g: (g["season"], g["date"]))
     return games
+
+
+def load_espn_games(path=ESPN_GAMES):
+    """2022-23 onward: DraftKings opening/closing spreads with real prices (via ESPN)."""
+    out = []
+    for r in csv.DictReader(open(path)):
+        if not r["close_spread"]:
+            continue
+        num = lambda k: float(r[k]) if r[k] not in ("", "None") else None  # noqa: E731
+        cs = num("close_spread")
+        os_ = num("open_spread") if num("open_spread") is not None else cs
+        out.append(dict(season=int(r["season"]), date=dt.date.fromisoformat(r["date"]), home=r["home"],
+                        away=r["away"], hpts=int(r["hpts"]), apts=int(r["apts"]),
+                        margin=float(r["hpts"]) - float(r["apts"]), close=cs, open=os_,
+                        total=num("total") or 0.0, src="draftkings",
+                        price=dict(open_home=num("open_home_price"), open_away=num("open_away_price"),
+                                   close_home=num("close_home_price"), close_away=num("close_away_price"))))
+    return out
 
 
 # ---------------------------------------------------------------- player availability
@@ -149,14 +171,19 @@ class Availability:
 
 
 def load_player_games(path=PLAYERS):
+    """Player rows grouped by game, in chronological order: play-by-play logs for
+    2011-22 (ordered by game id) then ESPN box scores (ordered by date)."""
     games = defaultdict(list)
-    for r in csv.DictReader(gzip.open(path, "rt")):
-        if float(r["minutes"]) <= 0:
-            continue
-        games[(int(r["season"]), int(r["playoffs"]), int(r["game_id"]))].append(
-            dict(player_id=int(r["player_id"]), player=r["player"], team=r["team"],
+    paths = [path] + ([ESPN_PLAYERS] if path == PLAYERS and os.path.exists(ESPN_PLAYERS) else [])
+    for f in paths:
+        for r in csv.DictReader(gzip.open(f, "rt")):
+            if float(r["minutes"]) <= 0:
+                continue
+            order = r.get("date") or ""
+            games[(int(r["season"]), int(r["playoffs"]), order, str(r["game_id"]).zfill(12))].append(
+                dict(player_id=r["player_id"], player=r["player"], team=r["team"],
                  minutes=float(r["minutes"]), gmsc=float(r["gmsc"]), home=r["home"], away=r["away"],
-                 hpts=int(float(r["home_pts"])), apts=int(float(r["away_pts"]))))
+                     hpts=int(float(r["home_pts"])), apts=int(float(r["away_pts"]))))
     return games
 
 
@@ -165,7 +192,7 @@ def injury_features(path=PLAYERS):
     (season, home, away, home points, away points), plus the final player state."""
     av = Availability()
     feats = {}
-    for (season, _po, _gid), rows in sorted(load_player_games(path).items()):
+    for (season, *_), rows in sorted(load_player_games(path).items()):
         h, a = rows[0]["home"], rows[0]["away"]
         key = (season, h, a, rows[0]["hpts"], rows[0]["apts"])
         played = {r["player_id"] for r in rows}
@@ -335,12 +362,23 @@ def grade(margin, line, side):
     return (v > 0) - (v < 0)
 
 
+def profit(res, price=None):
+    """Units won on a 1-unit bet at American `price` (default -110)."""
+    if res == 0:
+        return 0.0
+    if res < 0:
+        return LOSS
+    if not price:
+        return WIN
+    return 100 / -price if price < 0 else price / 100
+
+
 def summarize(bets):
     n = len(bets)
     w = sum(b["res"] == 1 for b in bets)
     l = sum(b["res"] == -1 for b in bets)
     p = n - w - l
-    units = w * WIN + l * LOSS
+    units = sum(profit(b["res"], b.get("price")) for b in bets)
     dec = w + l
     pct_ = w / dec if dec else float("nan")
     z = (w - dec * BREAK_EVEN) / math.sqrt(dec * BREAK_EVEN * (1 - BREAK_EVEN)) if dec else float("nan")
@@ -403,7 +441,8 @@ def backtest(games):
                     side = 1 if edge > 0 else -1
                     b = dict(season=p["season"], date=str(p["date"]), home=p["home"], away=p["away"],
                              side="home" if side > 0 else "away", line=line, edge=round(edge, 2),
-                             res=grade(p["margin"], line, side), inj_pts=round(p["inj_pts"], 2))
+                             res=grade(p["margin"], line, side), inj_pts=round(p["inj_pts"], 2),
+                             price=(p.get("price") or {}).get(f"{lk}_{'home' if side > 0 else 'away'}"))
                     if lk == "open":
                         b["clv"] = (p["open"] - p["close"]) * side  # points gained vs close
                         b["res_close"] = grade(p["margin"], p["close"], side)
