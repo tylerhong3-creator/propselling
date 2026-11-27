@@ -36,6 +36,7 @@ GAMMA = "https://gamma-api.polymarket.com"
 DATA = "https://data-api.polymarket.com/v2"
 PUBLIC_MAX = 100.0   # $ notional: trades below this count as public tickets
 WHALE_MIN = 1000.0   # $ net per wallet per game to count as a whale
+EARLY_HOURS = 6      # "early" whale flow: trades at least this long before tip-off
 
 # Polymarket slug abbreviation -> archive nickname
 ABBR = {"atl": "Hawks", "bos": "Celtics", "bkn": "Nets", "cha": "Hornets", "chi": "Bulls", "cle": "Cavaliers",
@@ -127,6 +128,7 @@ def summarize(e):
     tickets = defaultdict(int)
     money = defaultdict(float)
     wallet = defaultdict(float)
+    early = defaultdict(float)  # wallet net from trades >= EARLY_HOURS before tip
     last_ml = (0, None)
     n = 0
     for m in mkts:
@@ -143,9 +145,13 @@ def summarize(e):
             if usd < PUBLIC_MAX:
                 tickets["home" if backs_home else "away"] += 1
             wallet[t["w"]] += usd if backs_home else -usd
+            if t["ts"] <= tip - EARLY_HOURS * 3600:
+                early[t["w"]] += usd if backs_home else -usd
             if m.get("sportsMarketType") == "moneyline" and t["ts"] > last_ml[0]:
                 last_ml = (t["ts"], t["price"] if is_home else 1 - t["price"])
     whales = {w: v for w, v in wallet.items() if abs(v) >= WHALE_MIN}
+    ew = {w: v for w, v in early.items() if abs(v) >= WHALE_MIN}
+    ewn, ewg = sum(ew.values()), sum(abs(v) for v in ew.values())
     wn, wg = sum(whales.values()), sum(abs(v) for v in whales.values())
     tt = tickets["home"] + tickets["away"]
     mt = money["home"] + money["away"]
@@ -154,6 +160,7 @@ def summarize(e):
                 public_ticket_home=round(tickets["home"] / tt, 3) if tt else "",
                 money_home=round(money["home"] / mt, 3) if mt else "",
                 whales=len(whales), whale_net_home=round(wn), whale_share_home=round(wn / wg, 3) if wg else "",
+                early_whales=len(ew), early_whale_share_home=round(ewn / ewg, 3) if ewg else "",
                 pm_home_prob=last_ml[1] if last_ml[1] is not None else "")
 
 

@@ -37,6 +37,7 @@ import nba_model as M  # noqa: E402
 import polymarket_flow as P  # noqa: E402
 
 STATUS_P = {"out": 1.0, "doubtful": 0.75, "questionable": 0.5, "day-to-day": 0.35, "probable": 0.1}
+WHALE_MOVE = 1.96  # pts of DraftKings line move per unit of whale share (flow_analysis.md, t = 5.8)
 ML_SIGMA = 11.6  # spread SD used to turn a moneyline probability into a spread (research report)
 
 
@@ -55,16 +56,23 @@ def logistic_fit(x, y, iters=50):
 
 
 def calibrate(preds, model):
-    """P(home covers close) as a function of the model's edge vs. the close.
-    Fit on all walk-forward test games, and separately on the DraftKings era."""
+    """P(home covers line L) as a function of the model's edge vs. L, fitted on the
+    walk-forward backtest. 'open' uses DraftKings openers (2022-26): the honest
+    benchmark for a line bet well before tip-off. 'close' uses closing lines."""
     out = {}
-    for label, rows in (("all", preds), ("dk", [p for p in preds if p.get("src") == "draftkings"])):
-        rows = [p for p in rows if p["margin"] + p["close"] != 0]
-        x = np.array([p["pred_" + model] + p["close"] for p in rows])
-        y = np.array([p["margin"] + p["close"] > 0 for p in rows])
+    dk = [p for p in preds if p.get("src") == "draftkings"]
+    for label, rows, lk in (("open", [p for p in dk if p.get("has_open")], "open"), ("close", dk, "close"),
+                            ("close_all", preds, "close")):
+        rows = [p for p in rows if p["margin"] + p[lk] != 0]
+        x = np.array([p["pred_" + model] + p[lk] for p in rows])
+        y = np.array([p["margin"] + p[lk] > 0 for p in rows])
         b, se = logistic_fit(x, y)
         out[label] = dict(b=b.tolist(), se=se.tolist(), n=len(rows))
     return out
+
+
+def cover_p(b, edge):
+    return 1 / (1 + math.exp(-(b[0] + b[1] * edge)))
 
 
 def espn_injuries(summary, team_abbr_to_nick):
@@ -172,10 +180,14 @@ def main(date):
                    flow=fl, odds=odds)
         if line is not None:
             edge = pred + line
-            bc = cal["dk"]["b"] if cal["dk"]["n"] > 1500 else cal["all"]["b"]
-            p_home = 1 / (1 + math.exp(-(bc[0] + bc[1] * edge)))
+            # intercept dropped: home/away bias is already in the model; keep only the edge slope
+            p_home = cover_p([0, cal["open"]["b"][1]], edge)
+            p_close = cover_p([0, max(cal["close"]["b"][1], 0.0)], edge)
             p_raw = NormalDist().cdf(edge / sd)
-            row.update(edge=edge, p_home=p_home, p_raw=p_raw)
+            row.update(edge=edge, p_home=p_home, p_close=p_close, p_raw=p_raw)
+        if fl and fl.get("whale_share_home") not in (None, "", "None"):
+            # flow analysis: whale share of +1 preceded a 1.96-pt DraftKings move toward that side
+            row["whale_move"] = WHALE_MOVE * float(fl["whale_share_home"])
         out.append(row)
 
     write(date, out, cal, sd, inj_w, games[-1]["date"])
@@ -189,25 +201,32 @@ def write(date, out, cal, sd, inj_w, through):
     for r in out:
         if r["line"] is None:
             continue
-        sides.append((r["p_home"], r["p_raw"], f"{r['home']} {r['line']:+g}", r))
-        sides.append((1 - r["p_home"], 1 - r["p_raw"], f"{r['away']} {-r['line']:+g}", r))
+        sides.append((r["p_home"], r["p_close"], r["p_raw"], f"{r['home']} {r['line']:+g}", r, 1))
+        sides.append((1 - r["p_home"], 1 - r["p_close"], 1 - r["p_raw"], f"{r['away']} {-r['line']:+g}", r, -1))
     sides.sort(key=lambda s: -s[0])
-    b_all, b_dk = cal["all"], cal["dk"]
+    bo, bc = cal["open"], cal["close"]
     L = [f"# NBA slate {date}: spread cover probabilities\n"]
     L.append(f"Model trained on every game from 2011-12 through {through}. "
              f"Injury weights: {inj_w[0]:+.3f} pts per missing rotation minute, {inj_w[1]:+.3f} per missing Game Score point.\n")
-    L.append("**Calibrated cover %** comes from a logistic fit of real outcomes on the model's edge against the "
-             f"closing line (all test seasons: slope {b_all['b'][1]:+.4f} ± {1.96 * b_all['se'][1]:.4f} per point, "
-             f"n = {b_all['n']:,}; DraftKings era 2022-26: slope {b_dk['b'][1]:+.4f} ± {1.96 * b_dk['se'][1]:.4f}, "
-             f"n = {b_dk['n']:,}). **Raw model %** assumes the model is right and errors are normal "
-             f"(SD {sd:.1f} pts); it is shown only for comparison and overstates confidence.\n")
+    L.append("**Cover % (bet now)** is calibrated on 2022-26 DraftKings *opening* lines: a logistic fit of real "
+             f"outcomes on the model's edge (slope {bo['b'][1]:+.4f} ± {1.96 * bo['se'][1]:.4f} per point, "
+             f"n = {bo['n']:,}). It is the right benchmark for betting an early line, but the backtest knew each "
+             "game's absences, so it is optimistic. **Cover % (at close)** uses the closing-line fit "
+             f"(slope {bc['b'][1]:+.4f} ± {1.96 * bc['se'][1]:.4f}, n = {bc['n']:,}, floored at 0): once the line "
+             "has absorbed the news the model has no measurable edge, so every side is ≈ 50%. "
+             f"**Raw model %** assumes the model is exactly right with normal errors (SD {sd:.1f} pts) and "
+             "overstates confidence; it is shown for reference only.\n")
+    L.append("**Whale move** is the DraftKings line move toward that side that this season's Polymarket whale flow "
+             "has historically preceded (1.96 pts per unit of whale share, t = 5.8). Whale flow did *not* predict "
+             "covers against the closing line, so it is not in the cover %.\n")
     L.append("## Ranked sides\n")
-    L.append("| Rank | Side | Line source | Calibrated cover % | Raw model % | Model fair line (home) | Edge (pts) |")
-    L.append("|---|---|---|---|---|---|---|")
-    for i, (p, praw, label, r) in enumerate(sides, 1):
-        edge = r["edge"] if label.startswith(r["home"]) else -r["edge"]
-        L.append(f"| {i} | **{label}** | {r['src']} | {100 * p:.1f}% | {100 * praw:.1f}% | "
-                 f"{r['home']} {r['fair']:+.1f} | {edge:+.1f} |")
+    L.append("| Rank | Side | Line source | Cover % (bet now) | Cover % (at close) | Raw model % | Model fair line | Edge (pts) | Whale move (pts) |")
+    L.append("|---|---|---|---|---|---|---|---|---|")
+    for i, (p, pc, praw, label, r, sgn) in enumerate(sides, 1):
+        edge = sgn * r["edge"]
+        wm = f"{sgn * r['whale_move']:+.1f}" if r.get("whale_move") is not None else "—"
+        L.append(f"| {i} | **{label}** | {r['src']} | {100 * p:.1f}% | {100 * pc:.1f}% | {100 * praw:.1f}% | "
+                 f"{r['home']} {r['fair']:+.1f} | {edge:+.1f} | {wm} |")
     missing = [r for r in out if r["line"] is None]
     if missing:
         L.append("\nNo line available yet for: " + ", ".join(f"{r['away']} @ {r['home']}" for r in missing))

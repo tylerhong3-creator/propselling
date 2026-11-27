@@ -44,7 +44,7 @@ def load():
             date=r["date"], home=r["home"], away=r["away"], usd=f(r["usd"]) or 0,
             tickets=f(r["public_tickets"]) or 0,
             pub=f(r["public_ticket_home"]), money=f(r["money_home"]),
-            whale=f(r["whale_share_home"]), whale_net=f(r["whale_net_home"]) or 0, whales=int(r["whales"]),
+            whale=f(r["whale_share_home"]), early=f(r.get("early_whale_share_home")), whale_net=f(r["whale_net_home"]) or 0, whales=int(r["whales"]),
             close=close, open=opn if opn is not None else close, cover=margin + close,
             ph=f(g["close_home_price"]), pa=f(g["close_away_price"])))
     return rows
@@ -104,7 +104,9 @@ def main():
     L.append("Line move = opening spread − closing spread (positive = moved toward home). "
              "Slope per unit of the flow measure, with standard error.\n")
     L.append("| Flow measure | Games | Slope (pts) | SE | t |\n|---|---|---|---|---|")
-    for name, key, center in (("Whale share toward home (−1..1)", "whale", 0), ("Money share on home − 50%", "money", .5),
+    for name, key, center in (("Whale share toward home (−1..1)", "whale", 0),
+                              ("Early whale share (trades ≥ 6 h before tip)", "early", 0),
+                              ("Money share on home − 50%", "money", .5),
                               ("Public ticket share on home − 50%", "pub", .5)):
         sub = [r for r in rows if r[key] is not None]
         X = [[1, r[key] - center] for r in sub]
@@ -115,7 +117,9 @@ def main():
     L.append("## 2. Does flow predict covering the closing spread?\n")
     L.append("Cover margin = home margin + home closing spread. A real signal needs a slope clearly away from 0.\n")
     L.append("| Flow measure | Games | Slope (pts of cover margin) | SE | t |\n|---|---|---|---|---|")
-    for name, key, center in (("Whale share toward home", "whale", 0), ("Money share on home − 50%", "money", .5),
+    for name, key, center in (("Whale share toward home", "whale", 0),
+                              ("Early whale share (≥ 6 h before tip)", "early", 0),
+                              ("Money share on home − 50%", "money", .5),
                               ("Public ticket share on home − 50%", "pub", .5)):
         sub = [r for r in rows if r[key] is not None]
         b, se = ols([[1, r[key] - center] for r in sub], [r["cover"] for r in sub])
@@ -133,6 +137,8 @@ def main():
     L.append("| Whales vs public: whales opposite a ≥ 60% public side " + strategy(
         rows, lambda r: sgn(r["whale_net"]) if r["whales"] and r["pub"] is not None and abs(r["pub"] - .5) >= .1
         and sgn(r["whale_net"]) == -sgn(r["pub"] - .5) else 0))
+    L.append("| Follow early whales (share ≥ 0.5, ≥ 6 h before tip) " + strategy(
+        rows, lambda r: sgn(r["early"]) if r["early"] is not None and abs(r["early"]) >= .5 else 0))
     L.append("| Bet every home team (baseline) " + strategy(rows, lambda r: 1))
     L.append("")
     L.append("Break-even at −110 is 52.38%. With a few hundred games the 95% interval is about ±6–9 points, "

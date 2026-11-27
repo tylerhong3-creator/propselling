@@ -107,11 +107,12 @@ def load_espn_games(path=ESPN_GAMES):
             continue
         num = lambda k: float(r[k]) if r[k] not in ("", "None") else None  # noqa: E731
         cs = num("close_spread")
-        os_ = num("open_spread") if num("open_spread") is not None else cs
+        has_open = num("open_spread") is not None
+        os_ = num("open_spread") if has_open else cs
         out.append(dict(season=int(r["season"]), date=dt.date.fromisoformat(r["date"]), home=r["home"],
                         away=r["away"], hpts=int(r["hpts"]), apts=int(r["apts"]),
                         margin=float(r["hpts"]) - float(r["apts"]), close=cs, open=os_,
-                        total=num("total") or 0.0, src="draftkings",
+                        total=num("total") or 0.0, src="draftkings", has_open=has_open,
                         price=dict(open_home=num("open_home_price"), open_away=num("open_away_price"),
                                    close_home=num("close_home_price"), close_away=num("close_away_price"))))
     return out
@@ -434,6 +435,8 @@ def backtest(games):
             for thr in (1, 2, 3, 4, 5):
                 bets = []
                 for p in preds:
+                    if lk == "open" and not p.get("has_open", True):
+                        continue  # no opening line recorded for this game
                     line = p[lk]  # home spread
                     edge = p["pred_" + model] + line  # >0: model likes home to cover
                     if abs(edge) < thr:
@@ -442,7 +445,8 @@ def backtest(games):
                     b = dict(season=p["season"], date=str(p["date"]), home=p["home"], away=p["away"],
                              side="home" if side > 0 else "away", line=line, edge=round(edge, 2),
                              res=grade(p["margin"], line, side), inj_pts=round(p["inj_pts"], 2),
-                             price=(p.get("price") or {}).get(f"{lk}_{'home' if side > 0 else 'away'}"))
+                             price=(p.get("price") or {}).get(f"{lk}_{'home' if side > 0 else 'away'}"),
+                             src=p.get("src", "archive"))
                     if lk == "open":
                         b["clv"] = (p["open"] - p["close"]) * side  # points gained vs close
                         b["res_close"] = grade(p["margin"], p["close"], side)
@@ -528,6 +532,20 @@ def write_report(games, params, inj_w, coefs, acc, results, bet_log, preds, hit)
     L.append("| Forecast | MAE (points) |\n|---|---|")
     for k, v in acc.items():
         L.append(f"| {k} | {v:.2f} |")
+    L.append("")
+    L.append("## DraftKings era: 2022-23 to 2026-27, graded at actual DraftKings prices\n")
+    L.append("Out-of-sample seasons not used in any earlier version of this model. Opening-line rows use only "
+             "games where ESPN recorded a DraftKings opener.\n")
+    L.append("| Model | Bet against | Min edge | Bets | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) |")
+    L.append("|---|---|---|---|---|---|---|---|---|")
+    for model in MODELS:
+        for lk in ("open", "close"):
+            for thr in (1, 2, 3):
+                _, bets = results[(model, lk, thr)]
+                x = summarize([b for b in bets if b.get("src") == "draftkings"])
+                clv = f"{x['clv']:+.2f}" if lk == "open" else "—"
+                L.append(f"| {MODEL_NAMES[model]} | {lk} | {thr} | {x['n']} | {pct(x['pct'])} | {x['units']:+.1f} | "
+                         f"{100 * x['roi']:+.1f}% | {x['z']:+.2f} | {clv} |")
     L.append("")
     L.append("## Is injury news priced?\n")
     L.append(line_move_check(preds))

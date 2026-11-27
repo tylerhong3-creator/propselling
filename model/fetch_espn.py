@@ -29,7 +29,11 @@ SITE = "https://site.api.espn.com/apis/site/v2/sports/basketball/nba"
 CORE = "https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba"
 
 # ESPN short display names -> nicknames used in the odds archive
-NICK = {"76ers": "Seventysixers", "Trail Blazers": "Trailblazers"}
+NICK = {"76ers": "Seventysixers", "Trail Blazers": "Trailblazers", "Blazers": "Trailblazers"}
+TEAMS = {"Hawks", "Celtics", "Nets", "Hornets", "Bulls", "Cavaliers", "Mavericks", "Nuggets", "Pistons", "Warriors",
+         "Rockets", "Pacers", "Clippers", "Lakers", "Grizzlies", "Heat", "Bucks", "Timberwolves", "Pelicans",
+         "Knicks", "Thunder", "Magic", "Seventysixers", "Suns", "Trailblazers", "Kings", "Spurs", "Raptors",
+         "Jazz", "Wizards"}
 
 
 def get(url, path, refresh=False, tries=4):
@@ -102,9 +106,13 @@ def parse_box(summ):
     rows = []
     for team in summ.get("boxscore", {}).get("players", []):
         tname = nick(team["team"])
+        if not team.get("statistics"):
+            continue
         st = team["statistics"][0]
         lab = st["labels"]
         for a in st["athletes"]:
+            if not a.get("athlete", {}).get("id"):
+                continue
             if a.get("didNotPlay") or not a.get("stats"):
                 rows.append(dict(team=tname, player_id="espn:" + a["athlete"]["id"],
                                  player=a["athlete"]["displayName"], minutes=0, gmsc=0, pm=0, pts=0,
@@ -150,6 +158,8 @@ def main(start, end):
             if stype not in (2, 3, 5) or c["status"]["type"]["name"] != "STATUS_FINAL":
                 continue
             teams = {x["homeAway"]: x for x in c["competitors"]}
+            if not {nick(t["team"]) for t in teams.values()} <= TEAMS:
+                continue  # All-Star and exhibition games
             events.append(dict(id=e["id"], date=day, stype=stype, neutral=c.get("neutralSite", False),
                                home=nick(teams["home"]["team"]), away=nick(teams["away"]["team"]),
                                hpts=int(teams["home"]["score"]), apts=int(teams["away"]["score"])))

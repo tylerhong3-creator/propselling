@@ -24,6 +24,17 @@ Each bet in the logs lists the players who were out.
 | `data/player_games.csv.gz` | One row per player per game, 13,888 games from 2011-22 including playoffs: minutes (rebuilt from substitutions), Game Score and plus-minus. It matches 99.8% of archive games. Check: team minutes sum to 240, player points sum to the final score in 98% of games, and LeBron's 2015-16 line comes out at 76 games and 35.6 mpg, which is correct. |
 | `build_player_logs.py` | Rebuilds the player file from the `nbastats_YYYY.tar.xz` / `nbastats_po_YYYY.tar.xz` play-by-play files at [github.com/shufinskiy/nba_data](https://github.com/shufinskiy/nba_data). |
 
+### Added for 2022-23 through the current season
+
+| File | What it is |
+|---|---|
+| `fetch_espn.py` → `data/espn_games.csv`, `data/espn_player_games.csv.gz` | 5,552 games from 2022-23 to 2026-27, from ESPN's public JSON. Includes final scores, DraftKings opening and closing spreads with prices, and full box scores with DNP reasons. Rerun to update, e.g. `python3 model/fetch_espn.py 2022-10-01 2026-11-27`. Responses are cached in `model/.espn_cache/` (git-ignored). |
+| `polymarket_flow.py` → `data/polymarket_flow.csv` | Pre-tip-off trades on every NBA game's Polymarket moneyline and spread markets this season. Per game it gives public tickets (trades under $100), money share, whale wallets (net position of $1,000+), whale share, early whale share (6+ hours before tip) and the last pre-game moneyline price. |
+| `flow_analysis.py` → `results/flow_analysis.md` | Tests whether public tickets or whale money predict DraftKings line moves or covers. |
+| `slate.py DATE` → `results/slate_DATE.md` | Ranks every side on a date by calibrated cover probability. It uses the model, ESPN's injury report, back-to-backs, the DraftKings line (or a Polymarket-implied line until DraftKings posts one), and whale flow. |
+
+Sportsbook public-betting percentages (Action Network, BettingPros) aren't used. Their feeds either need an API key or block automated requests. Polymarket's ticket counts and dollar flow stand in for them.
+
 ## How it works
 
 1. **Team ratings, on a points scale, updated after each game.**
@@ -84,6 +95,31 @@ Measure success by closing line value, not by win rate.
   | Rested home team vs away team on a back-to-back | 49.0% |
   | Home underdogs of 10+ points | 47.0% |
   | Betting the healthier side when the injury gap is 4+ points | 47–52% |
+
+### 5. Out of sample on 2022-23 to 2026-27, graded at actual DraftKings prices
+
+These are seasons the model had never seen.
+
+| Configuration | Bets | Win % | ROI |
+|---|---|---|---|
+| Stats + injuries vs DraftKings close, edge ≥ 2 | 1,564 | 48.5% | −7.5% |
+| Stats + injuries vs DraftKings open, edge ≥ 2 | 1,632 | 55.4% | +4.1% (look-ahead upper bound) |
+| Stats + injuries + open line vs DraftKings open, edge ≥ 1 | 1,681 | 56.4% | +6.1% (look-ahead upper bound) |
+
+The same pattern as 2014-22 holds. There's no edge at the close, and a real but optimistic edge at the open from knowing absences first.
+
+### 6. Public money and whales (Polymarket, 268 completed 2026-27 games)
+
+| Test | Result |
+|---|---|
+| Whale share → later DraftKings line move | **+1.96 pts per unit, t = 5.8.** Using only trades 6+ hours before tip: +1.30 pts, t = 4.2. |
+| Public ticket share → line move | −0.55, t = −0.3 (nothing) |
+| Whale share → cover vs DraftKings close | +0.21 pts, t = 0.1 (nothing) |
+| Follow whales at the close | 133-135, 49.6% |
+| Fade 60%+ public tickets at the close | 45-50, 47.4% |
+| Follow early whales at the DraftKings open | 67-62, 52%, t ≈ 1.4 (not significant) |
+
+Whales trade early and the sportsbook line moves toward them. But once the line has moved, nothing is left at the close. This matches the published evidence: a small informed minority drives prediction-market prices, and copying whales after the fact doesn't pay. In the slate, whale flow is shown as an expected line move, not added to the cover %.
 
 ## Predicting games
 

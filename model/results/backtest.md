@@ -1,6 +1,6 @@
 # NBA spread model backtest
 
-Archive: 12,960 games, seasons 2011-22; 12,932 (99.8%) matched to play-by-play player data. Ratings and injury weights tuned on 2011-14; walk-forward test on 8,788 games from 2014-22. All bets assumed at -110 (break-even 52.38%).
+Archive: 18,510 games, seasons 2011-27; 18,478 (99.8%) matched to play-by-play player data. Ratings and injury weights tuned on 2011-14; walk-forward test on 13,943 games from 2014-27. All bets assumed at -110 (break-even 52.38%).
 
 **Look-ahead caveat:** absences are read from each game's box score. Tests against the closing line are fair because injury news is almost always out before the close. Tests against the opening line assume you knew every absence at the open, so treat them as an upper bound.
 
@@ -12,81 +12,112 @@ Injury weights (points of home margin per unit, away minus home): -0.074 per mis
 
 | Forecast | MAE (points) |
 |---|---|
-| closing line | 9.76 |
-| opening line | 9.85 |
-| Stats only (no injuries) | 9.98 |
-| Stats + opening line (no injuries) | 9.85 |
-| Stats + injuries | 9.92 |
-| Stats + injuries + opening line | 9.84 |
+| closing line | 10.06 |
+| opening line | 10.17 |
+| Stats only (no injuries) | 10.29 |
+| Stats + opening line (no injuries) | 10.17 |
+| Stats + injuries | 10.22 |
+| Stats + injuries + opening line | 10.15 |
+
+## DraftKings era: 2022-23 to 2026-27, graded at actual DraftKings prices
+
+Out-of-sample seasons not used in any earlier version of this model. Opening-line rows use only games where ESPN recorded a DraftKings opener.
+
+| Model | Bet against | Min edge | Bets | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) |
+|---|---|---|---|---|---|---|---|---|
+| Stats only (no injuries) | open | 1 | 2548 | 51.9% | -50.3 | -2.0% | -0.51 | +0.63 |
+| Stats only (no injuries) | open | 2 | 1487 | 52.9% | -13.7 | -0.9% | +0.38 | +0.95 |
+| Stats only (no injuries) | open | 3 | 789 | 52.3% | -27.0 | -3.4% | -0.05 | +1.37 |
+| Stats only (no injuries) | close | 1 | 3583 | 49.4% | -201.7 | -5.6% | -3.51 | — |
+| Stats only (no injuries) | close | 2 | 2287 | 49.6% | -119.9 | -5.2% | -2.61 | — |
+| Stats only (no injuries) | close | 3 | 1391 | 50.3% | -57.3 | -4.1% | -1.58 | — |
+| Stats + opening line (no injuries) | open | 1 | 689 | 54.3% | +1.3 | +0.2% | +1.00 | +1.44 |
+| Stats + opening line (no injuries) | open | 2 | 100 | 59.0% | -1.2 | -1.2% | +1.33 | +4.57 |
+| Stats + opening line (no injuries) | open | 3 | 19 | 68.4% | +1.6 | +8.6% | +1.40 | +10.66 |
+| Stats + opening line (no injuries) | close | 1 | 2422 | 49.8% | -123.2 | -5.1% | -2.54 | — |
+| Stats + opening line (no injuries) | close | 2 | 1097 | 48.8% | -75.8 | -6.9% | -2.36 | — |
+| Stats + opening line (no injuries) | close | 3 | 584 | 50.3% | -24.4 | -4.2% | -1.03 | — |
+| Stats + injuries | open | 1 | 2617 | 54.1% | +59.8 | +2.3% | +1.77 | +1.50 |
+| Stats + injuries | open | 2 | 1632 | 55.4% | +66.7 | +4.1% | +2.46 | +2.03 |
+| Stats + injuries | open | 3 | 933 | 55.9% | +36.2 | +3.9% | +2.13 | +2.73 |
+| Stats + injuries | close | 1 | 3114 | 49.1% | -196.1 | -6.3% | -3.61 | — |
+| Stats + injuries | close | 2 | 1564 | 48.5% | -117.5 | -7.5% | -3.05 | — |
+| Stats + injuries | close | 3 | 676 | 48.4% | -53.5 | -7.9% | -2.09 | — |
+| Stats + injuries + opening line | open | 1 | 1681 | 56.4% | +103.0 | +6.1% | +3.32 | +2.09 |
+| Stats + injuries + opening line | open | 2 | 570 | 56.8% | +25.2 | +4.4% | +2.10 | +3.67 |
+| Stats + injuries + opening line | open | 3 | 189 | 61.7% | +14.5 | +7.7% | +2.56 | +5.85 |
+| Stats + injuries + opening line | close | 1 | 2232 | 48.4% | -175.1 | -7.8% | -3.78 | — |
+| Stats + injuries + opening line | close | 2 | 810 | 49.4% | -48.4 | -6.0% | -1.67 | — |
+| Stats + injuries + opening line | close | 3 | 288 | 49.7% | -15.9 | -5.5% | -0.93 | — |
 
 ## Is injury news priced?
 
 | Outcome regressed on injury points | Slope | t |
 |---|---|---|
-| Actual home margin | 0.84 | 11.9 |
-| Opening line (home expected margin) | 0.53 | 16.1 |
-| Line move, open to close (toward home) | 0.31 | 44.6 |
-| Cover margin vs closing line | -0.00 | -0.0 |
+| Actual home margin | 1.00 | 20.1 |
+| Opening line (home expected margin) | 0.67 | 29.3 |
+| Line move, open to close (toward home) | 0.29 | 50.9 |
+| Cover margin vs closing line | 0.05 | 1.1 |
 
 ## Stats only (no injuries)
 
 | Bet against | Min edge | Bets | W-L-P | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) | Win % at close |
 |---|---|---|---|---|---|---|---|---|---|
-| open line | 1 | 5206 | 2632-2484-90 | 51.4% | -91.3 | -1.8% | -1.34 | +0.17 | 50.9% |
-| open line | 2 | 2562 | 1252-1264-46 | 49.8% | -125.8 | -4.9% | -2.63 | +0.23 | 48.8% |
-| open line | 3 | 1237 | 621-592-24 | 51.2% | -27.5 | -2.2% | -0.83 | +0.29 | 50.2% |
-| open line | 4 | 604 | 302-291-11 | 50.9% | -16.5 | -2.7% | -0.71 | +0.32 | 50.5% |
-| open line | 5 | 315 | 158-151-6 | 51.1% | -7.4 | -2.3% | -0.44 | +0.31 | 50.2% |
-| close line | 1 | 5717 | 2827-2785-105 | 50.4% | -215.0 | -3.8% | -3.01 | — | — |
-| close line | 2 | 3313 | 1630-1619-64 | 50.2% | -137.2 | -4.1% | -2.52 | — | — |
-| close line | 3 | 1800 | 877-886-37 | 49.7% | -88.7 | -4.9% | -2.22 | — | — |
-| close line | 4 | 956 | 464-474-18 | 49.5% | -52.2 | -5.5% | -1.79 | — | — |
-| close line | 5 | 478 | 241-230-7 | 51.2% | -10.9 | -2.3% | -0.53 | — | — |
+| open line | 1 | 7754 | 3947-3704-103 | 51.6% | -141.5 | -1.8% | -1.39 | +0.32 | 50.8% |
+| open line | 2 | 4049 | 2034-1961-54 | 50.9% | -139.6 | -3.4% | -1.86 | +0.50 | 49.7% |
+| open line | 3 | 2026 | 1031-966-29 | 51.6% | -54.5 | -2.7% | -0.67 | +0.71 | 50.0% |
+| open line | 4 | 1029 | 522-493-14 | 51.4% | -41.7 | -4.1% | -0.61 | +0.99 | 49.8% |
+| open line | 5 | 561 | 289-264-8 | 52.3% | -21.7 | -3.9% | -0.06 | +1.36 | 50.0% |
+| close line | 1 | 9300 | 4585-4583-132 | 50.0% | -416.7 | -4.5% | -4.54 | — | — |
+| close line | 2 | 5600 | 2759-2764-77 | 50.0% | -257.1 | -4.6% | -3.61 | — | — |
+| close line | 3 | 3191 | 1571-1573-47 | 50.0% | -146.0 | -4.6% | -2.71 | — | — |
+| close line | 4 | 1772 | 880-865-27 | 50.4% | -65.4 | -3.7% | -1.63 | — | — |
+| close line | 5 | 947 | 477-459-11 | 51.0% | -25.5 | -2.7% | -0.87 | — | — |
 
 ## Stats + opening line (no injuries)
 
 | Bet against | Min edge | Bets | W-L-P | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) | Win % at close |
 |---|---|---|---|---|---|---|---|---|---|
-| open line | 1 | 1403 | 707-671-25 | 51.3% | -28.3 | -2.0% | -0.80 | +0.40 | 49.3% |
-| open line | 2 | 132 | 67-64-1 | 51.1% | -3.1 | -2.3% | -0.28 | +0.64 | 48.5% |
-| open line | 3 | 19 | 11-8-0 | 57.9% | +2.0 | +10.5% | +0.48 | +2.53 | 52.6% |
-| open line | 4 | 1 | 1-0-0 | 100.0% | +0.9 | +90.9% | +0.95 | +9.00 | 0.0% |
-| open line | 5 | 1 | 1-0-0 | 100.0% | +0.9 | +90.9% | +0.95 | +9.00 | 0.0% |
-| close line | 1 | 4156 | 2059-2014-83 | 50.6% | -142.2 | -3.4% | -2.34 | — | — |
-| close line | 2 | 1572 | 758-782-32 | 49.2% | -92.9 | -5.9% | -2.48 | — | — |
-| close line | 3 | 575 | 274-292-9 | 48.4% | -42.9 | -7.5% | -1.89 | — | — |
-| close line | 4 | 234 | 108-123-3 | 46.8% | -24.8 | -10.6% | -1.71 | — | — |
-| close line | 5 | 86 | 43-41-2 | 51.2% | -1.9 | -2.2% | -0.22 | — | — |
+| open line | 1 | 2092 | 1080-985-27 | 52.3% | -27.0 | -1.3% | -0.07 | +0.74 | 49.9% |
+| open line | 2 | 232 | 126-105-1 | 54.5% | -4.3 | -1.8% | +0.66 | +2.33 | 48.3% |
+| open line | 3 | 38 | 24-14-0 | 63.2% | +3.6 | +9.6% | +1.33 | +6.59 | 42.1% |
+| open line | 4 | 3 | 2-1-0 | 66.7% | +0.8 | +27.3% | +0.50 | +16.67 | 0.0% |
+| open line | 5 | 2 | 2-0-0 | 100.0% | +1.8 | +90.9% | +1.35 | +17.00 | 0.0% |
+| close line | 1 | 6578 | 3259-3224-95 | 50.3% | -265.4 | -4.0% | -3.40 | — | — |
+| close line | 2 | 2669 | 1292-1342-35 | 49.1% | -168.7 | -6.3% | -3.42 | — | — |
+| close line | 3 | 1159 | 567-582-10 | 49.3% | -67.3 | -5.8% | -2.06 | — | — |
+| close line | 4 | 520 | 256-261-3 | 49.5% | -28.9 | -5.6% | -1.30 | — | — |
+| close line | 5 | 240 | 127-111-2 | 53.4% | +3.9 | +1.6% | +0.30 | — | — |
 
 ## Stats + injuries
 
 | Bet against | Min edge | Bets | W-L-P | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) | Win % at close |
 |---|---|---|---|---|---|---|---|---|---|
-| open line | 1 | 5274 | 2686-2497-91 | 51.8% | -55.2 | -1.0% | -0.80 | +0.76 | 49.1% |
-| open line | 2 | 2765 | 1441-1282-42 | 52.9% | +28.0 | +1.0% | +0.56 | +1.10 | 49.3% |
-| open line | 3 | 1329 | 702-606-21 | 53.7% | +32.2 | +2.4% | +0.93 | +1.49 | 48.7% |
-| open line | 4 | 578 | 321-247-10 | 56.5% | +44.8 | +7.8% | +1.97 | +2.03 | 49.9% |
-| open line | 5 | 264 | 148-110-6 | 57.4% | +24.5 | +9.3% | +1.60 | +2.66 | 46.7% |
-| close line | 1 | 5157 | 2534-2526-97 | 50.1% | -222.4 | -4.3% | -3.28 | — | — |
-| close line | 2 | 2543 | 1213-1281-49 | 48.6% | -178.3 | -7.0% | -3.74 | — | — |
-| close line | 3 | 1053 | 487-549-17 | 47.0% | -106.3 | -10.1% | -3.46 | — | — |
-| close line | 4 | 414 | 193-213-8 | 47.5% | -37.5 | -9.1% | -1.95 | — | — |
-| close line | 5 | 170 | 72-93-5 | 43.6% | -27.5 | -16.2% | -2.25 | — | — |
+| open line | 1 | 7891 | 4094-3691-106 | 52.6% | +4.6 | +0.1% | +0.37 | +1.01 | 49.2% |
+| open line | 2 | 4397 | 2339-2004-54 | 53.9% | +94.7 | +2.2% | +1.95 | +1.45 | 49.2% |
+| open line | 3 | 2262 | 1220-1015-27 | 54.6% | +68.4 | +3.0% | +2.09 | +2.00 | 48.8% |
+| open line | 4 | 1072 | 592-467-13 | 55.9% | +46.7 | +4.4% | +2.29 | +2.74 | 48.5% |
+| open line | 5 | 545 | 304-233-8 | 56.6% | +20.3 | +3.7% | +1.96 | +3.76 | 46.1% |
+| close line | 1 | 8271 | 4054-4099-118 | 49.7% | -418.4 | -5.1% | -4.80 | — | — |
+| close line | 2 | 4107 | 1967-2081-59 | 48.6% | -295.7 | -7.2% | -4.83 | — | — |
+| close line | 3 | 1729 | 812-896-21 | 47.5% | -159.8 | -9.2% | -4.01 | — | — |
+| close line | 4 | 703 | 332-362-9 | 47.8% | -61.7 | -8.8% | -2.40 | — | — |
+| close line | 5 | 296 | 142-149-5 | 48.8% | -21.1 | -7.1% | -1.22 | — | — |
 
 ## Stats + injuries + opening line
 
 | Bet against | Min edge | Bets | W-L-P | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) | Win % at close |
 |---|---|---|---|---|---|---|---|---|---|
-| open line | 1 | 2980 | 1545-1383-52 | 52.8% | +21.5 | +0.7% | +0.42 | +1.19 | 48.9% |
-| open line | 2 | 714 | 406-291-17 | 58.2% | +78.1 | +10.9% | +3.10 | +2.18 | 50.2% |
-| open line | 3 | 151 | 86-62-3 | 58.1% | +16.2 | +10.7% | +1.40 | +3.57 | 42.3% |
-| open line | 4 | 43 | 30-11-2 | 73.2% | +16.3 | +37.8% | +2.67 | +4.26 | 45.2% |
-| open line | 5 | 13 | 10-3-0 | 76.9% | +6.1 | +46.9% | +1.77 | +5.50 | 50.0% |
-| close line | 1 | 3748 | 1802-1871-75 | 49.1% | -232.8 | -6.2% | -4.03 | — | — |
-| close line | 2 | 1124 | 535-568-21 | 48.5% | -81.6 | -7.3% | -2.58 | — | — |
-| close line | 3 | 281 | 131-145-5 | 47.5% | -25.9 | -9.2% | -1.64 | — | — |
-| close line | 4 | 77 | 37-38-2 | 49.3% | -4.4 | -5.7% | -0.53 | — | — |
-| close line | 5 | 24 | 14-9-1 | 60.9% | +3.7 | +15.5% | +0.82 | — | — |
+| open line | 1 | 4661 | 2488-2111-62 | 54.1% | +124.5 | +2.7% | +2.33 | +1.51 | 49.3% |
+| open line | 2 | 1284 | 728-536-20 | 57.6% | +103.3 | +8.0% | +3.71 | +2.84 | 48.8% |
+| open line | 3 | 340 | 202-134-4 | 60.1% | +30.7 | +9.0% | +2.84 | +4.84 | 45.6% |
+| open line | 4 | 108 | 79-27-2 | 74.5% | +30.3 | +28.0% | +4.57 | +7.14 | 52.3% |
+| open line | 5 | 38 | 31-7-0 | 81.6% | +15.1 | +39.9% | +3.60 | +9.41 | 45.9% |
+| close line | 1 | 5980 | 2876-3017-87 | 48.8% | -407.9 | -6.8% | -5.50 | — | — |
+| close line | 2 | 1934 | 934-976-24 | 48.9% | -130.0 | -6.7% | -3.05 | — | — |
+| close line | 3 | 569 | 274-290-5 | 48.6% | -41.8 | -7.3% | -1.81 | — | — |
+| close line | 4 | 185 | 96-87-2 | 52.5% | -0.3 | -0.2% | +0.02 | — | — |
+| close line | 5 | 77 | 43-33-1 | 56.6% | +6.0 | +7.7% | +0.73 | — | — |
 
 ## By season: stats + injuries vs closing line, edge ≥ 2
 
@@ -100,6 +131,11 @@ Injury weights (points of home margin per unit, away minus home): -0.074 per mis
 | 2019-20 | 302 | 48.5% | -22.0 |
 | 2020-21 | 409 | 48.5% | -29.8 |
 | 2021-22 | 328 | 47.6% | -28.8 |
+| 2022-23 | 333 | 53.0% | +4.1 |
+| 2023-24 | 326 | 46.4% | -37.4 |
+| 2024-25 | 388 | 46.9% | -40.6 |
+| 2025-26 | 448 | 48.2% | -37.2 |
+| 2026-27 | 69 | 47.8% | -6.4 |
 
 ## Does the line already price the situation?
 
@@ -107,22 +143,22 @@ Regression of the cover margin (home margin + home spread) on situational featur
 
 | Feature | vs opening line (pts) | t | vs closing line (pts) | t |
 |---|---|---|---|---|
-| home edge | -0.13 | -0.80 | -0.08 | -0.47 |
-| home on back-to-back | -0.30 | -0.61 | +0.09 | +0.19 |
-| away on back-to-back | +0.02 | +0.06 | -0.43 | -1.04 |
-| rest difference (days) | +0.18 | +1.09 | +0.16 | +0.93 |
-| altitude home | +0.91 | +1.72 | +0.71 | +1.34 |
-| injury points (model's absence value) | +0.31 | +4.80 | -0.00 | -0.02 |
+| home edge | -0.11 | -0.80 | -0.05 | -0.42 |
+| home on back-to-back | -0.43 | -1.09 | -0.08 | -0.20 |
+| away on back-to-back | +0.20 | +0.58 | -0.16 | -0.47 |
+| rest difference (days) | +0.15 | +1.01 | +0.11 | +0.76 |
+| altitude home | +0.77 | +1.75 | +0.67 | +1.55 |
+| injury points (model's absence value) | +0.32 | +7.24 | +0.04 | +1.02 |
 
 Classic angles, graded at the closing line:
 
 | Angle | Record |
 |---|---|
-| Rested home team vs away team on a back-to-back | 726-757 (49.0%) |
-| Rested away team vs home team on a back-to-back | 329-335 (49.5%) |
-| Home underdog of 10+ points | 142-160 (47.0%) |
-| Road favorite | 1462-1396 (51.2%) |
-| Team missing 4+ points more of players than opponent (bet the healthier side) | 176-197 (47.2%) home / 139-129 (51.9%) away |
+| Rested home team vs away team on a back-to-back | 1051-1067 (49.6%) |
+| Rested away team vs home team on a back-to-back | 600-595 (50.2%) |
+| Home underdog of 10+ points | 302-320 (48.6%) |
+| Road favorite | 2427-2384 (50.4%) |
+| Team missing 4+ points more of players than opponent (bet the healthier side) | 421-422 (49.9%) home / 348-304 (53.4%) away |
 
 ## Regression coefficients by test season
 
@@ -138,6 +174,11 @@ Classic angles, graded at the closing line:
 | 2019 | [2.534, 0.118, 0.873, -1.165, 1.342, 0.146, 1.29] |
 | 2020 | [2.437, 0.124, 0.866, -1.282, 1.648, 0.082, 0.996] |
 | 2021 | [2.308, 0.103, 0.891, -1.175, 1.582, 0.141, 1.23] |
+| 2022 | [2.275, 0.1, 0.893, -1.451, 1.598, 0.14, 1.054] |
+| 2023 | [2.261, 0.1, 0.885, -1.368, 1.684, 0.15, 1.132] |
+| 2024 | [2.271, 0.103, 0.888, -1.542, 1.71, 0.157, 1.147] |
+| 2025 | [2.239, 0.113, 0.888, -1.731, 1.845, 0.16, 1.099] |
+| 2026 | [2.21, 0.13, 0.881, -1.802, 1.832, 0.152, 1.004] |
 
 **Stats + opening line (no injuries)**: intercept, perf_diff, mkt_diff, b2b_home, b2b_away, rest_diff, altitude, open_line
 
@@ -151,6 +192,11 @@ Classic angles, graded at the closing line:
 | 2019 | [0.483, -0.075, 0.315, -0.39, 0.547, 0.129, 1.08, 0.749] |
 | 2020 | [0.488, -0.059, 0.315, -0.498, 0.796, 0.067, 0.809, 0.735] |
 | 2021 | [0.391, -0.08, 0.323, -0.331, 0.699, 0.124, 1.062, 0.752] |
+| 2022 | [0.349, -0.087, 0.312, -0.582, 0.686, 0.129, 0.881, 0.77] |
+| 2023 | [0.331, -0.09, 0.293, -0.437, 0.681, 0.131, 0.923, 0.783] |
+| 2024 | [0.371, -0.081, 0.297, -0.6, 0.69, 0.131, 0.944, 0.78] |
+| 2025 | [0.488, -0.062, 0.341, -0.82, 0.873, 0.137, 0.911, 0.727] |
+| 2026 | [0.466, -0.051, 0.33, -0.868, 0.853, 0.124, 0.814, 0.733] |
 
 **Stats + injuries**: intercept, perf_diff, mkt_diff, b2b_home, b2b_away, rest_diff, altitude, inj_pts
 
@@ -164,6 +210,11 @@ Classic angles, graded at the closing line:
 | 2019 | [2.433, 0.147, 0.848, -1.106, 1.247, 0.103, 1.357, 0.987] |
 | 2020 | [2.347, 0.138, 0.855, -1.195, 1.537, 0.047, 1.025, 0.903] |
 | 2021 | [2.226, 0.115, 0.881, -1.055, 1.418, 0.112, 1.269, 0.899] |
+| 2022 | [2.193, 0.119, 0.877, -1.296, 1.401, 0.116, 1.076, 0.939] |
+| 2023 | [2.177, 0.104, 0.885, -1.187, 1.428, 0.123, 1.156, 0.928] |
+| 2024 | [2.182, 0.11, 0.882, -1.344, 1.447, 0.122, 1.191, 0.937] |
+| 2025 | [2.147, 0.131, 0.87, -1.507, 1.565, 0.124, 1.139, 0.952] |
+| 2026 | [2.121, 0.154, 0.856, -1.564, 1.516, 0.111, 1.023, 0.989] |
 
 **Stats + injuries + opening line**: intercept, perf_diff, mkt_diff, b2b_home, b2b_away, rest_diff, altitude, inj_pts, open_line
 
@@ -177,4 +228,9 @@ Classic angles, graded at the closing line:
 | 2019 | [0.875, -0.001, 0.411, -0.521, 0.658, 0.109, 1.157, 0.6, 0.585] |
 | 2020 | [0.817, -0.003, 0.405, -0.599, 0.895, 0.051, 0.847, 0.507, 0.593] |
 | 2021 | [0.688, -0.032, 0.41, -0.414, 0.762, 0.112, 1.097, 0.497, 0.619] |
+| 2022 | [0.694, -0.025, 0.41, -0.668, 0.756, 0.117, 0.9, 0.547, 0.613] |
+| 2023 | [0.733, -0.035, 0.423, -0.553, 0.772, 0.121, 0.965, 0.506, 0.602] |
+| 2024 | [0.75, -0.025, 0.416, -0.697, 0.77, 0.117, 0.99, 0.529, 0.604] |
+| 2025 | [0.828, 0.002, 0.437, -0.886, 0.919, 0.121, 0.962, 0.577, 0.564] |
+| 2026 | [0.84, 0.022, 0.432, -0.947, 0.892, 0.106, 0.871, 0.622, 0.553] |
 
