@@ -1,0 +1,715 @@
+season,date,home,away,side,line,edge,res,inj_pts,clv,res_close,model,pred_margin,home_out,away_out
+2014,2014-11-15,Trailblazers,Nets,away,-6.0,-2.14,-1,-2.63,3.5,-1,blend+inj,3.86,LaMarcus Aldridge; Nicolas Batum,
+2014,2014-11-18,Bucks,Knicks,away,-4.0,-2.28,0,-0.23,2.5,-1,blend+inj,1.72,Larry Sanders; Kendall Marshall; Nate Wolters,Cole Aldrich; Quincy Acy
+2014,2014-11-24,Rockets,Knicks,away,-9.0,-2.46,1,-3.28,3.0,1,blend+inj,6.54,Dwight Howard; Terrence Jones; Patrick Beverley,
+2014,2014-11-28,Pacers,Magic,away,-6.0,-2.27,-1,-0.88,1.0,-1,blend+inj,3.73,Roy Hibbert; AJ Price; Damjan Rudez,Luke Ridnour; Maurice Harkless; Aaron Gordon
+2014,2014-11-28,Spurs,Kings,home,-8.0,2.5,0,3.92,3.0,-1,blend+inj,10.5,Austin Daye; Kyle Anderson,DeMarcus Cousins; Reggie Evans; Ray McCallum
+2014,2014-12-01,Clippers,Timberwolves,home,-14.0,2.7,1,3.79,1.0,1,blend+inj,16.7,,Ronny Turiaf; Kevin Martin; Ricky Rubio; Nikola Pekovic
+2014,2014-12-02,Pelicans,Thunder,home,2.0,2.66,1,0.4,-1.5,1,blend+inj,0.66,Eric Gordon; Darius Miller,Sebastian Telfair
+2014,2014-12-02,Kings,Raptors,away,0.0,-2.37,1,-2.39,2.5,1,blend+inj,-2.37,DeMarcus Cousins; Ray McCallum,DeMar DeRozan; Greg Stiemsma
+2014,2014-12-05,Grizzlies,Spurs,away,-1.5,-2.12,1,-0.77,0.5,1,blend+inj,-0.62,Jon Leuer; Nick Calathes,Kyle Anderson
+2014,2014-12-06,Spurs,Timberwolves,home,-12.5,2.44,1,1.27,1.5,1,blend+inj,14.94,Manu Ginobili; Tony Parker,Mo Williams; Ronny Turiaf; Kevin Martin; Nikola Pekovic
+2014,2014-12-09,Suns,Heat,away,-5.5,-2.53,1,-2.62,1.5,1,blend+inj,2.97,Isaiah Thomas,Danny Granger; Chris Andersen; Shannon Brown
+2014,2014-12-12,Celtics,Knicks,away,-7.0,-2.08,1,0.54,1.0,1,blend+inj,4.92,Avery Bradley,JR Smith
+2014,2014-12-13,Mavericks,Warriors,away,-2.0,-2.9,1,-1.1,1.0,1,blend+inj,-0.9,Chandler Parsons,Andrew Bogut
+2014,2014-12-16,Wizards,Timberwolves,away,-13.0,-2.15,-1,-1.15,0.5,-1,blend+inj,10.85,Paul Pierce,
+2014,2014-12-18,Kings,Bucks,home,-5.0,2.13,-1,2.06,2.5,-1,blend+inj,7.13,Omri Casspi; Reggie Evans; Ray McCallum,Ersan Ilyasova; Larry Sanders; Nate Wolters; Jabari Parker
+2014,2014-12-19,Lakers,Thunder,home,7.0,2.45,1,2.26,1.5,1,blend+inj,-4.55,,Kendrick Perkins; Kevin Durant; Sebastian Telfair; Lance Thomas
+2014,2014-12-26,Magic,Cavaliers,home,5.0,2.35,-1,3.1,1.5,-1,blend+inj,-2.65,Luke Ridnour; Willie Green; Maurice Harkless,Anderson Varejao; Kyrie Irving
+2014,2015-01-07,Mavericks,Pistons,home,-9.5,2.11,-1,-0.34,-0.5,-1,blend+inj,11.61,Raymond Felton,
+2014,2015-01-10,Trailblazers,Magic,home,-12.0,2.04,-1,0.4,2.5,-1,blend+inj,14.04,Joel Freeland; Allen Crabbe,Willie Green; Tobias Harris; Evan Fournier
+2014,2015-01-14,Raptors,Seventysixers,home,-16.0,2.91,0,1.18,2.0,-1,blend+inj,18.91,Landry Fields,Tony Wroten; Robert Covington
+2014,2015-01-14,Celtics,Hawks,home,6.0,2.63,-1,2.98,0.5,-1,blend+inj,-3.37,Jameer Nelson,Kyle Korver; Al Horford
+2014,2015-01-19,Knicks,Pelicans,home,7.0,3.44,1,3.81,3.0,1,blend+inj,-3.56,Samuel Dalembert; Andrea Bargnani; Cole Aldrich; Pablo Prigioni; Quincy Acy; Cleanthony Early,John Salmons; Jrue Holiday; Anthony Davis
+2014,2015-01-21,Cavaliers,Jazz,away,-10.0,-2.06,-1,-0.46,0.5,-1,blend+inj,7.94,,Rodney Hood
+2014,2015-01-21,Timberwolves,Mavericks,away,8.0,-2.61,1,-1.26,1.5,1,blend+inj,-10.61,Jeff Adrien; Shabazz Muhammad,
+2014,2015-01-23,Heat,Pacers,away,-4.0,-2.61,1,-1.16,1.0,1,blend+inj,1.39,Hassan Whiteside; James Ennis III,Lavoy Allen
+2014,2015-01-24,Grizzlies,Seventysixers,home,-16.0,2.71,1,0.8,2.0,0,blend+inj,18.71,,Tony Wroten
+2014,2015-01-24,Trailblazers,Wizards,home,3.0,3.15,1,-0.15,-0.5,1,blend+inj,0.15,Nicolas Batum; Joel Freeland,Otto Porter Jr.
+2014,2015-01-27,Heat,Bucks,away,-5.0,-3.4,1,-1.45,3.0,1,blend+inj,1.6,Luol Deng; Chris Andersen,Kendall Marshall; Johnny O'Bryant III
+2014,2015-01-28,Cavaliers,Trailblazers,away,-6.5,-4.03,1,-3.58,4.0,-1,blend+inj,2.47,LeBron James,Robin Lopez; Joel Freeland; Allen Crabbe
+2014,2015-01-30,Pelicans,Clippers,away,6.5,-2.07,-1,-4.89,1.5,-1,blend+inj,-8.57,John Salmons; Jrue Holiday; Anthony Davis,Jordan Farmar
+2014,2015-01-31,Hawks,Seventysixers,home,-17.0,2.2,-1,-0.5,-0.5,-1,blend+inj,19.2,Thabo Sefolosha; Shelvin Mack; DeMarre Carroll; Pero Antic,Tony Wroten
+2014,2015-01-31,Grizzlies,Thunder,away,-7.0,-2.36,-1,-0.04,3.0,-1,blend+inj,4.64,Vince Carter,
+2014,2015-02-02,Thunder,Magic,away,-13.5,-2.11,1,-2.84,3.0,1,blend+inj,11.39,Kevin Durant; Perry Jones III,Devyn Marble
+2014,2015-02-03,Kings,Warriors,away,8.0,-2.07,1,0.0,2.0,1,blend+inj,-10.07,Reggie Evans,
+2014,2015-02-06,Spurs,Heat,home,-11.0,2.04,1,2.95,1.5,1,blend+inj,13.04,,Dwyane Wade; Shawne Williams; Danny Granger; Hassan Whiteside
+2014,2015-02-07,Wizards,Nets,home,-5.0,2.4,1,-0.37,1.5,1,blend+inj,7.4,Bradley Beal,Kevin Garnett; Mirza Teletovic
+2014,2015-02-07,Knicks,Warriors,away,12.5,-4.23,1,-2.05,3.0,-1,blend+inj,-16.73,Carmelo Anthony; Andrea Bargnani; Pablo Prigioni; Alexey Shved,Festus Ezeli
+2014,2015-02-09,Seventysixers,Warriors,away,16.0,-2.43,-1,-0.37,-0.0,-1,blend+inj,-18.43,Michael Carter-Williams; Larry Drew II,Festus Ezeli
+2014,2015-02-09,Pelicans,Jazz,away,-6.5,-3.24,1,-4.31,4.0,1,blend+inj,3.26,Ryan Anderson; John Salmons; Anthony Davis,Elliot Williams; Chris Johnson; Rodney Hood; Joe Ingles
+2014,2015-02-11,Bucks,Kings,home,-7.5,2.06,1,0.99,2.5,-1,blend+inj,9.56,Kenyon Martin,Darren Collison; Reggie Evans; Quincy Miller
+2014,2015-02-11,Timberwolves,Warriors,away,10.0,-2.35,-1,-0.09,-0.5,-1,blend+inj,-12.35,Mo Williams; Robbie Hummel; Lorenzo Brown,Festus Ezeli
+2014,2015-02-20,Timberwolves,Suns,away,-1.0,-2.87,-1,0.78,-1.0,0,blend+inj,-1.87,Mo Williams; Chase Budinger; Thaddeus Young; Robbie Hummel; Lorenzo Brown,Goran Dragic; Isaiah Thomas; Miles Plumlee
+2014,2015-02-22,Trailblazers,Grizzlies,away,-3.0,-2.77,1,-2.46,1.5,1,blend+inj,0.23,LaMarcus Aldridge; Thomas Robinson; Joel Freeland; CJ McCollum,Vince Carter
+2014,2015-02-22,Lakers,Celtics,home,1.5,2.05,1,3.32,-1.5,1,blend+inj,0.55,,Tayshaun Prince; Marcus Thornton; Jared Sullinger
+2014,2015-02-26,Cavaliers,Warriors,away,-3.5,-2.38,-1,0.0,0.5,-1,blend+inj,1.12,,
+2014,2015-02-27,Kings,Spurs,away,3.5,-4.13,1,-2.84,6.0,1,blend+inj,-7.63,Darren Collison; DeMarcus Cousins; Quincy Miller; Nik Stauskas,
+2014,2015-02-27,Trailblazers,Thunder,home,-3.0,2.16,0,4.4,3.5,-1,blend+inj,5.16,CJ McCollum,Kevin Durant; Enes Freedom; Steven Adams
+2014,2015-02-28,Heat,Hawks,home,4.5,2.32,1,3.19,2.5,0,blend+inj,-2.18,Chris Bosh; Danny Granger; Chris Andersen; James Ennis III; Shabazz Napier,Jeff Teague; Al Horford; DeMarre Carroll; Pero Antic
+2014,2015-03-01,Nuggets,Pelicans,home,5.5,3.35,-1,2.66,1.0,-1,blend+inj,-2.15,Darrell Arthur; Jusuf Nurkic,Toney Douglas; Ryan Anderson; John Salmons; Anthony Davis
+2014,2015-03-02,Seventysixers,Raptors,away,7.5,-2.97,1,-0.3,2.0,1,blend+inj,-10.47,Jason Richardson; Robert Covington; Larry Drew II; Tim Frazier,Kyle Lowry
+2014,2015-03-02,Heat,Suns,away,-4.0,-2.45,-1,-0.91,2.0,-1,blend+inj,1.55,Chris Bosh; Danny Granger,
+2014,2015-03-05,Bulls,Thunder,home,4.0,2.21,1,0.54,2.5,1,blend+inj,-1.79,Derrick Rose; Taj Gibson; Jimmy Butler,Kevin Durant; Steven Adams
+2014,2015-03-08,Thunder,Raptors,away,-7.0,-2.26,1,-3.52,0.5,1,blend+inj,4.74,Kevin Durant; Mitch McGary,
+2014,2015-03-11,Bucks,Magic,home,-7.0,2.01,-1,0.09,1.0,-1,blend+inj,9.01,Jerryd Bayless,Willie Green; Evan Fournier; Andrew Nicholson
+2014,2015-03-11,Thunder,Clippers,away,-6.0,-2.63,1,-2.21,-0.5,1,blend+inj,3.37,Kevin Durant,Jamal Crawford; Jordan Hamilton
+2014,2015-03-16,Grizzlies,Nuggets,home,-9.5,3.73,1,3.42,3.0,-1,blend+inj,13.23,Mike Conley,Danilo Gallinari; Ty Lawson; Kenneth Faried
+2014,2015-03-17,Pelicans,Bucks,away,-7.0,-2.07,1,-0.72,-0.0,1,blend+inj,4.93,Luke Babbitt,O.J. Mayo; Jared Dudley
+2014,2015-03-18,Mavericks,Magic,home,-11.5,2.68,-1,1.02,1.0,-1,blend+inj,14.18,,Willie Green; Tobias Harris; Evan Fournier; Dewayne Dedmon
+2014,2015-03-23,Knicks,Grizzlies,away,11.5,-2.29,1,-1.81,2.5,1,blend+inj,-13.79,Alexey Shved; Tim Hardaway Jr.; Cleanthony Early; Travis Wear,Courtney Lee
+2014,2015-03-25,Celtics,Heat,home,-3.0,3.31,-1,4.13,5.0,-1,blend+inj,6.31,,Dwyane Wade; Chris Andersen; Hassan Whiteside
+2014,2015-03-27,Seventysixers,Clippers,away,10.5,-2.0,1,0.17,2.0,1,blend+inj,-12.5,Henry Sims,Nate Robinson
+2014,2015-03-27,Nuggets,Jazz,away,-3.5,-2.0,-1,0.76,1.5,-1,blend+inj,1.5,Darrell Arthur,Rodney Hood
+2014,2015-03-28,Bulls,Knicks,home,-15.5,2.74,1,1.53,2.0,1,blend+inj,18.24,,Alexey Shved; Tim Hardaway Jr.; Travis Wear
+2014,2015-03-28,Trailblazers,Nuggets,home,-8.0,2.52,-1,1.19,1.0,-1,blend+inj,10.52,Meyers Leonard,Danilo Gallinari; Darrell Arthur
+2014,2015-03-29,Cavaliers,Seventysixers,home,-17.0,2.05,-1,0.57,0.0,-1,blend+inj,19.05,,Jason Richardson; Thomas Robinson
+2014,2015-03-30,Timberwolves,Jazz,away,3.5,-2.11,1,-1.9,4.5,1,blend+inj,-5.61,Kevin Martin; Ricky Rubio; Gary Neal; Nikola Pekovic; Gorgui Dieng; Sean Kilpatrick,Derrick Favors
+2014,2015-04-03,Grizzlies,Thunder,away,-6.0,-3.3,-1,-0.34,0.5,-1,blend+inj,2.7,Tony Allen,Nick Collison; Andre Roberson
+2014,2015-04-06,Nets,Trailblazers,away,-5.0,-2.48,-1,4.58,-1.0,-1,blend+inj,2.52,Kevin Garnett; Alan Anderson; Mirza Teletovic; Sergey Karasev,Dorell Wright; Chris Kaman; LaMarcus Aldridge; Wesley Matthews; Nicolas Batum; Thomas Robinson
+2014,2015-04-07,Kings,Timberwolves,away,-10.0,-2.73,1,-1.68,1.5,1,blend+inj,7.27,Carl Landry; DeMarcus Cousins,Ricky Rubio; Gary Neal; Anthony Bennett; Gorgui Dieng; Sean Kilpatrick
+2014,2015-04-08,Nets,Hawks,away,-5.5,-2.17,1,2.7,1.0,1,blend+inj,3.33,Alan Anderson,Thabo Sefolosha; Paul Millsap; John Jenkins; Pero Antic
+2014,2015-04-08,Jazz,Kings,home,-11.0,2.98,1,5.76,1.0,0,blend+inj,13.98,Elijah Millsap,Rudy Gay; DeMarcus Cousins; Nik Stauskas
+2014,2015-04-10,Nuggets,Mavericks,away,-3.5,-2.06,1,1.24,2.0,1,blend+inj,1.44,Jameer Nelson; Darrell Arthur,Rajon Rondo; Chandler Parsons
+2014,2015-04-11,Warriors,Timberwolves,home,-19.0,2.65,-1,0.01,0.5,-1,blend+inj,21.65,David Lee; Leandro Barbosa,Gary Neal; Anthony Bennett; Gorgui Dieng; Robbie Hummel; Sean Kilpatrick
+2014,2015-04-13,Hornets,Rockets,home,8.5,2.18,-1,1.26,-3.5,1,blend+inj,-6.32,Mo Williams; Lance Stephenson; Al Jefferson; Michael Kidd-Gilchrist; PJ Hairston,Dwight Howard; Donatas Motiejunas; Patrick Beverley
+2014,2015-04-13,Thunder,Trailblazers,away,-6.0,-2.16,-1,2.28,-2.0,-1,blend+inj,3.84,Mitch McGary,Steve Blake; Dorell Wright; Arron Afflalo; LaMarcus Aldridge
+2014,2015-04-13,Jazz,Mavericks,away,-10.5,-2.51,-1,0.99,4.5,-1,blend+inj,7.99,Derrick Favors; Gordon Hayward; Trey Burke,Tyson Chandler; Dirk Nowitzki; Monta Ellis; Chandler Parsons
+2014,2015-04-13,Clippers,Nuggets,home,-15.5,2.63,-1,3.76,2.5,-1,blend+inj,18.13,Nate Robinson,Jameer Nelson; Danilo Gallinari; Ty Lawson; Darrell Arthur
+2014,2015-04-15,Mavericks,Trailblazers,away,-6.0,-2.74,-1,0.46,-0.0,-1,blend+inj,3.26,Devin Harris; Chandler Parsons,Dorell Wright; Arron Afflalo; Chris Kaman; Nicolas Batum; CJ McCollum
+2014,2015-04-15,Warriors,Nuggets,home,-11.5,3.21,-1,2.95,0.0,-1,blend+inj,14.71,David Lee,Jameer Nelson; Randy Foye; Kenneth Faried; Darrell Arthur
+2014,2015-04-19,Cavaliers,Celtics,away,-10.5,-2.43,-1,0.24,-1.0,-1,blend+inj,8.07,Kendrick Perkins,
+2014,2015-04-19,Hawks,Nets,away,-10.0,-2.47,1,-1.2,-1.5,1,blend+inj,7.53,Thabo Sefolosha; Elton Brand; John Jenkins; Mike Muscala,
+2014,2015-04-21,Cavaliers,Celtics,away,-11.0,-2.03,1,-0.13,-0.0,1,blend+inj,8.97,Shawn Marion,
+2014,2015-04-24,Mavericks,Rockets,away,-1.5,-2.51,1,-1.33,0.5,1,blend+inj,-1.01,Rajon Rondo; Chandler Parsons,Joey Dorsey
+2014,2015-05-15,Wizards,Hawks,away,-2.5,-2.5,1,-0.25,-0.0,1,blend+inj,0.0,Kris Humphries; Rasual Butler; Will Bynum,Mike Scott
+2014,2015-05-24,Cavaliers,Hawks,away,-8.5,-3.83,1,-2.8,0.5,1,blend+inj,4.67,Kyrie Irving; Kevin Love,Kyle Korver
+2014,2015-05-26,Cavaliers,Hawks,away,-8.5,-2.11,-1,-1.44,1.0,-1,blend+inj,6.39,Kevin Love,Kyle Korver
+2015,2015-11-10,Timberwolves,Hornets,away,1.5,-2.09,1,-2.63,2.0,1,blend+inj,-3.59,Kevin Garnett; Ricky Rubio; Andrew Wiggins,Tyler Hansbrough
+2015,2015-11-12,Timberwolves,Warriors,away,8.0,-2.38,1,-0.6,2.0,1,blend+inj,-10.38,Ricky Rubio,Leandro Barbosa; Jason Thompson
+2015,2015-11-30,Jazz,Warriors,home,7.5,2.16,1,1.07,0.5,1,blend+inj,-5.34,,Harrison Barnes
+2015,2015-12-07,Seventysixers,Spurs,home,13.5,2.15,-1,4.65,3.0,-1,blend+inj,-11.35,Phil Pressey,Manu Ginobili; Tim Duncan; Kawhi Leonard
+2015,2015-12-07,Timberwolves,Clippers,away,1.0,-2.2,1,-0.65,3.0,0,blend+inj,-3.2,Andre Miller; Adreian Payne,Pablo Prigioni
+2015,2015-12-21,Hawks,Trailblazers,home,-7.0,2.48,1,3.82,3.5,-1,blend+inj,9.48,Tim Hardaway Jr.,Damian Lillard; CJ McCollum
+2015,2015-12-30,Mavericks,Warriors,home,8.5,2.02,1,3.72,5.0,1,blend+inj,-6.48,Deron Williams,Stephen Curry; Leandro Barbosa; Festus Ezeli
+2015,2015-12-31,Pacers,Bucks,away,-8.0,-2.13,1,-2.0,2.0,1,blend+inj,5.87,Ian Mahinmi; Jordan Hill,Johnny O'Bryant III
+2015,2016-01-04,Warriors,Hornets,home,-8.0,2.2,1,0.8,4.0,-1,blend+inj,10.2,Leandro Barbosa; Festus Ezeli,Nicolas Batum; Al Jefferson
+2015,2016-01-06,Pelicans,Mavericks,home,-3.0,2.41,-1,4.2,5.5,-1,blend+inj,5.41,,Dirk Nowitzki; Deron Williams; Wesley Matthews; Zaza Pachulia
+2015,2016-01-06,Thunder,Grizzlies,home,-5.5,2.13,1,1.5,3.5,1,blend+inj,7.63,D.J. Augustin,Mike Conley
+2015,2016-01-10,Lakers,Jazz,away,1.5,-2.02,1,-2.11,2.0,1,blend+inj,-3.52,Brandon Bass; Kobe Bryant; Ryan Kelly; Tarik Black; D'Angelo Russell,Derrick Favors; Alec Burks
+2015,2016-01-13,Nets,Knicks,home,5.5,2.72,1,1.89,2.0,1,blend+inj,-2.78,Jarrett Jack,Carmelo Anthony
+2015,2016-01-13,Thunder,Mavericks,home,-8.5,2.89,1,4.19,4.5,1,blend+inj,11.39,,Dirk Nowitzki; Deron Williams; Wesley Matthews; Zaza Pachulia; Chandler Parsons
+2015,2016-01-18,Raptors,Nets,home,-2.0,4.75,1,0.53,9.0,1,blend+inj,6.75,DeMarre Carroll,Jarrett Jack
+2015,2016-01-23,Suns,Hawks,home,11.0,3.45,1,1.99,1.0,1,blend+inj,-7.55,Jon Leuer; Brandon Knight; Markieff Morris; Ronnie Price; Bryce Cotton,Paul Millsap
+2015,2016-01-27,Cavaliers,Suns,home,-15.5,2.41,1,1.31,2.5,1,blend+inj,17.91,,Jon Leuer; Brandon Knight; Ronnie Price; Mirza Teletovic; Bryce Cotton
+2015,2016-02-01,Pelicans,Grizzlies,away,-3.0,-2.08,1,-1.17,-0.0,1,blend+inj,0.92,Eric Gordon; Tyreke Evans,Matt Barnes
+2015,2016-02-19,Lakers,Spurs,home,14.0,2.29,1,4.24,4.0,1,blend+inj,-11.71,Metta World Peace; Ryan Kelly; Tarik Black; Anthony Brown,Manu Ginobili; Kawhi Leonard
+2015,2016-02-24,Kings,Spurs,away,6.0,-2.04,1,0.61,2.0,1,blend+inj,-8.04,,Manu Ginobili
+2015,2016-02-26,Hawks,Bulls,home,-6.0,2.15,1,4.24,1.5,1,blend+inj,8.15,Tiago Splitter,Derrick Rose; Jimmy Butler
+2015,2016-02-27,Pelicans,Timberwolves,away,-5.0,-2.56,1,-3.96,3.0,1,blend+inj,2.44,Omer Asik; Anthony Davis; Bryce Dejean-Jones,Kevin Martin; Nikola Pekovic; Nemanja Bjelica
+2015,2016-02-27,Jazz,Nets,home,-10.5,2.15,-1,1.05,1.0,-1,blend+inj,12.65,,Andrea Bargnani; Joe Johnson
+2015,2016-03-01,Warriors,Hawks,away,-9.0,-2.65,1,-6.28,3.5,1,blend+inj,6.35,Stephen Curry; Andre Iguodala,Kirk Hinrich
+2015,2016-03-04,Lakers,Hawks,away,8.0,-2.63,1,-3.25,3.0,1,blend+inj,-10.63,Kobe Bryant; Lou Williams; Jordan Clarkson,
+2015,2016-03-05,Timberwolves,Nets,home,-4.5,2.33,1,3.66,5.0,1,blend+inj,6.83,Kevin Martin; Nemanja Bjelica,Andrea Bargnani; Thaddeus Young; Brook Lopez
+2015,2016-03-07,Cavaliers,Grizzlies,home,-10.0,3.76,-1,6.01,5.0,-1,blend+inj,13.76,,Brandan Wright; Chris Andersen; Marc Gasol; Zach Randolph; Mike Conley; Matt Barnes
+2015,2016-03-11,Bulls,Heat,away,1.5,-2.56,1,-4.52,2.5,1,blend+inj,-4.06,Derrick Rose; Jimmy Butler,Beno Udrih
+2015,2016-03-17,Bulls,Nets,home,0.0,2.19,1,-1.59,7.0,1,blend+inj,2.19,Pau Gasol; Tony Snell,Wayne Ellington
+2015,2016-03-18,Seventysixers,Thunder,away,15.5,-2.22,-1,-2.73,-0.0,-1,blend+inj,-17.72,Kendall Marshall; Robert Covington; Jahlil Okafor; Richaun Holmes,Serge Ibaka
+2015,2016-03-21,Pistons,Bucks,away,-6.5,-2.05,1,-1.94,-1.0,1,blend+inj,4.45,Reggie Bullock,O.J. Mayo; Rashad Vaughn
+2015,2016-03-24,Pacers,Pelicans,home,-13.0,2.2,-1,8.77,1.0,-1,blend+inj,15.2,,Norris Cole; Ryan Anderson; Eric Gordon; Jrue Holiday; Anthony Davis
+2015,2016-03-24,Knicks,Bulls,home,5.0,2.11,1,2.77,1.5,1,blend+inj,-2.89,Lance Thomas,E'Twaun Moore; Pau Gasol; Tony Snell
+2015,2016-03-25,Heat,Magic,home,-7.5,2.2,1,4.51,2.5,1,blend+inj,9.7,,Ersan Ilyasova; Nikola Vucevic; Victor Oladipo
+2015,2016-03-25,Warriors,Mavericks,home,-14.0,3.04,-1,5.48,2.5,-1,blend+inj,17.04,Andre Iguodala,Dirk Nowitzki; Deron Williams; Devin Harris; Chandler Parsons
+2015,2016-03-26,Pelicans,Raptors,away,9.0,-3.08,1,-8.82,2.0,1,blend+inj,-12.08,Norris Cole; Ryan Anderson; Eric Gordon; Jrue Holiday; Anthony Davis,Terrence Ross
+2015,2016-03-29,Magic,Nets,home,-4.0,2.37,1,1.69,4.0,1,blend+inj,6.37,Ersan Ilyasova,Thaddeus Young; Rondae Hollis-Jefferson
+2015,2016-03-31,Thunder,Clippers,home,-8.0,3.91,-1,6.24,8.5,-1,blend+inj,11.91,,JJ Redick; Chris Paul; DeAndre Jordan; Paul Pierce
+2015,2016-04-01,Grizzlies,Raptors,home,6.5,2.46,1,1.64,1.0,1,blend+inj,-4.04,Ryan Hollins; Ray McCallum; PJ Hairston; Briante Weber,Luis Scola; James Johnson
+2015,2016-04-02,Nuggets,Kings,home,-8.5,2.88,-1,5.0,1.0,-1,blend+inj,11.38,Jameer Nelson; Darrell Arthur,Rajon Rondo; Omri Casspi; Marco Belinelli; DeMarcus Cousins
+2015,2016-04-05,Kings,Trailblazers,away,2.0,-2.97,1,-3.59,2.0,1,blend+inj,-4.97,Omri Casspi; Darren Collison; Kosta Koufos; Rudy Gay; Marco Belinelli,Meyers Leonard
+2015,2016-04-05,Clippers,Lakers,home,-13.5,2.38,1,2.04,1.5,1,blend+inj,15.88,Paul Pierce,Brandon Bass; Lou Williams; Larry Nance Jr.
+2015,2016-04-09,Kings,Thunder,away,8.0,-2.48,-1,-2.51,0.5,-1,blend+inj,-10.48,Rajon Rondo; Omri Casspi; Marco Belinelli,
+2015,2016-04-10,Nuggets,Jazz,home,6.0,2.94,-1,0.66,-0.5,-1,blend+inj,-3.06,Jameer Nelson; Kenneth Faried,Derrick Favors; Trey Burke
+2015,2016-04-10,Spurs,Warriors,away,-4.5,-2.09,1,-1.22,1.0,1,blend+inj,2.41,Boris Diaw; Andre Miller; Tim Duncan; Jonathon Simmons,Leandro Barbosa
+2015,2016-04-11,Magic,Bucks,away,-5.0,-3.15,-1,-5.3,2.5,-1,blend+inj,1.85,Brandon Jennings; Nikola Vucevic; Victor Oladipo; Aaron Gordon,Jerryd Bayless; Johnny O'Bryant III
+2015,2016-04-11,Thunder,Lakers,home,-12.0,5.59,1,1.88,4.0,1,blend+inj,17.59,,Brandon Bass; Lou Williams
+2015,2016-04-12,Raptors,Seventysixers,home,-6.0,4.85,1,2.34,6.0,1,blend+inj,10.85,James Johnson; Cory Joseph; Patrick Patterson,Carl Landry; Elton Brand; Isaiah Canaan; Richaun Holmes
+2015,2016-04-12,Spurs,Thunder,home,-6.0,3.64,-1,6.59,6.5,-1,blend+inj,9.64,Boris Diaw; Andre Miller; Manu Ginobili,Serge Ibaka; Kevin Durant; Russell Westbrook
+2015,2016-04-16,Raptors,Pacers,away,-6.0,-2.37,1,-1.05,-1.5,1,blend+inj,3.63,James Johnson; Jason Thompson; Delon Wright,
+2015,2016-04-17,Clippers,Trailblazers,away,-7.5,-2.62,-1,0.0,-1.0,-1,blend+inj,4.88,,
+2015,2016-04-18,Warriors,Rockets,away,-12.5,-3.23,1,-4.36,4.0,-1,blend+inj,9.27,Stephen Curry,Terrence Jones
+2015,2016-04-22,Celtics,Hawks,away,-2.5,-2.43,-1,-2.21,-0.5,-1,blend+inj,0.07,Avery Bradley; Tyler Zeller; Kelly Olynyk,
+2015,2016-04-29,Trailblazers,Clippers,away,-9.5,-2.99,1,4.16,-0.0,1,blend+inj,6.51,,Blake Griffin; Chris Paul
+2015,2016-05-02,Spurs,Thunder,away,-7.5,-2.02,1,-0.68,0.5,1,blend+inj,5.48,Kevin Martin; Andre Miller; Jonathon Simmons,Nick Collison; Randy Foye; Kyle Singler
+2015,2016-06-13,Warriors,Cavaliers,away,-7.5,-2.48,1,-0.91,1.5,1,blend+inj,5.02,Draymond Green,Channing Frye
+2016,2016-11-11,Magic,Jazz,home,4.0,2.29,-1,1.42,-1.5,-1,blend+inj,-1.71,Mario Hezonja,Boris Diaw; George Hill
+2016,2016-11-13,Timberwolves,Lakers,home,4.5,2.51,1,-2.23,4.5,1,blend+inj,-1.99,Shabazz Muhammad; Zach LaVine,Marcelo Huertas
+2016,2016-11-14,Clippers,Nets,home,-15.0,2.34,1,2.79,1.5,1,blend+inj,17.34,Wesley Johnson; Alan Anderson,Greivis Vasquez; Jeremy Lin; Brook Lopez; Isaiah Whitehead
+2016,2016-11-21,Spurs,Mavericks,away,-17.0,-2.54,1,-0.8,3.5,1,blend+inj,14.46,Tony Parker; LaMarcus Aldridge,Dirk Nowitzki; Deron Williams; Andrew Bogut; J.J. Barea; Quincy Acy
+2016,2016-11-23,Jazz,Nuggets,home,-4.5,2.55,1,0.93,3.5,1,blend+inj,7.05,Derrick Favors,Danilo Gallinari; Gary Harris
+2016,2016-11-23,Warriors,Lakers,home,-16.0,2.0,1,1.95,2.0,1,blend+inj,18.0,,Julius Randle; D'Angelo Russell; Ivica Zubac
+2016,2016-11-25,Grizzlies,Heat,away,-6.5,-3.3,1,-1.59,1.5,1,blend+inj,3.2,Zach Randolph; Chandler Parsons; James Ennis III,Goran Dragic; Justise Winslow
+2016,2016-12-07,Knicks,Cavaliers,away,7.0,-2.33,1,-2.21,1.0,1,blend+inj,-9.33,Derrick Rose,JR Smith
+2016,2016-12-08,Jazz,Warriors,away,5.0,-2.63,1,-5.79,6.0,-1,blend+inj,-7.63,George Hill; Gordon Hayward; Rodney Hood,Shaun Livingston
+2016,2016-12-09,Celtics,Raptors,away,-3.0,-2.16,1,-2.18,0.5,1,blend+inj,0.84,Isaiah Thomas,DeMarre Carroll
+2016,2016-12-11,Suns,Pelicans,away,-4.5,-2.02,1,-1.49,2.5,1,blend+inj,2.48,T.J. Warren,Dante Cunningham; Anthony Brown
+2016,2016-12-14,Rockets,Kings,home,-9.5,2.04,1,4.84,4.0,1,blend+inj,11.54,,Rudy Gay; DeMarcus Cousins; Ben McLemore
+2016,2016-12-27,Celtics,Grizzlies,home,-6.5,2.1,1,2.46,1.0,1,blend+inj,8.6,Terry Rozier,Toney Douglas; Mike Conley; Chandler Parsons; Troy Williams
+2016,2016-12-27,Lakers,Jazz,away,4.0,-2.32,-1,-1.27,1.5,-1,blend+inj,-6.32,Tarik Black; Marcelo Huertas; Larry Nance Jr.,Dante Exum
+2016,2016-12-29,Jazz,Seventysixers,home,-11.5,3.41,1,2.97,2.5,1,blend+inj,14.91,Dante Exum,Gerald Henderson; Richaun Holmes; Joel Embiid
+2016,2016-12-30,Nuggets,Seventysixers,home,-11.0,2.36,-1,1.99,-1.0,-1,blend+inj,13.36,Darrell Arthur,Gerald Henderson; Jahlil Okafor; Richaun Holmes; Sergio Rodriguez
+2016,2017-01-03,Nuggets,Kings,home,0.0,2.26,-1,0.8,4.0,-1,blend+inj,2.26,Kenneth Faried,Ty Lawson; Rudy Gay
+2016,2017-01-04,Cavaliers,Bulls,away,-8.0,-2.77,1,-6.04,3.5,1,blend+inj,5.23,Mike Dunleavy; Kyrie Irving; Kevin Love; JR Smith,Rajon Rondo; Isaiah Canaan
+2016,2017-01-09,Knicks,Pelicans,away,-4.0,-2.17,1,-1.46,1.0,1,blend+inj,1.83,Derrick Rose; Mindaugas Kuzminskas,Omer Asik; Alexis Ajinca
+2016,2017-01-12,Nuggets,Pacers,home,1.5,2.24,1,0.07,-3.0,1,blend+inj,0.74,Darrell Arthur,Rodney Stuckey
+2016,2017-01-16,Suns,Jazz,away,5.0,-2.03,0,-1.47,1.5,-1,blend+inj,-7.03,Tyson Chandler; Brandon Knight; Jared Dudley,Shelvin Mack; Rodney Hood
+2016,2017-01-23,Nets,Spurs,home,11.5,2.35,-1,6.11,3.0,-1,blend+inj,-9.15,Joe Harris; Caris LeVert,Pau Gasol; Manu Ginobili; Tony Parker; Kawhi Leonard
+2016,2017-01-23,Pelicans,Cavaliers,away,6.0,-2.39,-1,-4.08,4.0,-1,blend+inj,-8.39,Omer Asik; Anthony Davis; Alexis Ajinca; Tim Frazier,
+2016,2017-01-26,Jazz,Lakers,home,-13.0,2.15,-1,1.59,1.0,-1,blend+inj,15.15,Shelvin Mack; Dante Exum,Julius Randle; D'Angelo Russell
+2016,2017-01-27,Cavaliers,Nets,home,-15.5,3.11,-1,3.95,1.5,-1,blend+inj,18.61,,Trevor Booker; Brook Lopez; Joe Harris; Caris LeVert
+2016,2017-01-29,Bulls,Seventysixers,home,-6.5,2.1,1,3.55,0.5,1,blend+inj,8.6,Taj Gibson; Michael Carter-Williams; Isaiah Canaan; Denzel Valentine,Jahlil Okafor; Joel Embiid
+2016,2017-01-29,Trailblazers,Warriors,home,9.0,2.5,1,4.16,3.0,1,blend+inj,-6.5,Ed Davis,Stephen Curry; David West
+2016,2017-02-02,Spurs,Seventysixers,home,-13.5,3.24,1,2.9,3.5,-1,blend+inj,16.74,Pau Gasol; LaMarcus Aldridge,Gerald Henderson; Robert Covington; Nerlens Noel; Joel Embiid
+2016,2017-02-04,Pacers,Pistons,away,-4.5,-2.21,-1,-1.27,1.5,-1,blend+inj,2.29,Rodney Stuckey; Thaddeus Young,
+2016,2017-02-08,Seventysixers,Spurs,away,8.0,-2.84,0,-2.41,4.5,-1,blend+inj,-10.84,Richaun Holmes; Joel Embiid,Pau Gasol
+2016,2017-02-08,Warriors,Bulls,home,-13.5,3.97,1,4.03,5.0,1,blend+inj,17.47,David West; Zaza Pachulia,Dwyane Wade; Jimmy Butler
+2016,2017-02-09,Thunder,Cavaliers,away,-4.0,-2.99,-1,-1.7,3.0,-1,blend+inj,1.01,Enes Freedom; Semaj Christon,Iman Shumpert
+2016,2017-02-11,Rockets,Suns,home,-13.5,2.29,1,2.1,2.5,1,blend+inj,15.79,Eric Gordon,Tyson Chandler; Eric Bledsoe; Dragan Bender
+2016,2017-02-12,Timberwolves,Bulls,home,0.0,3.47,1,4.92,7.0,1,blend+inj,3.47,Zach LaVine,Dwyane Wade; Jimmy Butler; Nikola Mirotic; Paul Zipser
+2016,2017-02-23,Pelicans,Rockets,away,3.0,-2.97,1,-1.85,0.5,1,blend+inj,-5.97,Tyreke Evans; Terrence Jones; Alexis Ajinca; Langston Galloway; Buddy Hield,Corey Brewer
+2016,2017-02-23,Kings,Nuggets,home,5.5,2.33,1,0.7,-1.0,1,blend+inj,-3.17,Arron Afflalo; Matt Barnes; Garrett Temple,Darrell Arthur; Emmanuel Mudiay
+2016,2017-02-25,Cavaliers,Bulls,away,-9.0,-3.19,1,-5.92,3.0,1,blend+inj,5.81,LeBron James; Kevin Love,Michael Carter-Williams; Paul Zipser
+2016,2017-02-27,Kings,Timberwolves,home,4.0,2.35,-1,0.51,0.0,-1,blend+inj,-1.65,Arron Afflalo; Matt Barnes; Garrett Temple,Lance Stephenson; Zach LaVine
+2016,2017-03-01,Jazz,Timberwolves,home,-7.0,2.09,-1,0.5,-0.5,-1,blend+inj,9.09,Shelvin Mack; Rodney Hood,Lance Stephenson; Zach LaVine
+2016,2017-03-06,Nuggets,Kings,away,-13.0,-2.49,1,-4.43,2.5,-1,blend+inj,10.51,Roy Hibbert; Kenneth Faried; Emmanuel Mudiay; Nikola Jokic,Garrett Temple
+2016,2017-03-08,Spurs,Kings,away,-16.0,-2.98,1,-5.68,4.5,1,blend+inj,13.02,Kawhi Leonard; LaMarcus Aldridge,Ben McLemore; Langston Galloway
+2016,2017-03-10,Nuggets,Celtics,home,2.5,2.19,1,-1.2,0.0,1,blend+inj,-0.31,Kenneth Faried; Emmanuel Mudiay,
+2016,2017-03-11,Spurs,Warriors,away,-10.0,-2.53,-1,4.03,-0.5,-1,blend+inj,7.47,Tony Parker; Kawhi Leonard; LaMarcus Aldridge,Kevin Durant; Stephen Curry; Klay Thompson; Andre Iguodala; Draymond Green
+2016,2017-03-11,Mavericks,Suns,away,-7.5,-2.02,1,-0.07,2.0,1,blend+inj,5.48,Manny Harris; Nerlens Noel; Quinn Cook,Tyson Chandler; Brandon Knight; Ronnie Price; Alex Len
+2016,2017-03-18,Clippers,Cavaliers,home,-1.5,5.04,1,9.4,12.5,1,blend+inj,6.54,,LeBron James; Kyle Korver; Andrew Bogut; Larry Sanders; Kyrie Irving; Kevin Love
+2016,2017-03-19,Spurs,Kings,home,-13.0,2.94,1,0.92,1.5,1,blend+inj,15.94,Manu Ginobili,Arron Afflalo; Tyreke Evans; Ben McLemore
+2016,2017-03-21,Nets,Pistons,away,4.5,-2.04,-1,-2.22,0.5,-1,blend+inj,-6.54,Jeremy Lin; Justin Hamilton; Joe Harris; Sean Kilpatrick,Stanley Johnson
+2016,2017-03-24,Warriors,Kings,home,-18.0,2.11,-1,2.09,0.5,-1,blend+inj,20.11,,Darren Collison; Anthony Tolliver; Tyreke Evans
+2016,2017-03-26,Nuggets,Pelicans,home,-5.0,2.06,-1,2.13,2.5,-1,blend+inj,7.06,,DeMarcus Cousins; Hollis Thompson
+2016,2017-03-31,Cavaliers,Seventysixers,home,-10.5,2.23,1,1.94,2.0,1,blend+inj,12.73,Kyle Korver; Larry Sanders; Richard Jefferson,Robert Covington; Jahlil Okafor; Sergio Rodriguez
+2016,2017-03-31,Bucks,Pistons,away,-8.5,-2.15,1,-2.54,1.5,1,blend+inj,6.35,John Henson; Terrence Jones; Malcolm Brogdon,Reggie Jackson; Reggie Bullock
+2016,2017-04-05,Spurs,Lakers,home,-11.0,3.9,-1,1.55,2.5,-1,blend+inj,14.9,Manu Ginobili; Danny Green,Nick Young; D'Angelo Russell; Ivica Zubac
+2016,2017-04-07,Cavaliers,Hawks,home,-10.0,2.53,-1,4.49,5.5,-1,blend+inj,12.53,Tristan Thompson,Thabo Sefolosha; Dwight Howard; Paul Millsap; Kent Bazemore; Dennis Schroder
+2016,2017-04-07,Grizzlies,Knicks,home,-11.0,2.34,1,4.58,1.5,1,blend+inj,13.34,Toney Douglas; James Ennis III,Carmelo Anthony; Derrick Rose; Lance Thomas; Kristaps Porzingis
+2016,2017-04-07,Mavericks,Spurs,away,-6.0,-2.33,1,5.72,1.0,1,blend+inj,3.67,Manny Harris; Seth Curry,Pau Gasol; Manu Ginobili; Tony Parker; Kawhi Leonard; Danny Green; LaMarcus Aldridge
+2016,2017-04-10,Heat,Cavaliers,home,-2.0,4.21,1,7.89,8.5,-1,blend+inj,6.21,Luke Babbitt,LeBron James; Kyrie Irving; Tristan Thompson
+2016,2017-04-10,Trailblazers,Spurs,away,3.5,-3.89,-1,-8.59,7.0,-1,blend+inj,-7.39,Damian Lillard; Maurice Harkless; Allen Crabbe; CJ McCollum; Jusuf Nurkic,
+2016,2017-04-11,Timberwolves,Thunder,home,-1.0,2.59,-1,5.88,7.0,-1,blend+inj,3.59,,Taj Gibson; Russell Westbrook; Andre Roberson; Doug McDermott
+2016,2017-04-12,Rockets,Timberwolves,home,-7.0,2.06,-1,1.01,1.5,-1,blend+inj,9.06,Montrezl Harrell; Sam Dekker,Ricky Rubio
+2016,2017-04-12,Grizzlies,Mavericks,home,-5.5,2.65,-1,3.61,3.0,-1,blend+inj,8.15,James Ennis III,Dirk Nowitzki; J.J. Barea; Wesley Matthews; Harrison Barnes; Seth Curry
+2016,2017-04-12,Thunder,Nuggets,home,-3.0,3.31,-1,7.97,3.0,-1,blend+inj,6.31,Andre Roberson; Doug McDermott,Jameer Nelson; Danilo Gallinari; Kenneth Faried; Wilson Chandler; Will Barton; Gary Harris; Emmanuel Mudiay
+2016,2017-04-12,Pacers,Hawks,home,-7.5,2.85,1,6.44,7.0,1,blend+inj,10.35,Rodney Stuckey; Lavoy Allen; Glenn Robinson III,Dwight Howard; Paul Millsap; Kent Bazemore; Tim Hardaway Jr.; Dennis Schroder
+2016,2017-04-12,Bulls,Nets,home,-9.0,2.26,1,5.1,6.0,1,blend+inj,11.26,,Trevor Booker; Jeremy Lin; Brook Lopez; Quincy Acy; Sean Kilpatrick
+2016,2017-04-12,Trailblazers,Pelicans,away,-12.5,-3.95,1,-1.22,5.5,1,blend+inj,8.55,Al-Farouq Aminu; Damian Lillard; Allen Crabbe; CJ McCollum; Jusuf Nurkic,DeMarcus Cousins; Anthony Davis
+2016,2017-04-12,Warriors,Lakers,home,-16.0,2.05,-1,-0.89,-2.5,1,blend+inj,18.05,Matt Barnes; Andre Iguodala; Draymond Green,D'Angelo Russell; Ivica Zubac
+2016,2017-04-12,Clippers,Kings,home,-15.5,3.01,1,4.39,2.5,1,blend+inj,18.51,Austin Rivers,Darren Collison; Anthony Tolliver; Ty Lawson; Kosta Koufos; Tyreke Evans; Garrett Temple
+2016,2017-04-19,Warriors,Trailblazers,away,-15.0,-3.08,-1,-2.05,3.0,-1,blend+inj,11.92,Kevin Durant; Shaun Livingston; Matt Barnes,Jusuf Nurkic
+2016,2017-05-04,Wizards,Celtics,away,-5.0,-2.14,-1,0.0,-0.5,-1,blend+inj,2.86,,
+2016,2017-05-06,Jazz,Warriors,away,-5.5,-5.18,1,-0.56,0.5,1,blend+inj,0.32,George Hill; Alec Burks,Matt Barnes; Patrick McCaw
+2016,2017-05-07,Wizards,Celtics,home,5.5,3.47,1,-0.1,-1.5,1,blend+inj,-2.03,Kelly Oubre Jr.,
+2016,2017-05-08,Jazz,Warriors,home,8.0,2.76,-1,-0.87,-0.5,-1,blend+inj,-5.24,George Hill; Alec Burks,
+2016,2017-05-12,Wizards,Celtics,away,-5.5,-2.55,1,0.19,0.5,1,blend+inj,2.95,,Gerald Green
+2016,2017-05-21,Cavaliers,Celtics,home,-5.5,2.04,-1,1.03,10.0,-1,blend+inj,7.54,Channing Frye,Isaiah Thomas
+2017,2017-10-28,Jazz,Lakers,home,-9.0,2.31,1,-0.34,1.5,1,blend+inj,11.31,,Luol Deng
+2017,2017-10-29,Warriors,Pistons,home,-13.0,2.29,-1,0.8,1.5,-1,blend+inj,15.29,Quinn Cook,Boban Marjanovic; Henry Ellenson; Luke Kennard
+2017,2017-11-01,Seventysixers,Hawks,away,-8.5,-2.89,-1,-0.69,1.0,-1,blend+inj,5.61,Nik Stauskas; Jahlil Okafor; Justin Anderson; Markelle Fultz,Ersan Ilyasova; DeAndre' Bembry
+2017,2017-11-01,Cavaliers,Pacers,home,-11.0,2.22,-1,1.81,-0.5,-1,blend+inj,13.22,Iman Shumpert,Myles Turner; Alex Poythress
+2017,2017-11-03,Magic,Bulls,away,-8.0,-2.42,1,-2.09,0.5,1,blend+inj,5.58,D.J. Augustin; Elfrid Payton,
+2017,2017-11-06,Hawks,Celtics,home,8.5,2.31,1,2.37,1.0,1,blend+inj,-6.19,Ersan Ilyasova; Mike Muscala; Nicolas Brussino; DeAndre' Bembry,Marcus Morris Sr.; Gordon Hayward
+2017,2017-11-07,Nuggets,Nets,home,-10.5,3.09,-1,3.56,2.0,-1,blend+inj,13.59,Darrell Arthur; Juancho Hernangomez,Trevor Booker; Jeremy Lin; Rondae Hollis-Jefferson; Jarrett Allen
+2017,2017-11-08,Magic,Knicks,home,-5.5,2.83,1,2.82,3.0,1,blend+inj,8.33,D.J. Augustin; Arron Afflalo; Mario Hezonja,Ramon Sessions; Kristaps Porzingis; Ron Baker
+2017,2017-11-13,Jazz,Timberwolves,home,3.5,2.12,-1,-0.66,0.5,-1,blend+inj,-1.38,Joe Johnson; Rudy Gobert,Gorgui Dieng
+2017,2017-11-15,Knicks,Jazz,away,-3.0,-2.23,-1,0.82,-0.5,-1,blend+inj,0.77,Ramon Sessions; Michael Beasley; Willy Hernangomez; Mindaugas Kuzminskas; Ron Baker,Joe Johnson; Rudy Gobert
+2017,2017-11-19,Nets,Warriors,home,12.5,2.1,1,2.23,1.0,1,blend+inj,-10.4,Timofey Mozgov; D'Angelo Russell; Isaiah Whitehead,Kevin Durant; Quinn Cook
+2017,2017-11-25,Rockets,Knicks,home,-13.5,2.81,1,4.54,5.5,-1,blend+inj,16.31,Briante Weber,Ramon Sessions; Enes Freedom; Kristaps Porzingis; Mindaugas Kuzminskas
+2017,2017-11-25,Warriors,Pelicans,away,-13.0,-2.29,-1,-3.35,2.5,-1,blend+inj,10.71,Kevin Durant; Quinn Cook,
+2017,2017-11-27,Rockets,Nets,home,-16.0,2.08,-1,3.48,2.0,-1,blend+inj,18.08,Nene,DeMarre Carroll; Allen Crabbe; Rondae Hollis-Jefferson; D'Angelo Russell
+2017,2017-11-30,Clippers,Jazz,home,1.0,2.07,-1,-0.28,0.0,-1,blend+inj,1.07,Blake Griffin; Danilo Gallinari; Patrick Beverley,Rudy Gobert; Rodney Hood; Raul Neto
+2017,2017-12-03,Thunder,Spurs,home,-4.5,3.63,-1,5.41,4.0,-1,blend+inj,8.13,Kyle Singler,Manu Ginobili; Tony Parker; Rudy Gay; LaMarcus Aldridge
+2017,2017-12-06,Hornets,Warriors,home,5.5,2.57,-1,5.86,1.5,-1,blend+inj,-2.93,,Stephen Curry; Draymond Green; Patrick McCaw
+2017,2017-12-08,Bucks,Mavericks,home,-5.0,2.03,1,1.0,1.5,1,blend+inj,7.03,Jason Terry; Tony Snell; Matthew Dellavedova,Dennis Smith Jr.
+2017,2017-12-10,Pelicans,Seventysixers,home,-4.5,2.62,1,5.02,2.0,1,blend+inj,7.12,Jameer Nelson,Robert Covington; Nik Stauskas; T.J. McConnell; Joel Embiid
+2017,2017-12-13,Bulls,Jazz,away,3.5,-2.22,-1,-0.53,2.0,-1,blend+inj,-5.72,Cristiano Felicio; Lauri Markkanen,Ekpe Udoh; Raul Neto
+2017,2017-12-13,Suns,Raptors,away,10.5,-2.13,-1,-4.03,1.5,-1,blend+inj,-12.63,Tyson Chandler; Jared Dudley; Devin Booker; Derrick Jones Jr.,
+2017,2017-12-15,Bucks,Bulls,home,-8.0,2.19,-1,1.48,0.5,-1,blend+inj,10.19,Jason Terry; Tony Snell,Cristiano Felicio; Lauri Markkanen
+2017,2017-12-16,Timberwolves,Suns,home,-11.5,2.86,-1,5.13,0.5,-1,blend+inj,14.36,,Greg Monroe; Devin Booker; Derrick Jones Jr.; Mike James
+2017,2017-12-16,Spurs,Mavericks,away,-9.5,-3.75,1,-4.17,3.5,1,blend+inj,5.75,Tony Parker; Kawhi Leonard; Danny Green; Kyle Anderson,Dennis Smith Jr.
+2017,2017-12-20,Trailblazers,Spurs,home,0.0,2.06,-1,3.54,3.0,-1,blend+inj,2.06,Maurice Harkless; Noah Vonleh,Tony Parker; Kawhi Leonard; Brandon Paul
+2017,2017-12-22,Magic,Pelicans,away,3.5,-2.12,1,-3.02,2.5,1,blend+inj,-5.62,Terrence Ross; Evan Fournier; Aaron Gordon; Jonathan Isaac,
+2017,2017-12-22,Rockets,Clippers,away,-11.5,-2.1,1,-4.77,-0.5,1,blend+inj,9.4,Chris Paul; Luc Mbah a Moute; Clint Capela,Wesley Johnson; Danilo Gallinari; Milos Teodosic
+2017,2017-12-23,Hornets,Bucks,home,-1.0,3.01,1,3.69,3.5,1,blend+inj,4.01,Cody Zeller,Jason Terry; Giannis Antetokounmpo; Rashad Vaughn
+2017,2017-12-23,Celtics,Bulls,home,-6.5,2.13,1,-0.46,1.5,1,blend+inj,8.63,Marcus Morris Sr.; Shane Larkin,
+2017,2017-12-23,Heat,Pelicans,home,5.5,3.8,-1,-0.62,2.5,-1,blend+inj,-1.7,Dion Waiters; Justise Winslow,
+2017,2017-12-23,Warriors,Nuggets,away,-10.0,-2.44,1,-4.05,2.0,1,blend+inj,7.56,Stephen Curry; Shaun Livingston; Zaza Pachulia,Kenneth Faried; Darrell Arthur; Emmanuel Mudiay
+2017,2017-12-23,Lakers,Trailblazers,away,-2.0,-2.01,1,1.2,-1.0,1,blend+inj,-0.01,Brook Lopez; Brandon Ingram,Damian Lillard; Meyers Leonard; Noah Vonleh
+2017,2017-12-26,Heat,Magic,home,-3.0,3.02,1,2.05,5.5,1,blend+inj,6.02,James Johnson; Dion Waiters; Justise Winslow,Shelvin Mack; Nikola Vucevic; Aaron Gordon
+2017,2017-12-27,Pacers,Mavericks,away,-5.5,-2.23,1,-3.32,2.0,1,blend+inj,3.27,Victor Oladipo,
+2017,2017-12-29,Lakers,Clippers,home,3.0,2.18,-1,-0.35,0.0,-1,blend+inj,-0.82,Brook Lopez; Lonzo Ball,Danilo Gallinari; Jamil Wilson
+2017,2017-12-29,Warriors,Hornets,away,-11.0,-2.11,1,-4.92,1.0,1,blend+inj,8.89,Stephen Curry; Omri Casspi,
+2017,2017-12-31,Rockets,Lakers,home,-14.5,2.07,-1,2.17,0.5,-1,blend+inj,16.57,Luc Mbah a Moute,Brook Lopez; Kentavious Caldwell-Pope; Lonzo Ball
+2017,2018-01-03,Seventysixers,Spurs,home,-1.0,2.1,1,3.84,3.5,1,blend+inj,3.1,,Manu Ginobili; Tony Parker; Kawhi Leonard; Danny Green; Rudy Gay
+2017,2018-01-10,Warriors,Clippers,away,-16.5,-2.68,1,-2.51,4.5,1,blend+inj,13.82,Stephen Curry; Klay Thompson,Blake Griffin; Austin Rivers; Milos Teodosic; Jamil Wilson
+2017,2018-01-12,Bucks,Warriors,home,5.0,2.26,-1,6.25,0.5,-1,blend+inj,-2.74,,Stephen Curry; Omri Casspi; Jordan Bell
+2017,2018-01-15,Hawks,Spurs,home,8.5,2.49,1,3.53,3.0,1,blend+inj,-6.01,Luke Babbitt; DeAndre' Bembry; Isaiah Taylor; Tyler Cavanaugh,Kawhi Leonard; Rudy Gay
+2017,2018-01-15,Nets,Knicks,home,0.0,2.07,-1,1.4,3.5,-1,blend+inj,2.07,,Tim Hardaway Jr.
+2017,2018-01-17,Nets,Spurs,home,7.5,2.62,1,4.17,2.5,0,blend+inj,-4.88,Nik Stauskas,Manu Ginobili; Kawhi Leonard; Rudy Gay
+2017,2018-01-17,Clippers,Nuggets,away,-2.5,-2.48,-1,-3.89,-1.5,-1,blend+inj,0.02,DeAndre Jordan; Austin Rivers; C.J. Williams; Jamil Wilson,Jamal Murray; Torrey Craig
+2017,2018-01-23,Warriors,Knicks,home,-14.0,3.26,-1,1.95,2.5,-1,blend+inj,17.26,Jordan Bell,Kyle O'Quinn; Kristaps Porzingis
+2017,2018-01-24,Clippers,Celtics,home,-1.0,2.15,-1,1.55,2.5,-1,blend+inj,3.15,Jawun Evans; C.J. Williams,Al Horford; Marcus Smart
+2017,2018-01-25,Nuggets,Knicks,home,-4.5,2.5,1,1.96,2.5,1,blend+inj,7.0,Kenneth Faried,Kyle O'Quinn; Tim Hardaway Jr.
+2017,2018-01-27,Timberwolves,Nets,home,-9.5,2.5,1,1.52,1.5,1,blend+inj,12.0,,Rondae Hollis-Jefferson; D'Angelo Russell; Caris LeVert
+2017,2018-01-29,Bucks,Seventysixers,home,-3.0,2.39,1,4.36,3.0,1,blend+inj,5.39,Xavier Munford,JJ Redick; Jerryd Bayless; Joel Embiid
+2017,2018-01-31,Pacers,Grizzlies,home,-6.0,2.32,-1,4.22,2.5,-1,blend+inj,8.32,Al Jefferson,Mario Chalmers; Tyreke Evans; James Ennis III; JaMychal Green; Deyonta Davis; Kobi Simmons
+2017,2018-01-31,Celtics,Knicks,away,-9.0,-2.26,-1,-3.53,3.5,-1,blend+inj,6.74,Kyrie Irving; Shane Larkin; Marcus Smart,
+2017,2018-02-02,Celtics,Hawks,away,-9.5,-2.33,1,-4.38,2.5,-1,blend+inj,7.17,Marcus Morris Sr.; Kyrie Irving; Shane Larkin; Marcus Smart,Tyler Cavanaugh
+2017,2018-02-07,Suns,Spurs,away,11.0,-2.38,1,-3.33,-0.5,1,blend+inj,-13.38,Tyson Chandler; Greg Monroe; Isaiah Canaan; Devin Booker,
+2017,2018-02-11,Rockets,Mavericks,home,-13.5,2.34,-1,3.11,1.5,-1,blend+inj,15.84,Trevor Ariza; Tarik Black,Dirk Nowitzki; Josh McRoberts; J.J. Barea; Wesley Matthews; Salah Mejri
+2017,2018-02-14,Pistons,Hawks,home,-8.5,2.47,-1,3.24,1.5,-1,blend+inj,10.97,Dwight Buycks; Langston Galloway,Ersan Ilyasova; Marco Belinelli; Kent Bazemore; Dennis Schroder
+2017,2018-02-23,Grizzlies,Cavaliers,home,5.5,2.18,-1,1.12,0.5,-1,blend+inj,-3.32,Brandan Wright; Chandler Parsons; Wayne Selden; Kobi Simmons; Myke Henry,Derrick Rose; Kevin Love
+2017,2018-02-25,Nuggets,Rockets,home,4.5,2.14,-1,0.84,0.0,-1,blend+inj,-2.36,Kenneth Faried; Torrey Craig,Nene; Eric Gordon; Gerald Green; Markel Brown
+2017,2018-02-26,Jazz,Rockets,home,2.5,3.54,-1,3.42,1.0,-1,blend+inj,1.04,Raul Neto,Brandan Wright; Ryan Anderson; Eric Gordon; Clint Capela; Markel Brown
+2017,2018-03-02,Grizzlies,Nuggets,away,7.5,-2.12,-1,-4.89,1.5,-1,blend+inj,-9.62,Tyreke Evans; Chandler Parsons; JaMychal Green; Andrew Harrison; Deyonta Davis,Kenneth Faried; Torrey Craig
+2017,2018-03-02,Jazz,Timberwolves,home,-5.5,2.34,1,2.87,2.0,1,blend+inj,7.84,,Jimmy Butler
+2017,2018-03-05,Bulls,Celtics,home,8.5,3.18,-1,3.01,1.5,-1,blend+inj,-5.32,Robin Lopez; Justin Holiday; Paul Zipser,Kyrie Irving
+2017,2018-03-09,Nuggets,Lakers,home,-6.5,2.15,1,2.4,0.5,1,blend+inj,8.65,Wilson Chandler; Torrey Craig,Channing Frye; Brandon Ingram; Alex Caruso; Josh Hart
+2017,2018-03-11,Mavericks,Rockets,home,12.0,2.77,-1,5.5,1.5,-1,blend+inj,-9.23,Wesley Matthews; Dorian Finney-Smith,Brandan Wright; James Harden; Ryan Anderson; Nene; Markel Brown
+2017,2018-03-15,Grizzlies,Bulls,home,0.0,2.46,-1,1.58,2.5,-1,blend+inj,2.46,Mario Chalmers; Andrew Harrison; Myke Henry; Xavier Rathan-Mayes,Justin Holiday; Jerian Grant; Lauri Markkanen
+2017,2018-03-17,Nets,Mavericks,home,-1.5,2.38,1,2.74,3.0,1,blend+inj,3.88,Dante Cunningham; Allen Crabbe,J.J. Barea; Wesley Matthews; Harrison Barnes; Nerlens Noel; Dorian Finney-Smith
+2017,2018-03-21,Pelicans,Pacers,away,-2.0,-2.3,-1,-2.02,1.0,-1,blend+inj,-0.3,Jameer Nelson; Dante Cunningham; DeMarcus Cousins; DeAndre Liggins,Domantas Sabonis
+2017,2018-03-22,Hornets,Grizzlies,away,-9.0,-2.17,-1,-3.78,1.0,-1,blend+inj,6.83,Dwight Howard; Nicolas Batum; Michael Carter-Williams; Cody Zeller,Marc Gasol; Chandler Parsons; Andrew Harrison; Myke Henry; Xavier Rathan-Mayes
+2017,2018-03-23,Knicks,Timberwolves,home,6.5,2.07,1,3.78,0.5,1,blend+inj,-4.43,Jarrett Jack; Lance Thomas; Isaiah Hicks,Derrick Rose; Jimmy Butler
+2017,2018-03-25,Kings,Celtics,home,7.0,2.56,-1,5.05,0.5,-1,blend+inj,-4.44,Zach Randolph; Garrett Temple; JaKarr Sampson,Marcus Morris Sr.; Kyrie Irving; Marcus Smart; Daniel Theis
+2017,2018-03-27,Rockets,Bulls,away,-17.5,-2.67,-1,-3.99,4.0,-1,blend+inj,14.83,James Harden; Luc Mbah a Moute; Clint Capela,Robin Lopez; Zach LaVine; Kris Dunn; Paul Zipser; Antonio Blakeney
+2017,2018-03-28,Jazz,Celtics,home,-6.0,4.03,-1,7.34,4.5,-1,blend+inj,10.03,,Marcus Morris Sr.; Kyrie Irving; Al Horford; Marcus Smart; Daniel Theis
+2017,2018-03-28,Lakers,Mavericks,home,-7.5,2.01,1,1.28,0.5,1,blend+inj,9.51,Channing Frye; Isaiah Thomas,J.J. Barea; Wesley Matthews; Salah Mejri
+2017,2018-04-01,Bulls,Wizards,home,8.0,2.35,1,0.7,1.0,1,blend+inj,-5.65,Zach LaVine; Kris Dunn; Paul Zipser; Antonio Blakeney,Ian Mahinmi; John Wall
+2017,2018-04-01,Lakers,Kings,home,-7.0,2.37,-1,-0.95,0.5,-1,blend+inj,9.37,Isaiah Thomas; Travis Wear; Brandon Ingram; Lonzo Ball,Kosta Koufos; Zach Randolph; Garrett Temple
+2017,2018-04-03,Bucks,Celtics,home,-2.0,2.27,1,6.37,2.5,-1,blend+inj,4.27,Brandon Jennings; Thon Maker,Kyrie Irving; Xavier Silas; Shane Larkin; Marcus Smart; Terry Rozier; Daniel Theis
+2017,2018-04-03,Thunder,Warriors,home,-2.0,2.62,-1,4.58,2.0,-1,blend+inj,4.62,Terrance Ferguson,Stephen Curry; Shaun Livingston; Andre Iguodala; Kevon Looney; Patrick McCaw
+2017,2018-04-03,Mavericks,Trailblazers,home,9.0,2.65,1,1.41,2.0,1,blend+inj,-6.35,Nerlens Noel; Dorian Finney-Smith,Ed Davis; Maurice Harkless
+2017,2018-04-04,Hawks,Heat,home,8.0,2.76,-1,2.02,1.0,-1,blend+inj,-5.24,Dennis Schroder; DeAndre' Bembry,Dwyane Wade; Goran Dragic; James Johnson
+2017,2018-04-08,Raptors,Magic,home,-1.0,4.87,1,-1.78,9.0,1,blend+inj,5.87,DeMar DeRozan; Jonas Valanciunas,Arron Afflalo; Marreese Speights; Jonathon Simmons; Jonathan Isaac
+2017,2018-04-09,Nets,Bulls,away,-8.5,-3.23,-1,-2.5,2.0,-1,blend+inj,5.27,DeMarre Carroll; Joe Harris; Jahlil Okafor; Caris LeVert,Robin Lopez; Noah Vonleh; Denzel Valentine; Paul Zipser; Antonio Blakeney
+2017,2018-04-09,Timberwolves,Grizzlies,home,-15.0,3.23,1,5.39,1.5,1,blend+inj,18.23,Anthony Brown,Marc Gasol; Tyreke Evans; Chandler Parsons; Marquis Teague; JaMychal Green; Jarell Martin; Briante Weber; Andrew Harrison; Wayne Selden
+2017,2018-04-09,Nuggets,Trailblazers,home,-2.0,2.19,1,1.26,2.5,1,blend+inj,4.19,,Maurice Harkless
+2017,2018-04-10,Pacers,Hornets,away,-6.0,-4.32,1,-4.84,4.0,1,blend+inj,1.68,Thaddeus Young; Victor Oladipo; Bojan Bogdanovic,Treveon Graham; Dwayne Bacon
+2017,2018-04-11,Heat,Raptors,away,-7.0,-4.02,0,-0.99,4.5,-1,blend+inj,2.98,Goran Dragic,Lorenzo Brown
+2017,2018-04-11,Seventysixers,Bucks,away,-5.5,-3.05,-1,-4.36,-0.0,-1,blend+inj,2.45,JJ Redick; Joel Embiid,
+2017,2018-04-14,Warriors,Spurs,away,-8.0,-3.69,-1,-2.87,-0.0,-1,blend+inj,4.31,Stephen Curry; Patrick McCaw,
+2017,2018-04-14,Raptors,Wizards,away,-7.5,-2.02,-1,-0.2,-0.0,-1,blend+inj,5.48,Lorenzo Brown; Fred VanVleet,Jodie Meeks
+2017,2018-04-17,Celtics,Bucks,home,3.0,2.8,1,-0.23,3.0,1,blend+inj,-0.2,Jabari Bird,Brandon Jennings
+2017,2018-04-20,Pacers,Cavaliers,away,-2.0,-2.16,0,-1.33,0.5,-1,blend+inj,-0.16,Al Jefferson; Glenn Robinson III,Kendrick Perkins; Tristan Thompson; Jose Calderon
+2017,2018-05-20,Warriors,Rockets,away,-7.5,-2.29,-1,0.05,-0.0,-1,blend+inj,5.21,,Aaron Jackson
+2017,2018-05-22,Warriors,Rockets,away,-8.5,-2.49,1,-0.88,0.5,1,blend+inj,6.01,Andre Iguodala,Luc Mbah a Moute; Aaron Jackson
+2018,2018-10-27,Seventysixers,Hornets,home,-6.0,2.06,-1,1.94,1.0,-1,blend+inj,8.06,,Tony Parker; Frank Kaminsky; Willy Hernangomez; Dwayne Bacon
+2018,2018-10-27,Cavaliers,Pacers,home,6.5,2.5,-1,1.04,-1.0,-1,blend+inj,-4.0,Kevin Love; Channing Frye,Tyreke Evans; Kyle O'Quinn
+2018,2018-11-01,Hawks,Kings,home,2.0,2.04,-1,0.34,0.0,-1,blend+inj,0.04,,Troy Williams
+2018,2018-11-01,Trailblazers,Pelicans,home,-4.0,2.19,1,4.18,4.0,1,blend+inj,6.19,Maurice Harkless,Wesley Johnson; Anthony Davis; Darius Miller; Elfrid Payton
+2018,2018-11-05,Thunder,Pelicans,home,-4.5,4.1,1,8.91,-1.0,1,blend+inj,8.6,,E'Twaun Moore; Anthony Davis; Julius Randle; Nikola Mirotic; Tim Frazier
+2018,2018-11-09,Jazz,Celtics,home,-3.0,2.55,1,3.3,3.0,1,blend+inj,5.55,Thabo Sefolosha,Kyrie Irving; Daniel Theis
+2018,2018-11-15,Nuggets,Hawks,home,-12.5,2.48,1,1.38,1.5,1,blend+inj,14.98,,Dewayne Dedmon; Taurean Prince
+2018,2018-11-21,Jazz,Kings,home,-9.5,2.22,-1,0.96,0.0,-1,blend+inj,11.72,Thabo Sefolosha,Kosta Koufos; Ben McLemore; Troy Williams; Skal Labissiere; Yogi Ferrell
+2018,2018-12-10,Seventysixers,Pistons,home,-8.0,2.0,1,2.96,3.5,1,blend+inj,10.0,Markelle Fultz,Ish Smith; Blake Griffin; Reggie Bullock; Stanley Johnson
+2018,2018-12-10,Celtics,Pelicans,away,-6.0,-3.54,-1,-5.87,3.5,-1,blend+inj,2.46,Kyrie Irving; Al Horford; Gordon Hayward; Aron Baynes,E'Twaun Moore
+2018,2018-12-10,Bucks,Cavaliers,away,-14.0,-2.18,-1,-4.27,4.0,-1,blend+inj,11.82,Giannis Antetokounmpo; Pat Connaughton,David Nwaba
+2018,2018-12-12,Wizards,Celtics,home,5.0,2.43,0,2.46,1.5,-1,blend+inj,-2.57,Otto Porter Jr.; Devin Robinson,Al Horford; Gordon Hayward; Jaylen Brown
+2018,2018-12-12,Jazz,Heat,home,-5.5,2.45,1,2.64,3.0,1,blend+inj,7.95,,Goran Dragic; Hassan Whiteside
+2018,2018-12-22,Seventysixers,Raptors,home,-4.5,2.68,1,7.51,3.5,1,blend+inj,7.18,Wilson Chandler,Serge Ibaka; Kawhi Leonard; Jonas Valanciunas
+2018,2018-12-31,Pelicans,Timberwolves,away,-4.5,-2.01,-1,-3.0,3.5,-1,blend+inj,2.49,Anthony Davis; Ian Clark; Nikola Mirotic,Derrick Rose; Luol Deng; Jeff Teague
+2018,2018-12-31,Suns,Warriors,away,10.0,-2.34,1,-1.2,-0.0,1,blend+inj,-12.34,Richaun Holmes,
+2018,2019-01-04,Celtics,Mavericks,away,-5.5,-2.1,-1,-5.26,1.5,-1,blend+inj,3.4,Marcus Morris Sr.; Kyrie Irving; Aron Baynes,Maxi Kleber
+2018,2019-01-04,Lakers,Knicks,away,-7.0,-2.16,1,-5.01,1.5,1,blend+inj,4.84,Rajon Rondo; LeBron James; Kyle Kuzma; Alex Caruso; Johnathan Williams,Courtney Lee; Lance Thomas; Mitchell Robinson
+2018,2019-01-11,Wizards,Bucks,home,7.5,2.04,1,2.48,5.5,1,blend+inj,-5.46,John Wall; Markieff Morris,Giannis Antetokounmpo; Pat Connaughton
+2018,2019-01-11,Seventysixers,Hawks,away,-12.5,-2.3,1,-2.99,2.0,1,blend+inj,10.2,Joel Embiid,Kent Bazemore
+2018,2019-01-13,Knicks,Seventysixers,away,6.0,-2.67,-1,-3.27,3.0,-1,blend+inj,-8.67,Courtney Lee; Enes Freedom; Tim Hardaway Jr.; Trey Burke,
+2018,2019-01-17,Raptors,Suns,away,-10.5,-2.46,1,-4.37,1.5,1,blend+inj,8.04,Kawhi Leonard; OG Anunoby,Jamal Crawford; Troy Daniels; Eric Moreland
+2018,2019-01-17,Thunder,Lakers,away,-10.0,-2.0,1,0.01,-0.0,1,blend+inj,8.0,,Alex Caruso; Johnathan Williams
+2018,2019-01-19,Raptors,Grizzlies,away,-12.5,-3.04,-1,-3.47,2.0,-1,blend+inj,9.46,Kawhi Leonard; OG Anunoby,Marc Gasol; Kyle Anderson; Dillon Brooks
+2018,2019-01-19,Rockets,Lakers,away,-8.0,-2.65,1,-3.29,0.5,1,blend+inj,5.35,Brandon Knight; Clint Capela; Danuel House Jr.,Alex Caruso; Johnathan Williams
+2018,2019-01-19,Nuggets,Cavaliers,home,-16.5,2.4,1,2.18,2.0,1,blend+inj,18.9,Juancho Hernangomez,Tristan Thompson; Larry Nance Jr.; Jalen Jones
+2018,2019-01-22,Raptors,Kings,away,-11.0,-2.29,-1,-3.88,-0.0,-1,blend+inj,8.71,Kawhi Leonard; OG Anunoby,Iman Shumpert; Nemanja Bjelica; Skal Labissiere; De'Aaron Fox
+2018,2019-01-23,Celtics,Cavaliers,away,-17.5,-2.49,-1,-3.44,2.5,-1,blend+inj,15.01,Kyrie Irving; Al Horford,Tristan Thompson; Larry Nance Jr.; Jalen Jones
+2018,2019-01-24,Thunder,Pelicans,home,-11.0,3.14,-1,8.91,3.0,-1,blend+inj,14.14,,E'Twaun Moore; Anthony Davis; Julius Randle; Nikola Mirotic; Tim Frazier
+2018,2019-01-26,Pelicans,Spurs,away,1.5,-3.19,1,-7.37,3.0,1,blend+inj,-4.69,Anthony Davis; Julius Randle; Nikola Mirotic,DeMar DeRozan; Davis Bertans
+2018,2019-01-26,Trailblazers,Hawks,away,-10.5,-2.34,1,-3.31,2.0,-1,blend+inj,8.16,Damian Lillard,Daniel Hamilton
+2018,2019-01-28,Celtics,Nets,away,-10.0,-2.72,1,-3.36,1.0,1,blend+inj,7.28,Kyrie Irving; Daniel Theis,Jared Dudley; Spencer Dinwiddie; Alan Williams; Treveon Graham
+2018,2019-01-30,Pelicans,Nuggets,away,8.5,-2.25,-1,-7.43,0.5,-1,blend+inj,-10.75,E'Twaun Moore; Anthony Davis; Elfrid Payton; Julius Randle; Nikola Mirotic,Jamal Murray
+2018,2019-01-31,Pistons,Mavericks,home,-1.5,2.49,1,5.56,6.0,-1,blend+inj,3.99,Ish Smith,DeAndre Jordan; J.J. Barea; Wesley Matthews; Dennis Smith Jr.; Luka Doncic
+2018,2019-02-01,Hornets,Grizzlies,home,-4.0,2.14,1,3.99,4.0,0,blend+inj,6.14,Devonte' Graham,Omri Casspi; Mike Conley; Garrett Temple; Kyle Anderson; Jaren Jackson Jr.
+2018,2019-02-02,Spurs,Pelicans,home,-10.0,2.1,-1,9.04,0.5,-1,blend+inj,12.1,,E'Twaun Moore; Anthony Davis; Elfrid Payton; Julius Randle; Nikola Mirotic
+2018,2019-02-02,Warriors,Lakers,home,-9.5,4.74,1,4.79,5.5,-1,blend+inj,14.24,,Tyson Chandler; LeBron James; Lonzo Ball
+2018,2019-02-02,Jazz,Rockets,home,-6.5,2.22,-1,5.0,0.5,-1,blend+inj,8.72,,Chris Paul; Brandon Knight; Clint Capela; Danuel House Jr.
+2018,2019-02-03,Knicks,Grizzlies,away,1.5,-2.36,1,-3.85,1.0,1,blend+inj,-3.86,Courtney Lee; Enes Freedom; Lance Thomas; Tim Hardaway Jr.; Trey Burke; Emmanuel Mudiay; Frank Ntilikina; Mitchell Robinson,Omri Casspi; Garrett Temple; Kyle Anderson
+2018,2019-02-04,Pelicans,Pacers,away,1.0,-3.51,1,-8.0,2.5,-1,blend+inj,-4.51,E'Twaun Moore; Anthony Davis; Elfrid Payton; Julius Randle; Nikola Mirotic,Victor Oladipo; Doug McDermott
+2018,2019-02-05,Pacers,Lakers,home,3.5,2.31,1,-0.38,1.0,1,blend+inj,-1.19,Victor Oladipo; Doug McDermott,Lonzo Ball; Josh Hart
+2018,2019-02-05,Seventysixers,Raptors,away,-4.0,-2.65,1,-1.94,2.0,1,blend+inj,1.35,JJ Redick; Corey Brewer; Wilson Chandler; Shake Milton,
+2018,2019-02-06,Jazz,Suns,home,-15.0,2.51,1,3.24,0.0,1,blend+inj,17.51,,Quincy Acy; T.J. Warren; Devin Booker; De'Anthony Melton
+2018,2019-02-06,Warriors,Spurs,home,-11.0,3.35,1,6.35,4.0,1,blend+inj,14.35,,DeMar DeRozan; LaMarcus Aldridge; Derrick White
+2018,2019-02-07,Hawks,Raptors,home,10.0,3.28,-1,5.01,3.5,-1,blend+inj,-6.72,,Kawhi Leonard; CJ Miles; Delon Wright
+2018,2019-02-09,Jazz,Spurs,home,-5.0,2.47,1,2.89,3.0,1,blend+inj,7.47,,Rudy Gay; Derrick White
+2018,2019-02-09,Bucks,Magic,away,-11.5,-3.34,1,-4.82,5.0,1,blend+inj,8.16,Giannis Antetokounmpo,Jonathon Simmons; Mo Bamba
+2018,2019-02-11,Thunder,Trailblazers,away,-7.0,-2.14,-1,-2.2,2.0,-1,blend+inj,4.86,Dennis Schroder; Jerami Grant; Alex Abrines,
+2018,2019-02-21,Seventysixers,Heat,away,-7.5,-2.13,1,-4.9,2.0,1,blend+inj,5.37,Corey Brewer; Wilson Chandler; Joel Embiid; Furkan Korkmaz; Shake Milton,Ryan Anderson
+2018,2019-02-22,Pacers,Pelicans,away,-4.5,-2.15,-1,-1.67,-0.5,-1,blend+inj,2.35,Myles Turner; Edmond Sumner; Aaron Holiday,Darius Miller; Solomon Hill; Tim Frazier
+2018,2019-02-22,Knicks,Timberwolves,home,7.0,2.45,-1,3.13,3.5,-1,blend+inj,-4.55,Lance Thomas; Mario Hezonja; Frank Ntilikina; Kadeem Allen; Isaiah Hicks,Jerryd Bayless; Isaiah Canaan; Karl-Anthony Towns; Jared Terrell
+2018,2019-02-25,Bulls,Bucks,home,11.5,2.3,1,4.19,3.5,-1,blend+inj,-9.2,Otto Porter Jr.; Kris Dunn,George Hill; Giannis Antetokounmpo; Sterling Brown
+2018,2019-03-02,Jazz,Bucks,home,-2.5,2.4,1,4.28,2.5,-1,blend+inj,4.9,Raul Neto,George Hill; Eric Bledsoe; Malcolm Brogdon; Sterling Brown
+2018,2019-03-03,Pistons,Raptors,home,5.5,2.32,1,4.97,3.0,1,blend+inj,-3.18,,Kawhi Leonard; Jodie Meeks; Fred VanVleet
+2018,2019-03-08,Pelicans,Raptors,away,4.0,-3.96,1,-5.2,5.5,1,blend+inj,-7.96,E'Twaun Moore; Jrue Holiday; Anthony Davis; Tim Frazier,Jodie Meeks; Fred VanVleet
+2018,2019-03-10,Timberwolves,Knicks,away,-11.5,-3.26,1,-4.99,5.0,-1,blend+inj,8.24,Luol Deng; Andrew Wiggins; Karl-Anthony Towns,Mario Hezonja; Henry Ellenson; Kadeem Allen; Luke Kornet
+2018,2019-03-12,Nuggets,Timberwolves,home,-10.0,2.01,1,3.21,-0.5,1,blend+inj,12.01,Isaiah Thomas; Trey Lyles,Derrick Rose; Luol Deng; Jeff Teague; Andrew Wiggins
+2018,2019-03-12,Clippers,Trailblazers,away,1.5,-2.55,1,-2.35,2.5,1,blend+inj,-4.05,Danilo Gallinari,Meyers Leonard; Rodney Hood
+2018,2019-03-19,Bucks,Lakers,away,-13.5,-2.16,-1,-0.73,2.0,-1,blend+inj,11.34,Ersan Ilyasova; Giannis Antetokounmpo; Isaiah Canaan; Malcolm Brogdon; Donte DiVincenzo,LeBron James; Lance Stephenson; Brandon Ingram
+2018,2019-03-20,Cavaliers,Bucks,home,10.0,3.88,1,7.67,4.5,1,blend+inj,-6.12,Matthew Dellavedova,George Hill; Giannis Antetokounmpo; Isaiah Canaan; Nikola Mirotic; Malcolm Brogdon; Donte DiVincenzo
+2018,2019-03-20,Magic,Pelicans,home,-6.0,2.49,1,5.98,3.5,1,blend+inj,8.49,Isaiah Briscoe,E'Twaun Moore; Jrue Holiday; Anthony Davis; Solomon Hill
+2018,2019-03-22,Magic,Grizzlies,home,-5.0,3.17,-1,5.87,5.5,-1,blend+inj,8.17,Jerian Grant; Isaiah Briscoe,Avery Bradley; Joakim Noah; Mike Conley; CJ Miles
+2018,2019-03-25,Grizzlies,Thunder,away,5.0,-3.5,-1,-5.77,2.5,-1,blend+inj,-8.5,Avery Bradley; Joakim Noah; Mike Conley; CJ Miles,
+2018,2019-03-26,Raptors,Bulls,home,-13.0,2.56,-1,4.01,1.5,-1,blend+inj,15.56,Eric Moreland,Otto Porter Jr.; Zach LaVine; Kris Dunn
+2018,2019-03-28,Knicks,Raptors,home,12.0,2.61,-1,3.77,2.0,-1,blend+inj,-9.39,Noah Vonleh; Frank Ntilikina; Allonzo Trier,Kawhi Leonard; Eric Moreland; OG Anunoby
+2018,2019-03-31,Hawks,Bucks,home,8.5,4.69,1,8.96,6.5,1,blend+inj,-3.81,Dewayne Dedmon; Taurean Prince; Alex Poythress,Eric Bledsoe; Khris Middleton; Tony Snell; Giannis Antetokounmpo; Nikola Mirotic; Malcolm Brogdon; Donte DiVincenzo
+2018,2019-03-31,Pelicans,Lakers,away,-4.0,-2.53,1,-1.98,1.0,1,blend+inj,1.47,E'Twaun Moore; Jrue Holiday; Anthony Davis; Darius Miller; Frank Jackson,LeBron James; Kyle Kuzma; Josh Hart; Andre Ingram
+2018,2019-04-02,Spurs,Hawks,home,-10.0,2.43,-1,4.49,1.0,-1,blend+inj,12.43,,Dewayne Dedmon; Taurean Prince; John Collins
+2018,2019-04-05,Rockets,Knicks,home,-17.5,2.07,1,3.84,0.5,1,blend+inj,19.57,,DeAndre Jordan; Noah Vonleh; Emmanuel Mudiay; Dennis Smith Jr.; Frank Ntilikina; Kadeem Allen; Allonzo Trier
+2018,2019-04-05,Suns,Pelicans,away,1.5,-2.78,-1,-5.38,1.0,-1,blend+inj,-4.28,Tyler Johnson; Richaun Holmes; Devin Booker; Kelly Oubre Jr.; Deandre Ayton,Anthony Davis; Darius Miller; Stanley Johnson; Frank Jackson
+2018,2019-04-05,Nuggets,Trailblazers,home,-5.5,2.33,1,5.03,0.5,1,blend+inj,7.83,Isaiah Thomas; Trey Lyles,Seth Curry; CJ McCollum; Jusuf Nurkic
+2018,2019-04-06,Bucks,Nets,away,-7.0,-2.63,1,-7.04,3.5,1,blend+inj,4.37,Tony Snell; Giannis Antetokounmpo; Nikola Mirotic; Malcolm Brogdon,Allen Crabbe; Shabazz Napier; Rondae Hollis-Jefferson
+2018,2019-04-07,Bucks,Hawks,home,-10.5,4.17,-1,5.63,1.0,-1,blend+inj,14.67,Tony Snell; Nikola Mirotic,Dewayne Dedmon; John Collins; Trae Young
+2018,2019-04-07,Rockets,Suns,home,-18.5,2.58,1,8.53,0.0,1,blend+inj,21.08,,Richaun Holmes; Devin Booker; Kelly Oubre Jr.; Deandre Ayton
+2018,2019-04-07,Trailblazers,Nuggets,home,-1.0,3.07,1,4.09,7.5,-1,blend+inj,4.07,Jusuf Nurkic,Paul Millsap; Nikola Jokic; Jamal Murray
+2018,2019-04-09,Pistons,Grizzlies,home,-9.5,2.68,-1,8.07,2.0,-1,blend+inj,12.18,,Avery Bradley; Joakim Noah; Mike Conley; CJ Miles; Jonas Valanciunas; Yuta Watanabe
+2018,2019-04-10,Trailblazers,Kings,away,-7.0,-7.46,1,-11.94,4.0,-1,blend+inj,-0.46,Al-Farouq Aminu; Evan Turner; Enes Freedom; Damian Lillard; Maurice Harkless; Seth Curry; CJ McCollum; Jusuf Nurkic; Rodney Hood,Harry Giles III
+2018,2019-04-10,Clippers,Jazz,home,-4.0,3.81,1,9.77,4.0,-1,blend+inj,7.81,,Kyle Korver; Ricky Rubio; Derrick Favors; Rudy Gobert; Raul Neto; Donovan Mitchell
+2018,2019-04-15,Warriors,Clippers,away,-14.5,-2.27,1,-0.49,1.0,1,blend+inj,12.23,Damion Lee; Jacob Evans,
+2018,2019-04-18,Nets,Seventysixers,home,2.5,2.45,-1,4.5,1.5,-1,blend+inj,-0.05,,Amir Johnson; Joel Embiid; Shake Milton; Zhaire Smith
+2018,2019-04-19,Thunder,Trailblazers,away,-7.0,-2.72,-1,0.0,-0.0,-1,blend+inj,4.28,,
+2018,2019-05-14,Warriors,Trailblazers,away,-8.0,-2.52,-1,-5.42,1.0,-1,blend+inj,5.48,Kevin Durant; DeMarcus Cousins,
+2018,2019-05-20,Trailblazers,Warriors,home,3.0,2.03,1,4.57,1.0,0,blend+inj,-0.97,,Kevin Durant; Andre Iguodala
+2018,2019-06-05,Warriors,Raptors,away,-5.5,-2.88,1,-5.71,3.0,1,blend+inj,2.62,Kevin Durant; Klay Thompson; Kevon Looney,
+2018,2019-06-10,Raptors,Warriors,away,-3.0,-2.54,1,0.0,2.0,1,blend+inj,0.46,,
+2019,2019-11-11,Pelicans,Rockets,away,4.0,-2.03,1,-3.29,3.5,-1,blend+inj,-6.03,Brandon Ingram; Lonzo Ball; Nicolo Melli,Chris Clemons
+2019,2019-11-12,Pacers,Thunder,away,-3.0,-2.47,-1,-3.98,1.5,-1,blend+inj,0.53,Jeremy Lamb; Myles Turner; Edmond Sumner; Goga Bitadze,Terrance Ferguson
+2019,2019-11-12,Heat,Pistons,home,-7.0,2.07,1,4.05,1.5,1,blend+inj,9.07,James Johnson; Justise Winslow; Derrick Jones Jr.; Tyler Herro,Derrick Rose; Blake Griffin; Reggie Jackson
+2019,2019-11-12,Nuggets,Hawks,home,-11.0,2.46,-1,2.71,-0.5,-1,blend+inj,13.46,Malik Beasley,Vince Carter; Evan Turner; John Collins
+2019,2019-11-13,Celtics,Wizards,away,-10.0,-2.21,1,-2.8,3.0,0,blend+inj,7.79,Gordon Hayward; Daniel Theis; Robert Williams III,Isaac Bonga; Admiral Schofield
+2019,2019-11-13,Trailblazers,Raptors,home,-3.0,2.17,-1,4.31,0.5,-1,blend+inj,5.17,Anthony Tolliver; Zach Collins,Serge Ibaka; Kyle Lowry; OG Anunoby
+2019,2019-11-15,Timberwolves,Wizards,away,-7.0,-2.01,1,-3.22,1.0,1,blend+inj,4.99,Shabazz Napier; Andrew Wiggins; Jordan McLaughlin,Admiral Schofield
+2019,2019-11-16,Pacers,Bucks,away,5.0,-2.15,1,-3.25,2.5,1,blend+inj,-7.15,Jeremy Lamb; T.J. McConnell; Malcolm Brogdon; Edmond Sumner,Khris Middleton
+2019,2019-11-18,Suns,Celtics,away,-3.5,-2.1,1,-1.53,1.0,1,blend+inj,1.4,Ricky Rubio; Deandre Ayton,Gordon Hayward
+2019,2019-11-18,Clippers,Thunder,away,-9.5,-2.34,1,-2.28,2.0,1,blend+inj,7.16,Kawhi Leonard; Landry Shamet,Mike Muscala; Hamidou Diallo
+2019,2019-11-22,Nuggets,Celtics,home,-4.5,2.06,-1,2.06,0.5,-1,blend+inj,6.56,Malik Beasley; Torrey Craig,Gordon Hayward
+2019,2019-11-24,Nuggets,Suns,home,-9.0,2.1,1,2.45,2.0,1,blend+inj,11.1,,Ricky Rubio; Aron Baynes
+2019,2019-12-01,Timberwolves,Grizzlies,home,-8.5,2.77,-1,4.27,3.5,-1,blend+inj,11.27,Noah Vonleh; Jake Layman; Jordan McLaughlin,Jonas Valanciunas; Kyle Anderson; Ja Morant
+2019,2019-12-04,Hawks,Nets,home,3.0,2.11,-1,3.15,0.0,-1,blend+inj,-0.89,Chandler Parsons; Allen Crabbe; De'Andre Hunter,Kyrie Irving; Henry Ellenson; Timothe Luwawu-Cabarrot; Nic Claxton
+2019,2019-12-08,Seventysixers,Raptors,away,-3.0,-2.05,-1,-2.25,-0.0,-1,blend+inj,0.95,Trey Burke; Josh Richardson,Matt Thomas
+2019,2019-12-09,Pelicans,Pistons,home,1.0,2.11,-1,0.27,1.0,-1,blend+inj,1.11,E'Twaun Moore; Josh Gray; Frank Jackson,
+2019,2019-12-11,Bucks,Pelicans,away,-14.0,-4.14,-1,-4.96,4.5,-1,blend+inj,9.86,Giannis Antetokounmpo; Dragan Bender,E'Twaun Moore
+2019,2019-12-17,Pacers,Lakers,home,3.0,2.26,1,4.41,2.0,1,blend+inj,-0.74,,Anthony Davis; Kyle Kuzma
+2019,2019-12-18,Timberwolves,Pelicans,away,-7.0,-2.9,1,-4.05,3.5,1,blend+inj,4.1,Karl-Anthony Towns; Jarrett Culver,Nicolo Melli
+2019,2019-12-19,Bucks,Lakers,away,-4.5,-2.04,-1,-2.45,1.0,-1,blend+inj,2.46,Eric Bledsoe; Dragan Bender; D.J. Wilson,Kyle Kuzma
+2019,2019-12-21,Suns,Rockets,away,5.5,-2.76,1,-3.72,3.0,1,blend+inj,-8.26,Ricky Rubio; Deandre Ayton; Jevon Carter,
+2019,2019-12-22,Lakers,Nuggets,away,-7.5,-2.7,1,-3.26,5.0,1,blend+inj,4.8,LeBron James,
+2019,2019-12-28,Bucks,Magic,away,-11.0,-2.01,0,-4.85,5.0,-1,blend+inj,8.99,Eric Bledsoe; Giannis Antetokounmpo,Michael Carter-Williams; Mo Bamba
+2019,2019-12-30,Bulls,Bucks,away,5.5,-2.2,1,-0.1,3.0,1,blend+inj,-7.7,,Wesley Matthews; Sterling Brown
+2019,2020-01-07,Raptors,Trailblazers,away,-2.0,-2.04,1,-5.88,-0.5,1,blend+inj,-0.04,Marc Gasol; Norman Powell; Pascal Siakam; Fred VanVleet,Skal Labissiere
+2019,2020-01-08,Hornets,Raptors,home,4.0,2.44,1,6.13,1.5,1,blend+inj,-1.56,Nicolas Batum; Marvin Williams; Michael Kidd-Gilchrist; Cody Martin,Marc Gasol; Norman Powell; Pascal Siakam; Fred VanVleet
+2019,2020-01-08,Jazz,Knicks,home,-12.5,2.45,1,3.12,1.5,1,blend+inj,14.95,Mike Conley; Jeff Green,Marcus Morris Sr.; Julius Randle; Dennis Smith Jr.; Allonzo Trier
+2019,2020-01-11,Rockets,Timberwolves,away,-11.0,-2.07,-1,-2.39,1.0,-1,blend+inj,8.93,Clint Capela,Kelan Martin; Jordan McLaughlin
+2019,2020-01-11,Celtics,Pelicans,home,-9.0,2.67,1,3.93,2.5,1,blend+inj,11.67,Tremont Waters,JJ Redick; Jrue Holiday; Derrick Favors; Kenrich Williams
+2019,2020-01-11,Nuggets,Cavaliers,home,-13.0,2.57,-1,1.06,-0.5,-1,blend+inj,15.57,Paul Millsap,John Henson; Dante Exum; Larry Nance Jr.; Kevin Porter Jr.
+2019,2020-01-12,Wizards,Jazz,home,9.0,2.24,-1,0.87,3.0,-1,blend+inj,-6.76,Johnathan Williams; Admiral Schofield; Garrison Mathews,Jeff Green; Donovan Mitchell
+2019,2020-01-13,Pistons,Pelicans,home,1.0,4.35,-1,5.81,-4.0,-1,blend+inj,3.35,Blake Griffin; Tim Frazier; Luke Kennard,JJ Redick; Jrue Holiday; Derrick Favors; Brandon Ingram; Kenrich Williams
+2019,2020-01-18,Rockets,Lakers,home,-2.5,2.22,-1,4.6,1.0,-1,blend+inj,4.72,Austin Rivers,Rajon Rondo; Anthony Davis
+2019,2020-01-24,Magic,Celtics,home,0.0,2.79,-1,4.82,3.0,-1,blend+inj,2.79,D.J. Augustin; Gary Clark,Enes Freedom; Jaylen Brown; Jayson Tatum; Tremont Waters
+2019,2020-01-27,Pistons,Cavaliers,away,-6.5,-2.53,1,-3.21,-0.5,1,blend+inj,3.97,Derrick Rose; Tony Snell; Tim Frazier,Brandon Knight
+2019,2020-01-27,Jazz,Rockets,home,-12.5,2.97,-1,8.7,2.0,-1,blend+inj,15.47,Emmanuel Mudiay,Russell Westbrook; James Harden; Clint Capela
+2019,2020-01-30,Cavaliers,Raptors,away,0.5,-3.45,1,2.08,9.0,-1,blend+inj,-3.95,Brandon Knight,Marc Gasol; Rondae Hollis-Jefferson
+2019,2020-02-02,Pistons,Nuggets,home,3.0,2.19,1,3.93,0.5,1,blend+inj,-0.81,Markieff Morris; Tim Frazier,Mason Plumlee; Jamal Murray; Michael Porter Jr.
+2019,2020-02-04,Rockets,Hornets,away,-14.0,-2.33,-1,-5.59,1.0,-1,blend+inj,11.67,Russell Westbrook; Clint Capela,Bismack Biyombo; Nicolas Batum; Marvin Williams
+2019,2020-02-05,Celtics,Magic,away,-7.5,-2.09,-1,-3.41,2.0,-1,blend+inj,5.41,Kemba Walker; Marcus Smart; Daniel Theis,D.J. Augustin
+2019,2020-02-05,Jazz,Nuggets,home,-7.5,5.0,-1,5.93,2.5,-1,blend+inj,12.5,Emmanuel Mudiay,Will Barton; Mason Plumlee; Jerami Grant; Juancho Hernangomez; Malik Beasley; Michael Porter Jr.
+2019,2020-02-07,Suns,Rockets,home,2.5,2.87,1,5.1,0.0,1,blend+inj,0.37,Aron Baynes; Tyler Johnson; Dario Saric,Russell Westbrook; Clint Capela
+2019,2020-02-07,Jazz,Trailblazers,home,-8.5,3.95,-1,2.88,2.0,-1,blend+inj,12.45,Emmanuel Mudiay,Hassan Whiteside; Nassir Little
+2019,2020-02-08,Hornets,Mavericks,home,4.5,2.95,-1,7.16,1.0,-1,blend+inj,-1.55,Nicolas Batum; Marvin Williams; Willy Hernangomez; Dwayne Bacon; Cody Martin,J.J. Barea; Dwight Powell; Kristaps Porzingis; Luka Doncic
+2019,2020-02-08,Pacers,Pelicans,home,-1.5,2.43,-1,4.02,3.5,-1,blend+inj,3.93,Victor Oladipo; JaKarr Sampson,Brandon Ingram; Zion Williamson
+2019,2020-02-08,Warriors,Lakers,away,13.5,-3.81,-1,-6.93,0.5,-1,blend+inj,-17.31,Alec Burks; Draymond Green; Glenn Robinson III; D'Angelo Russell; Omari Spellman,
+2019,2020-02-10,Raptors,Timberwolves,away,-9.0,-2.37,-1,-3.66,0.5,-1,blend+inj,6.63,Serge Ibaka; Marc Gasol; Norman Powell,Gorgui Dieng; Jacob Evans; Kelan Martin
+2019,2020-02-10,Bucks,Kings,away,-14.5,-2.53,1,-4.06,4.5,-1,blend+inj,11.97,George Hill; Giannis Antetokounmpo; Dragan Bender,Marvin Bagley III
+2019,2020-02-12,Suns,Warriors,away,-7.0,-2.33,1,-3.04,-0.0,1,blend+inj,4.67,Tyler Johnson; Dario Saric; Deandre Ayton,Kevon Looney; Omari Spellman
+2019,2020-02-23,Nuggets,Timberwolves,home,-12.0,2.9,0,5.35,2.5,-1,blend+inj,14.9,Keita Bates-Diop,Allen Crabbe; D'Angelo Russell; Karl-Anthony Towns; Jacob Evans
+2019,2020-02-28,Pelicans,Cavaliers,home,-11.5,2.18,1,1.82,1.0,-1,blend+inj,13.68,,Andre Drummond; Dante Exum; Alfonzo McKinnie
+2019,2020-03-02,Cavaliers,Jazz,away,8.5,-3.03,1,-3.13,2.0,1,blend+inj,-11.53,Tristan Thompson; Andre Drummond; Dante Exum; Alfonzo McKinnie; Darius Garland,Emmanuel Mudiay
+2019,2020-03-03,Celtics,Nets,away,-7.5,-3.08,1,-3.9,1.0,1,blend+inj,4.42,Jayson Tatum,
+2019,2020-03-04,Cavaliers,Celtics,away,2.5,-2.64,1,0.61,1.5,1,blend+inj,-5.14,Tristan Thompson; Andre Drummond; Dante Exum; Alfonzo McKinnie; Darius Garland,Kemba Walker; Gordon Hayward; Jaylen Brown
+2019,2020-03-06,Wizards,Hawks,home,-3.0,2.09,1,2.88,2.5,1,blend+inj,5.09,Ian Mahinmi; Ish Smith; Anzejs Pasecniks,Damian Jones; Trae Young
+2019,2020-03-09,Nuggets,Bucks,home,-4.5,4.76,1,10.24,3.0,1,blend+inj,9.26,Keita Bates-Diop,George Hill; Marvin Williams; Eric Bledsoe; Brook Lopez; Khris Middleton; Giannis Antetokounmpo; Donte DiVincenzo
+2019,2020-07-30,Lakers,Clippers,home,-1.0,2.85,1,3.41,3.0,-1,blend+inj,3.85,Rajon Rondo; Avery Bradley,Lou Williams; Montrezl Harrell
+2019,2020-08-01,Raptors,Lakers,home,4.0,2.12,1,0.73,1.5,1,blend+inj,-1.88,Patrick McCaw,Rajon Rondo; Avery Bradley
+2019,2020-08-02,Nets,Wizards,home,-1.5,2.66,1,3.28,2.5,1,blend+inj,4.16,DeAndre Jordan; Wilson Chandler; Spencer Dinwiddie; Taurean Prince; Donta Hall,Ian Mahinmi; Bradley Beal; Davis Bertans; Garrison Mathews
+2019,2020-08-02,Rockets,Bucks,home,4.0,2.03,1,0.92,-1.0,1,blend+inj,-1.97,Eric Gordon; DeMarre Carroll,Eric Bledsoe; Pat Connaughton
+2019,2020-08-03,Pelicans,Grizzlies,home,-3.5,3.6,1,3.55,1.0,1,blend+inj,7.1,E'Twaun Moore; Kenrich Williams,Gorgui Dieng; Tyus Jones; Josh Jackson; John Konchar
+2019,2020-08-03,Seventysixers,Spurs,home,-7.0,2.01,-1,2.68,0.5,-1,blend+inj,9.01,Mike Scott; Glenn Robinson III,Marco Belinelli; LaMarcus Aldridge; Trey Lyles; Bryn Forbes
+2019,2020-08-03,Jazz,Lakers,home,6.0,2.62,-1,-0.73,0.0,-1,blend+inj,-3.38,Bojan Bogdanovic,Rajon Rondo; Avery Bradley; Markieff Morris
+2019,2020-08-04,Bucks,Nets,home,-19.0,2.9,-1,7.11,0.0,-1,blend+inj,21.9,Wesley Matthews; Brook Lopez,DeAndre Jordan; Wilson Chandler; Spencer Dinwiddie; Joe Harris; Taurean Prince; Caris LeVert; Jarrett Allen
+2019,2020-08-05,Jazz,Grizzlies,home,-4.5,2.78,1,2.04,1.0,1,blend+inj,7.28,Bojan Bogdanovic,Tyus Jones; Josh Jackson; Jaren Jackson Jr.
+2019,2020-08-05,Celtics,Nets,home,-8.5,2.52,1,3.03,0.0,1,blend+inj,11.02,Kemba Walker,DeAndre Jordan; Jamal Crawford; Wilson Chandler; Spencer Dinwiddie; Taurean Prince
+2019,2020-08-06,Bucks,Heat,home,-9.5,2.65,1,4.61,0.0,1,blend+inj,12.15,Robin Lopez,Goran Dragic; Jimmy Butler
+2019,2020-08-06,Suns,Pacers,home,3.0,2.29,1,1.66,1.0,1,blend+inj,-0.71,Aron Baynes; Kelly Oubre Jr.; Elie Okobo,Doug McDermott; Domantas Sabonis; Edmond Sumner
+2019,2020-08-06,Mavericks,Clippers,home,4.0,2.3,-1,0.47,0.0,-1,blend+inj,-1.7,Courtney Lee; J.J. Barea; Seth Curry; Willie Cauley-Stein,Patrick Beverley; Montrezl Harrell
+2019,2020-08-06,Nuggets,Trailblazers,home,3.5,2.22,-1,-3.35,-1.0,-1,blend+inj,-1.28,Paul Millsap; Will Barton; Gary Harris; Jamal Murray,Trevor Ariza; Mario Hezonja
+2019,2020-08-07,Pelicans,Wizards,home,-7.0,2.49,1,3.79,1.0,1,blend+inj,9.49,Kenrich Williams; Zion Williamson,Ian Mahinmi; Bradley Beal; Davis Bertans; Garrison Mathews
+2019,2020-08-08,Nuggets,Jazz,home,2.0,3.2,1,-1.15,1.0,1,blend+inj,1.2,Will Barton; Gary Harris; Keita Bates-Diop; Bol Bol,Bojan Bogdanovic; Emmanuel Mudiay
+2019,2020-08-09,Pelicans,Spurs,home,-3.5,2.28,-1,4.49,0.0,-1,blend+inj,5.78,Kenrich Williams,LaMarcus Aldridge; Patty Mills; Trey Lyles; Bryn Forbes
+2019,2020-08-09,Celtics,Magic,home,-6.5,3.12,-1,5.4,2.0,-1,blend+inj,9.62,Romeo Langford,Evan Fournier; Michael Carter-Williams; Aaron Gordon; Jonathan Isaac
+2019,2020-08-10,Suns,Thunder,home,-2.0,3.16,1,5.96,5.5,1,blend+inj,5.16,Aron Baynes; Elie Okobo,Danilo Gallinari; Dennis Schroder; Steven Adams; Nerlens Noel; Shai Gilgeous-Alexander
+2019,2020-08-10,Jazz,Mavericks,home,-2.0,4.1,-1,6.57,4.0,-1,blend+inj,6.1,Bojan Bogdanovic; Donovan Mitchell,Courtney Lee; Kristaps Porzingis; Willie Cauley-Stein; Dorian Finney-Smith; Luka Doncic
+2019,2020-08-10,Lakers,Nuggets,home,-4.0,3.82,-1,3.78,1.5,-1,blend+inj,7.82,Rajon Rondo; Avery Bradley; JR Smith; Kentavious Caldwell-Pope,Will Barton; Gary Harris; Jerami Grant
+2019,2020-08-11,Magic,Nets,home,-6.0,2.93,-1,5.28,-1.5,-1,blend+inj,8.93,Terrence Ross; Evan Fournier; Michael Carter-Williams; Aaron Gordon; Jonathan Isaac,DeAndre Jordan; Jamal Crawford; Wilson Chandler; Garrett Temple; Spencer Dinwiddie; Joe Harris; Taurean Prince; Caris LeVert; Jarrett Allen
+2019,2020-08-12,Rockets,Pacers,home,-7.0,2.65,-1,4.66,-0.5,-1,blend+inj,9.65,Russell Westbrook; Luc Mbah a Moute; Danuel House Jr.,T.J. Warren; Malcolm Brogdon; Domantas Sabonis
+2019,2020-08-13,Jazz,Spurs,home,7.0,8.49,1,5.83,0.0,1,blend+inj,1.49,Mike Conley; Rudy Gobert; Bojan Bogdanovic; Emmanuel Mudiay,DeMar DeRozan; Rudy Gay; LaMarcus Aldridge; Patty Mills; Trey Lyles; Bryn Forbes; Derrick White
+2019,2020-08-13,Lakers,Kings,home,-3.5,2.36,-1,0.19,0.5,-1,blend+inj,5.86,Rajon Rondo; Avery Bradley; Anthony Davis; Kentavious Caldwell-Pope; Kyle Kuzma; Alex Caruso,Kent Bazemore; Richaun Holmes; De'Aaron Fox
+2019,2020-08-13,Celtics,Wizards,home,11.0,6.84,1,-2.34,9.0,-1,blend+inj,-4.16,Kemba Walker; Gordon Hayward; Marcus Smart; Jaylen Brown; Jayson Tatum; Daniel Theis,Bradley Beal; Shabazz Napier; Davis Bertans; Rui Hachimura; Garrison Mathews; Anzejs Pasecniks
+2019,2020-08-14,Raptors,Nuggets,home,2.5,2.78,1,0.0,0.0,1,blend+inj,0.28,,
+2019,2020-08-17,Nuggets,Jazz,home,-2.0,3.22,1,0.21,2.0,1,blend+inj,5.22,Will Barton; Gary Harris; Keita Bates-Diop; Bol Bol,Mike Conley; Bojan Bogdanovic; Miye Oni; Rayjon Tucker
+2019,2020-08-19,Nuggets,Jazz,home,-4.0,2.09,-1,0.38,-0.5,-1,blend+inj,6.09,Will Barton; Gary Harris,Mike Conley; Bojan Bogdanovic
+2019,2020-08-22,Thunder,Rockets,home,2.0,2.39,1,2.55,0.0,1,blend+inj,0.39,Andre Roberson; Mike Muscala; Abdel Nader; Terrance Ferguson; Hamidou Diallo,Russell Westbrook; DeMarre Carroll; Luc Mbah a Moute
+2019,2020-08-23,Seventysixers,Celtics,home,7.0,2.08,1,-0.86,0.0,1,blend+inj,-4.92,Glenn Robinson III; Ben Simmons,Gordon Hayward; Javonte Green; Tremont Waters
+2019,2020-08-23,Mavericks,Clippers,away,0.0,-2.9,-1,-2.76,8.0,-1,blend+inj,-2.9,Kristaps Porzingis; Delon Wright,Patrick Patterson; Patrick Beverley
+2019,2020-08-25,Nuggets,Jazz,home,3.0,4.01,1,0.07,0.5,1,blend+inj,1.01,Keita Bates-Diop,Emmanuel Mudiay
+2019,2020-08-25,Clippers,Mavericks,home,-5.5,2.96,1,3.18,3.0,1,blend+inj,8.46,Patrick Beverley,J.J. Barea; Kristaps Porzingis
+2019,2020-09-07,Raptors,Celtics,home,1.0,2.65,-1,2.05,-0.5,-1,blend+inj,1.65,,Gordon Hayward; Javonte Green
+2019,2020-09-07,Nuggets,Clippers,home,7.5,2.42,1,0.48,-1.0,1,blend+inj,-5.08,PJ Dozier,Patrick Patterson
+2019,2020-09-08,Rockets,Lakers,home,5.5,2.17,-1,0.44,1.5,-1,blend+inj,-3.33,DeMarre Carroll; Luc Mbah a Moute; Danuel House Jr.,Dwight Howard; Dion Waiters
+2019,2020-09-13,Nuggets,Clippers,home,8.0,2.12,1,0.45,-0.5,1,blend+inj,-5.88,,Patrick Patterson
+2019,2020-09-18,Lakers,Nuggets,home,-1.0,4.26,1,-0.1,6.0,1,blend+inj,5.26,Dion Waiters,
+2020,2021-01-01,Bucks,Bulls,home,-14.0,2.17,1,2.1,0.5,1,blend+inj,16.17,Torrey Craig,Tomas Satoransky; Lauri Markkanen; Ryan Arcidiacono; Chandler Hutchison
+2020,2021-01-07,Grizzlies,Cavaliers,home,-3.5,2.66,-1,1.35,2.5,-1,blend+inj,6.16,Ja Morant; John Konchar; Sean McDermott,Kevin Love; Dante Exum; Collin Sexton; Darius Garland
+2020,2021-01-08,Knicks,Thunder,away,-3.5,-2.05,1,-2.1,0.5,1,blend+inj,1.45,Alec Burks; Dennis Smith Jr.; Frank Ntilikina,Darius Miller; Justin Jackson
+2020,2021-01-09,Seventysixers,Nuggets,away,4.0,-2.05,1,-7.63,9.5,-1,blend+inj,-6.05,Tobias Harris; Mike Scott; Seth Curry; Joel Embiid; Ben Simmons; Furkan Korkmaz; Shake Milton; Matisse Thybulle,Michael Porter Jr.
+2020,2021-01-09,Wizards,Heat,away,5.5,-2.69,-1,-5.96,5.0,-1,blend+inj,-8.19,Russell Westbrook; Bradley Beal,Maurice Harkless; Kendrick Nunn
+2020,2021-01-09,Timberwolves,Spurs,home,6.0,2.27,1,1.27,2.5,1,blend+inj,-3.73,Ed Davis; Josh Okogie; Jordan McLaughlin,Trey Lyles; Derrick White; Drew Eubanks
+2020,2021-01-10,Nets,Thunder,away,-9.5,-2.37,1,-5.17,1.5,1,blend+inj,7.13,Kyrie Irving; Spencer Dinwiddie; Tyler Johnson; Chris Chiozza,Darius Miller; Mike Muscala; Justin Jackson
+2020,2021-01-13,Knicks,Nets,home,5.0,4.34,-1,8.36,2.0,-1,blend+inj,-0.66,Alec Burks; Reggie Bullock; Dennis Smith Jr.; Frank Ntilikina,Kyrie Irving; Spencer Dinwiddie; Tyler Johnson; Taurean Prince; Caris LeVert; Jarrett Allen
+2020,2021-01-14,Raptors,Hornets,home,-7.0,2.08,-1,1.82,3.5,-1,blend+inj,9.08,Terence Davis,Gordon Hayward
+2020,2021-01-16,Nets,Magic,away,-9.5,-3.23,1,-8.71,0.5,1,blend+inj,6.27,Kyrie Irving; Spencer Dinwiddie; Tyler Johnson; Taurean Prince; Caris LeVert; Jarrett Allen; Chris Chiozza,Al-Farouq Aminu; Evan Fournier; Michael Carter-Williams; Chasson Randle; Markelle Fultz; Chuma Okeke
+2020,2021-01-16,Trailblazers,Hawks,home,-4.0,2.02,1,1.29,1.0,1,blend+inj,6.02,Jusuf Nurkic,Danilo Gallinari; Bogdan Bogdanovic; Cam Reddish
+2020,2021-01-20,Rockets,Suns,home,6.0,2.93,0,0.45,0.5,-1,blend+inj,-3.07,John Wall; Danuel House Jr.; Kenyon Martin Jr.,Langston Galloway; Dario Saric; Torrey Craig; Jalen Smith
+2020,2021-01-24,Bucks,Hawks,home,-9.0,3.4,1,7.19,3.0,1,blend+inj,12.4,,Clint Capela; Bogdan Bogdanovic; Trae Young
+2020,2021-01-25,Pistons,Seventysixers,home,7.0,2.07,1,3.64,2.0,1,blend+inj,-4.93,Derrick Rose; Frank Jackson; Killian Hayes,Mike Scott; Joel Embiid; Dakota Mathias
+2020,2021-01-25,Bulls,Celtics,home,6.5,2.72,-1,1.78,3.0,-1,blend+inj,-3.78,Ryan Arcidiacono; Wendell Carter Jr.; Chandler Hutchison,Kemba Walker; Jabari Parker; Luke Kornet; Payton Pritchard
+2020,2021-01-27,Pelicans,Wizards,home,-7.5,2.36,1,5.0,1.0,1,blend+inj,9.86,Nicolo Melli; Wenyen Gabriel; Naji Marshall,Russell Westbrook; Ish Smith; Davis Bertans; Thomas Bryant; Moritz Wagner; Rui Hachimura; Deni Avdija
+2020,2021-01-31,Wizards,Nets,home,8.0,2.64,1,3.85,2.5,1,blend+inj,-5.36,Raul Neto; Jerome Robinson,James Harden; Chris Chiozza
+2020,2021-02-01,Heat,Hornets,home,-5.0,2.54,-1,1.55,2.5,-1,blend+inj,7.54,Kendrick Nunn; KZ Okpala; Gabe Vincent,Bismack Biyombo; Terry Rozier
+2020,2021-02-02,Pacers,Grizzlies,home,-6.0,2.06,1,2.02,-1.5,1,blend+inj,8.06,Caris LeVert,Jonas Valanciunas; Tim Frazier; Justise Winslow; Jaren Jackson Jr.; Grayson Allen
+2020,2021-02-02,Jazz,Pistons,home,-12.0,3.03,0,2.88,0.5,-1,blend+inj,15.03,,Derrick Rose; Cory Joseph; Dennis Smith Jr.; Hamidou Diallo; Saben Lee
+2020,2021-02-03,Heat,Wizards,home,-8.0,2.2,-1,3.18,1.0,-1,blend+inj,10.2,Kendrick Nunn; KZ Okpala; Gabe Vincent,Russell Westbrook; Raul Neto; Jerome Robinson; Moritz Wagner; Isaac Bonga
+2020,2021-02-06,Seventysixers,Nets,home,-2.5,2.33,1,6.14,5.0,1,blend+inj,4.83,Mike Scott; Tony Bradley,Kevin Durant; Kyrie Irving
+2020,2021-02-06,Hawks,Raptors,home,5.0,2.79,1,-0.27,4.0,1,blend+inj,-2.21,De'Andre Hunter,OG Anunoby
+2020,2021-02-08,Hornets,Rockets,home,1.0,2.01,1,5.32,-0.5,1,blend+inj,1.01,Brad Wanamaker; Devonte' Graham; Jalen McDaniels,John Wall; Eric Gordon; Christian Wood; Kenyon Martin Jr.
+2020,2021-02-08,Nuggets,Bucks,home,4.5,3.03,-1,0.92,2.5,-1,blend+inj,-1.47,Aaron Gordon; Gary Harris; P.J. Dozier; Facundo Campazzo,Jrue Holiday
+2020,2021-02-09,Pelicans,Rockets,home,-4.0,2.12,1,4.3,2.5,1,blend+inj,6.12,Naji Marshall,Victor Oladipo; Christian Wood; Kenyon Martin Jr.
+2020,2021-02-10,Suns,Bucks,home,5.5,2.51,1,1.68,1.5,1,blend+inj,-2.99,Cameron Payne; Abdel Nader,Jrue Holiday
+2020,2021-02-12,Trailblazers,Cavaliers,away,-6.0,-2.27,-1,-4.04,2.5,-1,blend+inj,3.73,CJ McCollum; Jusuf Nurkic; Rondae Hollis-Jefferson,JaVale McGee; Larry Nance Jr.
+2020,2021-02-14,Suns,Magic,home,-8.5,2.99,1,2.82,3.0,1,blend+inj,11.49,,Al-Farouq Aminu; Evan Fournier; James Ennis III; Frank Mason III; Cole Anthony
+2020,2021-02-15,Jazz,Seventysixers,home,-6.0,2.37,1,3.54,2.5,1,blend+inj,8.37,Mike Conley,Joel Embiid; Shake Milton
+2020,2021-02-16,Thunder,Trailblazers,home,7.0,2.25,-1,1.93,1.5,-1,blend+inj,-4.75,Shai Gilgeous-Alexander; Aleksej Pokusevski,CJ McCollum; Jusuf Nurkic; Rodney Hood; Rondae Hollis-Jefferson; Harry Giles III
+2020,2021-02-16,Suns,Nets,home,-2.0,3.12,-1,6.51,6.0,-1,blend+inj,5.12,Frank Kaminsky,Kevin Durant; Kyrie Irving
+2020,2021-02-17,Wizards,Nuggets,home,4.0,2.32,1,3.96,-0.5,1,blend+inj,-1.68,Ish Smith; Troy Brown Jr.; Jerome Robinson; Isaac Bonga,Paul Millsap; Will Barton; Aaron Gordon; P.J. Dozier
+2020,2021-02-17,Seventysixers,Rockets,away,-11.0,-2.91,1,-1.2,3.0,1,blend+inj,8.09,Ben Simmons; Shake Milton,P.J. Tucker; Victor Oladipo; Christian Wood
+2020,2021-02-17,Pelicans,Trailblazers,home,-3.0,2.41,-1,4.79,1.0,-1,blend+inj,5.41,Nickeil Alexander-Walker,CJ McCollum; Jusuf Nurkic; Rondae Hollis-Jefferson; Harry Giles III
+2020,2021-02-20,Hornets,Warriors,home,1.5,2.76,1,4.64,-0.5,1,blend+inj,1.26,Devonte' Graham; Caleb Martin,Stephen Curry; Kevon Looney; James Wiseman
+2020,2021-02-22,Jazz,Hornets,home,-12.5,2.53,1,1.34,0.0,1,blend+inj,15.03,,Devonte' Graham; Caleb Martin
+2020,2021-02-26,Pistons,Kings,home,2.0,2.14,-1,1.86,0.5,-1,blend+inj,0.14,Blake Griffin; Delon Wright,Hassan Whiteside; Jabari Parker; Glenn Robinson III; Tyrese Haliburton
+2020,2021-02-28,Heat,Hawks,away,-6.5,-3.08,-1,-3.69,4.0,-1,blend+inj,3.42,Jimmy Butler; Maurice Harkless; Max Strus,Cam Reddish
+2020,2021-03-02,Celtics,Clippers,home,4.0,2.66,1,4.08,-1.0,1,blend+inj,-1.34,Grant Williams; Javonte Green; Aaron Nesmith,Kawhi Leonard; Patrick Patterson
+2020,2021-03-04,Trailblazers,Kings,home,-5.0,3.19,-1,3.68,-0.5,-1,blend+inj,8.19,Harry Giles III,Hassan Whiteside; Jabari Parker; Glenn Robinson III; Tyrese Haliburton
+2020,2021-03-04,Suns,Warriors,home,-5.0,2.44,1,4.28,7.5,1,blend+inj,7.44,Langston Galloway; Torrey Craig; Cameron Johnson,Stephen Curry; Draymond Green; Kelly Oubre Jr.; Marquese Chriss
+2020,2021-03-11,Thunder,Mavericks,home,6.5,3.79,1,4.85,4.5,1,blend+inj,-2.71,Mike Muscala; Justin Jackson; Hamidou Diallo; Darius Bazley,Kristaps Porzingis; Luka Doncic
+2020,2021-03-12,Wizards,Seventysixers,home,5.0,2.21,-1,2.5,2.0,-1,blend+inj,-2.79,Ish Smith; Jerome Robinson,Ben Simmons
+2020,2021-03-12,Jazz,Rockets,home,-15.5,3.76,-1,7.53,3.5,-1,blend+inj,19.26,,Avery Bradley; John Wall; Eric Gordon; DeMarcus Cousins; P.J. Tucker; Victor Oladipo; Christian Wood; Danuel House Jr.
+2020,2021-03-15,Nets,Knicks,home,-7.5,2.21,-1,2.41,1.0,-1,blend+inj,9.71,Iman Shumpert; Andre Roberson,Derrick Rose; Elfrid Payton
+2020,2021-03-15,Pistons,Spurs,home,3.5,3.1,-1,4.44,2.0,-1,blend+inj,-0.4,Blake Griffin; Wayne Ellington; Dennis Smith Jr.; Svi Mykhailiuk,DeMar DeRozan; LaMarcus Aldridge; Trey Lyles
+2020,2021-03-16,Bulls,Thunder,home,-4.5,2.36,1,3.32,2.5,1,blend+inj,6.86,Garrett Temple,Al Horford; Mike Muscala; Hamidou Diallo; Darius Bazley; Luguentz Dort
+2020,2021-03-16,Rockets,Hawks,home,9.5,2.47,-1,-2.55,1.0,-1,blend+inj,-7.03,Avery Bradley; John Wall; Eric Gordon; P.J. Tucker; Ben McLemore; Christian Wood; Danuel House Jr.; David Nwaba,Clint Capela; Cam Reddish
+2020,2021-03-17,Rockets,Warriors,home,12.5,2.47,-1,-3.37,1.5,-1,blend+inj,-10.03,Avery Bradley; John Wall; Eric Gordon; P.J. Tucker; Victor Oladipo; Ben McLemore; David Nwaba,Brad Wanamaker; Eric Paschall; James Wiseman
+2020,2021-03-20,Bucks,Spurs,home,-9.5,2.14,-1,3.02,2.0,-1,blend+inj,11.64,,LaMarcus Aldridge; Patty Mills; Trey Lyles; Dejounte Murray
+2020,2021-03-21,Knicks,Seventysixers,home,3.5,2.17,1,3.52,2.5,0,blend+inj,-1.33,Derrick Rose; Taj Gibson; Elfrid Payton,Seth Curry; Joel Embiid
+2020,2021-03-21,Suns,Lakers,home,-3.0,3.23,1,4.25,7.0,1,blend+inj,6.23,E'Twaun Moore; Frank Kaminsky,LeBron James; Marc Gasol; Damian Jones
+2020,2021-03-22,Timberwolves,Thunder,home,-2.0,2.99,-1,1.5,3.0,-1,blend+inj,4.99,Malik Beasley; Jordan McLaughlin,Al Horford; Darius Miller; Mike Muscala; Hamidou Diallo; Darius Bazley; Luguentz Dort
+2020,2021-03-22,Grizzlies,Celtics,home,-1.0,2.05,1,3.09,3.5,1,blend+inj,3.05,Gorgui Dieng; Sean McDermott; Xavier Tillman; Killian Tillie,Kemba Walker; Tristan Thompson; Jayson Tatum
+2020,2021-03-24,Thunder,Grizzlies,away,5.0,-2.39,1,-4.23,2.0,1,blend+inj,-7.39,Darius Miller; Mike Muscala; Justin Jackson; Hamidou Diallo; Shai Gilgeous-Alexander; Darius Bazley,Sean McDermott; Xavier Tillman; Killian Tillie
+2020,2021-03-24,Jazz,Nets,home,-8.5,4.67,1,7.62,4.5,1,blend+inj,13.17,,Iman Shumpert; James Harden; Blake Griffin; Kyrie Irving; Andre Roberson; Landry Shamet
+2020,2021-03-25,Spurs,Clippers,home,6.0,3.09,-1,4.57,5.0,-1,blend+inj,-2.91,LaMarcus Aldridge; Trey Lyles; Lonnie Walker IV,Serge Ibaka; Marcus Morris Sr.; Kawhi Leonard; Lou Williams; Patrick Beverley
+2020,2021-03-25,Lakers,Seventysixers,home,4.5,2.43,-1,1.92,-1.5,-1,blend+inj,-2.07,LeBron James; Damian Jones,Joel Embiid; Tony Bradley
+2020,2021-03-27,Wizards,Pistons,home,-3.5,2.55,1,2.45,2.0,1,blend+inj,6.05,Ish Smith; Davis Bertans; Troy Brown Jr.,Delon Wright; Rodney McGruder; Dennis Smith Jr.; Hamidou Diallo
+2020,2021-03-29,Jazz,Cavaliers,home,-15.0,3.62,1,4.79,1.5,1,blend+inj,18.62,,JaVale McGee; Kevin Love; Larry Nance Jr.; Cedi Osman; Jarrett Allen; Dylan Windler
+2020,2021-03-31,Grizzlies,Jazz,home,8.5,2.16,1,1.27,2.5,1,blend+inj,-6.34,Justise Winslow; Grayson Allen; Brandon Clarke; Jontay Porter,Donovan Mitchell
+2020,2021-04-01,Pelicans,Magic,away,-10.0,-5.4,1,-9.32,5.0,1,blend+inj,4.6,JJ Redick; Willy Hernangomez; Brandon Ingram; Lonzo Ball; Zion Williamson; Naji Marshall,Michael Carter-Williams; Gary Clark
+2020,2021-04-02,Suns,Thunder,home,-12.0,2.07,1,5.3,2.0,1,blend+inj,14.07,E'Twaun Moore; Frank Kaminsky; Abdel Nader,Al Horford; Mike Muscala; Shai Gilgeous-Alexander; Darius Bazley; Luguentz Dort
+2020,2021-04-03,Seventysixers,Timberwolves,home,-11.5,2.24,-1,1.21,2.5,-1,blend+inj,13.74,Tyrese Maxey,Ricky Rubio; Malik Beasley
+2020,2021-04-04,Bulls,Nets,home,3.0,2.08,1,5.12,0.5,1,blend+inj,-0.92,Al-Farouq Aminu; Garrett Temple; Coby White,James Harden; DeAndre Jordan
+2020,2021-04-04,Rockets,Pelicans,home,5.0,3.38,-1,5.78,2.5,-1,blend+inj,-1.62,John Wall; Ben McLemore; David Nwaba; Justin Patton,Brandon Ingram; Josh Hart; Zion Williamson; Kira Lewis Jr.
+2020,2021-04-04,Nuggets,Magic,home,-13.0,2.11,-1,0.69,4.5,-1,blend+inj,15.11,,Michael Carter-Williams; Otto Porter Jr.; Khem Birch; Gary Clark
+2020,2021-04-06,Raptors,Lakers,home,2.5,2.42,-1,2.94,1.0,-1,blend+inj,-0.08,Kyle Lowry; Rodney Hood; Patrick McCaw; Fred VanVleet; Paul Watson,LeBron James; Andre Drummond; Damian Jones
+2020,2021-04-06,Warriors,Bucks,home,6.5,2.16,1,3.32,3.5,1,blend+inj,-4.34,Eric Paschall; Nico Mannion,P.J. Tucker; Giannis Antetokounmpo
+2020,2021-04-08,Kings,Pistons,home,-4.5,3.3,-1,4.39,3.5,-1,blend+inj,7.8,,Mason Plumlee; Jerami Grant; Rodney McGruder; Saben Lee
+2020,2021-04-10,Suns,Wizards,home,-11.0,2.02,1,2.38,2.5,1,blend+inj,13.02,Abdel Nader,Bradley Beal; Davis Bertans; Jerome Robinson
+2020,2021-04-12,Knicks,Lakers,away,-3.5,-2.31,-1,-0.84,2.5,-1,blend+inj,1.19,Mitchell Robinson,
+2020,2021-04-14,Seventysixers,Nets,home,-6.5,2.55,-1,7.77,2.5,-1,blend+inj,9.05,Dwight Howard,Kevin Durant; James Harden; Blake Griffin; LaMarcus Aldridge; Tyler Johnson; Chris Chiozza
+2020,2021-04-14,Pistons,Clippers,home,9.5,4.16,1,7.18,8.0,-1,blend+inj,-5.34,Rodney McGruder; Dennis Smith Jr.; Sekou Doumbouya; Saben Lee,Marcus Morris Sr.; Paul George; Kawhi Leonard; Patrick Beverley
+2020,2021-04-15,Cavaliers,Warriors,home,9.5,3.99,-1,2.4,4.0,-1,blend+inj,-5.51,Damyean Dotson; Cedi Osman; Dylan Windler,Kelly Oubre Jr.; Eric Paschall; James Wiseman
+2020,2021-04-15,Lakers,Celtics,home,6.0,2.79,-1,1.65,-1.5,-1,blend+inj,-3.21,Markieff Morris; Andre Drummond,Evan Fournier; Robert Williams III
+2020,2021-04-16,Pistons,Thunder,away,-7.5,-3.72,1,-3.84,5.0,-1,blend+inj,3.78,Cory Joseph; Wayne Ellington; Mason Plumlee; Jerami Grant; Rodney McGruder; Dennis Smith Jr.; Hamidou Diallo,Al Horford; Darius Miller; Justin Jackson; Aleksej Pokusevski; Josh Hall
+2020,2021-04-18,Heat,Nets,home,5.5,2.06,1,1.24,0.5,1,blend+inj,-3.44,Jimmy Butler; Victor Oladipo,James Harden; DeAndre Jordan; LaMarcus Aldridge; Tyler Johnson; Chris Chiozza
+2020,2021-04-18,Raptors,Thunder,away,-11.5,-5.1,1,-6.06,6.5,-1,blend+inj,6.4,Kyle Lowry; Aron Baynes; Pascal Siakam; Fred VanVleet; OG Anunoby,Darius Miller; Justin Jackson; Jaylen Hoard; Josh Hall
+2020,2021-04-18,Clippers,Timberwolves,home,-8.5,2.02,1,-0.27,3.0,1,blend+inj,10.52,Nicolas Batum; Patrick Beverley,Malik Beasley; Jaylen Nowell
+2020,2021-04-19,Heat,Rockets,away,-9.5,-3.84,-1,-6.36,4.5,-1,blend+inj,5.66,Jimmy Butler; Victor Oladipo; Bam Adebayo; Tyler Herro,D.J. Augustin; Danuel House Jr.; Sterling Brown; Justin Patton
+2020,2021-04-19,Nuggets,Grizzlies,home,-5.0,3.15,-1,1.44,2.5,-1,blend+inj,8.15,JaVale McGee; Jamal Murray; Monte Morris; Gary Clark,Jonas Valanciunas; Dillon Brooks; Killian Tillie
+2020,2021-04-20,Trailblazers,Clippers,home,8.5,2.84,1,0.47,4.0,1,blend+inj,-5.66,Damian Lillard; Jusuf Nurkic,Kawhi Leonard; Patrick Beverley
+2020,2021-04-22,Mavericks,Lakers,home,-2.0,2.09,1,1.35,1.5,1,blend+inj,4.09,Maxi Kleber; Nicolo Melli,Marc Gasol; Wesley Matthews
+2020,2021-04-23,Rockets,Clippers,home,11.5,2.69,1,4.68,2.5,1,blend+inj,-8.81,Avery Bradley; D.J. Augustin; Sterling Brown; Kevin Porter Jr.,Rajon Rondo; Marcus Morris Sr.; Kawhi Leonard; Patrick Beverley; Yogi Ferrell
+2020,2021-04-23,Trailblazers,Grizzlies,home,-2.5,2.0,-1,3.52,1.5,-1,blend+inj,4.5,Rodney Hood; Gary Trent Jr.,Jonas Valanciunas; Gorgui Dieng; Tim Frazier; Tyus Jones; John Konchar; Sean McDermott
+2020,2021-04-24,Nuggets,Rockets,home,-13.5,2.07,-1,0.73,0.5,-1,blend+inj,15.57,Paul Millsap; Will Barton; Jamal Murray; Monte Morris; Gary Clark,Avery Bradley; John Wall; D.J. Augustin; Christian Wood; Danuel House Jr.; Sterling Brown; Kevin Porter Jr.
+2020,2021-04-26,Pistons,Hawks,home,5.5,2.4,1,2.4,1.5,1,blend+inj,-3.1,Jahlil Okafor; Dennis Smith Jr.; Josh Jackson,Lou Williams; Tony Snell; Trae Young
+2020,2021-04-26,Seventysixers,Thunder,home,-11.5,3.09,1,1.97,4.0,1,blend+inj,14.59,Danny Green; Mike Scott,Darius Miller; Justin Jackson; Tony Bradley; Luguentz Dort; Josh Hall
+2020,2021-04-27,Raptors,Nets,home,6.5,2.29,-1,4.89,1.5,-1,blend+inj,-4.21,Aron Baynes; Chris Boucher; Gary Trent Jr.; Paul Watson,James Harden; DeAndre Jordan; LaMarcus Aldridge; Timothe Luwawu-Cabarrot; Bruce Brown; Chris Chiozza; Nic Claxton
+2020,2021-04-29,Pacers,Nets,home,9.5,2.87,-1,3.17,4.5,-1,blend+inj,-6.63,Jeremy Lamb; Myles Turner; Domantas Sabonis; Goga Bitadze,DeAndre Jordan; Kyrie Irving; LaMarcus Aldridge; Bruce Brown; Chris Chiozza; Nic Claxton
+2020,2021-04-29,Nuggets,Raptors,home,-4.0,2.2,1,0.08,1.0,1,blend+inj,6.2,JaVale McGee; Will Barton; Jamal Murray; Monte Morris,Aron Baynes; Fred VanVleet; Chris Boucher; Gary Trent Jr.; Paul Watson
+2020,2021-05-01,Hawks,Bulls,home,-6.0,2.67,1,6.04,3.0,1,blend+inj,8.67,Kris Dunn; Brandon Goodwin,Nikola Vucevic; Zach LaVine; Troy Brown Jr.
+2020,2021-05-02,Spurs,Seventysixers,away,5.0,-2.91,-1,-8.09,5.0,-1,blend+inj,-7.91,DeMar DeRozan; Jakob Poeltl; Dejounte Murray; Derrick White,Anthony Tolliver; Mike Scott; Tyrese Maxey
+2020,2021-05-04,Thunder,Kings,home,5.0,2.66,1,6.47,-0.5,1,blend+inj,-2.34,Tony Bradley; Kenrich Williams; Aleksej Pokusevski,Hassan Whiteside; Harrison Barnes; De'Aaron Fox; Chimezie Metu; Tyrese Haliburton
+2020,2021-05-04,Clippers,Raptors,home,-9.5,3.05,-1,6.21,2.0,-1,blend+inj,12.55,Patrick Patterson; Luke Kennard; Amir Coffey,Kyle Lowry; OG Anunoby; Chris Boucher; Gary Trent Jr.; Paul Watson
+2020,2021-05-05,Magic,Celtics,away,9.0,-2.39,1,-1.54,3.5,1,blend+inj,-11.39,Terrence Ross; Michael Carter-Williams; James Ennis III; Wendell Carter Jr.; Chuma Okeke; Robert Franks,Tristan Thompson; Jaylen Brown; Romeo Langford
+2020,2021-05-05,Nuggets,Knicks,home,-3.0,2.45,1,-0.97,0.5,1,blend+inj,5.45,Will Barton; Monte Morris; P.J. Dozier,
+2020,2021-05-06,Clippers,Lakers,home,-8.0,2.01,1,5.12,0.5,1,blend+inj,10.01,Patrick Patterson; Amir Coffey,LeBron James; Dennis Schroder; Talen Horton-Tucker
+2020,2021-05-07,Trailblazers,Lakers,home,-7.0,2.36,-1,6.71,0.5,-1,blend+inj,9.36,Derrick Jones Jr.; Nassir Little,LeBron James; Dennis Schroder; Montrezl Harrell; Talen Horton-Tucker
+2020,2021-05-08,Jazz,Rockets,home,-14.5,5.16,-1,4.83,1.5,-1,blend+inj,19.66,Mike Conley,Avery Bradley; John Wall; Kelly Olynyk; Christian Wood; D.J. Wilson; Kevin Porter Jr.
+2020,2021-05-11,Pacers,Seventysixers,home,6.5,2.15,1,2.58,1.0,1,blend+inj,-4.35,Malcolm Brogdon; Edmond Sumner; Aaron Holiday,Joel Embiid; Furkan Korkmaz; Shake Milton; Matisse Thybulle
+2020,2021-05-11,Bucks,Magic,home,-14.0,2.22,-1,3.19,1.5,-1,blend+inj,16.22,,James Ennis III; Mo Bamba; Chuma Okeke; Robert Franks
+2020,2021-05-11,Kings,Thunder,away,-10.5,-3.0,-1,-7.86,1.5,-1,blend+inj,7.5,Hassan Whiteside; Harrison Barnes; De'Aaron Fox; Marvin Bagley III; Tyrese Haliburton,Ty Jerome; Luguentz Dort; Theo Maledon; Josh Hall
+2020,2021-05-11,Lakers,Knicks,away,-5.5,-2.38,1,-3.17,3.0,1,blend+inj,3.12,LeBron James; Dennis Schroder,Alec Burks; Immanuel Quickley
+2020,2021-05-12,Cavaliers,Celtics,home,10.0,2.49,1,2.88,4.0,1,blend+inj,-7.51,Matthew Dellavedova; Larry Nance Jr.; Taurean Prince; Cedi Osman; Isaiah Hartenstein; Darius Garland,Kemba Walker; Marcus Smart; Jaylen Brown; Robert Williams III
+2020,2021-05-12,Lakers,Rockets,away,-13.5,-3.76,1,-3.91,4.5,1,blend+inj,9.74,LeBron James; Marc Gasol; Anthony Davis; Dennis Schroder; Alex Caruso,Avery Bradley; John Wall; Christian Wood; Danuel House Jr.; D.J. Wilson; Kevin Porter Jr.; DaQuan Jeffries
+2020,2021-05-14,Thunder,Jazz,away,13.5,-2.42,1,-1.89,1.5,1,blend+inj,-15.92,Kenrich Williams; Ty Jerome; Luguentz Dort; Josh Hall,
+2020,2021-05-14,Rockets,Clippers,home,12.0,2.7,1,2.07,5.0,1,blend+inj,-9.3,Avery Bradley; John Wall; Christian Wood; Danuel House Jr.; D.J. Wilson; Kevin Porter Jr.; DaQuan Jeffries,Paul George; Kawhi Leonard; Reggie Jackson; Patrick Beverley; Terance Mann; Amir Coffey
+2020,2021-05-14,Grizzlies,Kings,away,-6.5,-2.54,1,-2.52,3.0,1,blend+inj,3.96,Jonas Valanciunas; Gorgui Dieng; Kyle Anderson; Dillon Brooks; Jaren Jackson Jr.; Grayson Allen; Ja Morant; Brandon Clarke,Cory Joseph; Hassan Whiteside; Harrison Barnes; Glenn Robinson III; Richaun Holmes; Nemanja Bjelica; De'Aaron Fox; Marvin Bagley III; Tyrese Haliburton
+2020,2021-05-14,Mavericks,Raptors,home,-13.0,2.39,-1,9.94,1.5,-1,blend+inj,15.39,Maxi Kleber; Josh Green,Kyle Lowry; Pascal Siakam; Fred VanVleet; OG Anunoby; Chris Boucher; Yuta Watanabe; Gary Trent Jr.
+2020,2021-05-15,Bucks,Heat,home,0.0,2.72,1,3.38,4.5,1,blend+inj,2.72,Jeff Teague,Jimmy Butler
+2020,2021-05-16,Kings,Jazz,away,11.0,-2.75,1,-10.85,-0.0,1,blend+inj,-13.75,Hassan Whiteside; Harrison Barnes; Maurice Harkless; Richaun Holmes; De'Aaron Fox; Marvin Bagley III; Tyrese Haliburton,
+2020,2021-05-16,Spurs,Suns,home,9.0,5.3,1,5.4,7.0,0,blend+inj,-3.7,Patty Mills; Derrick White,Chris Paul; Jae Crowder; Devin Booker; Deandre Ayton; Cameron Johnson
+2020,2021-05-16,Pistons,Heat,home,6.0,2.42,-1,4.37,3.0,-1,blend+inj,-3.58,Wayne Ellington; Mason Plumlee; Jerami Grant; Frank Jackson; Sekou Doumbouya; Isaiah Stewart,Goran Dragic; Trevor Ariza; Andre Iguodala; Jimmy Butler; Dewayne Dedmon; Bam Adebayo; Kendrick Nunn
+2020,2021-05-16,Trailblazers,Nuggets,away,-8.5,-2.61,-1,-0.02,-0.0,-1,blend+inj,5.89,,P.J. Dozier
+2020,2021-05-16,Bulls,Bucks,home,2.5,4.3,1,7.48,-4.5,1,blend+inj,1.8,Al-Farouq Aminu; Nikola Vucevic; Zach LaVine; Tomas Satoransky; Daniel Theis,Jrue Holiday; Brook Lopez; P.J. Tucker; Khris Middleton; Giannis Antetokounmpo; Bobby Portis; Bryn Forbes; Donte DiVincenzo
+2020,2021-05-16,Knicks,Celtics,home,-8.5,2.68,-1,12.41,3.5,-1,blend+inj,11.18,,Kemba Walker; Tristan Thompson; Evan Fournier; Marcus Smart; Jaylen Brown; Jayson Tatum; Robert Williams III
+2020,2021-05-27,Lakers,Suns,away,-6.5,-2.08,-1,-0.89,-0.0,-1,blend+inj,4.42,Markieff Morris; Montrezl Harrell; Talen Horton-Tucker,Dario Saric; Jevon Carter
+2020,2021-06-13,Bucks,Nets,home,2.0,2.83,1,3.77,0.0,1,blend+inj,0.83,Donte DiVincenzo,James Harden
+2020,2021-06-15,Nets,Bucks,home,2.5,2.77,1,-1.3,1.5,1,blend+inj,0.27,Kyrie Irving; Tyler Johnson,Bobby Portis; Justin Jackson; Donte DiVincenzo
+2020,2021-06-18,Hawks,Seventysixers,away,-3.0,-2.19,1,0.3,-0.0,1,blend+inj,0.81,Kris Dunn; De'Andre Hunter,Danny Green
+2020,2021-07-06,Suns,Bucks,away,-5.5,-2.03,-1,0.0,1.0,-1,blend+inj,3.47,,
+2021,2021-11-05,Warriors,Pelicans,home,-3.0,3.7,1,2.49,6.5,1,blend+inj,6.7,,Brandon Ingram; Jaxson Hayes; Herbert Jones
+2021,2021-11-11,Seventysixers,Raptors,home,-2.0,2.24,-1,0.26,2.0,-1,blend+inj,4.24,Joel Embiid; Matisse Thybulle,Goran Dragic; Sam Dekker; Pascal Siakam; Khem Birch; Malachi Flynn
+2021,2021-11-11,Jazz,Pacers,home,-9.0,2.21,-1,1.77,1.5,-1,blend+inj,11.21,,Caris LeVert; Brad Wanamaker; Oshae Brissett
+2021,2021-11-16,Jazz,Seventysixers,home,-9.0,2.18,1,3.48,2.5,1,blend+inj,11.18,,Danny Green; Joel Embiid; Matisse Thybulle
+2021,2021-11-18,Jazz,Raptors,home,-9.0,2.3,1,2.36,1.0,1,blend+inj,11.3,,Goran Dragic; Sam Dekker; OG Anunoby; Precious Achiuwa
+2021,2021-11-19,Pistons,Warriors,home,10.5,4.19,1,4.57,9.0,-1,blend+inj,-6.31,Kelly Olynyk; Josh Jackson; Saben Lee,Stephen Curry; Andre Iguodala; Draymond Green; Otto Porter Jr.
+2021,2021-11-20,Bucks,Magic,home,-11.5,2.28,-1,2.18,1.0,-1,blend+inj,13.78,Semi Ojeleye; Jordan Nwora,Cole Anthony
+2021,2021-11-24,Pacers,Lakers,home,-1.5,2.13,-1,2.39,5.0,-1,blend+inj,3.63,Jeremy Lamb; Brad Wanamaker; Oshae Brissett,Rajon Rondo; Anthony Davis; Kent Bazemore; Sekou Doumbouya; Austin Reaves
+2021,2021-11-26,Lakers,Kings,home,-1.0,2.32,-1,3.06,6.5,-1,blend+inj,3.32,Rajon Rondo; Kent Bazemore; Sekou Doumbouya; Austin Reaves,Harrison Barnes; Richaun Holmes
+2021,2021-11-29,Heat,Nuggets,away,-7.5,-3.3,1,-4.39,4.5,1,blend+inj,4.2,Markieff Morris; Jimmy Butler; Tyler Herro,JaMychal Green; P.J. Dozier; Michael Porter Jr.
+2021,2021-11-30,Raptors,Grizzlies,away,-4.5,-2.25,1,-2.46,1.5,1,blend+inj,2.25,Goran Dragic; OG Anunoby; Khem Birch; Gary Trent Jr.,Ja Morant; Ziaire Williams
+2021,2021-12-04,Mavericks,Grizzlies,home,5.5,2.43,-1,-1.35,5.5,-1,blend+inj,-3.07,Kristaps Porzingis; Luka Doncic,Kyle Anderson; Ja Morant; Brandon Clarke; Ziaire Williams
+2021,2021-12-06,Bulls,Nuggets,away,-5.0,-2.15,-1,-3.89,3.0,-1,blend+inj,2.85,DeMar DeRozan; Alex Caruso; Coby White; Javonte Green,Austin Rivers; P.J. Dozier; Bones Hyland
+2021,2021-12-08,Grizzlies,Mavericks,away,-4.5,-2.34,1,-3.86,3.5,1,blend+inj,2.16,Kyle Anderson; Ja Morant; Brandon Clarke; Ziaire Williams,Frank Ntilikina; Sterling Brown
+2021,2021-12-10,Rockets,Bucks,away,7.5,-2.06,1,-1.28,2.0,-1,blend+inj,-9.56,Danuel House Jr.; Daniel Theis; Kevin Porter Jr.; Jalen Green,George Hill; Semi Ojeleye; Jordan Nwora
+2021,2021-12-14,Nets,Raptors,away,-8.5,-2.88,1,-4.18,4.5,1,blend+inj,5.62,James Harden; James Johnson; LaMarcus Aldridge; DeAndre' Bembry; Bruce Brown,Khem Birch; Precious Achiuwa
+2021,2021-12-15,Seventysixers,Heat,home,-3.0,2.63,-1,6.38,4.5,-1,blend+inj,5.63,Georges Niang; Furkan Korkmaz,Jimmy Butler; Bam Adebayo; Tyler Herro; Caleb Martin
+2021,2021-12-15,Jazz,Clippers,home,-8.0,2.16,1,2.05,5.5,1,blend+inj,10.16,,Serge Ibaka; Paul George; Nicolas Batum
+2021,2021-12-18,Nets,Magic,home,-2.0,3.35,-1,-5.11,3.0,-1,blend+inj,5.35,Kevin Durant; James Harden; James Johnson; LaMarcus Aldridge; DeAndre' Bembry; Bruce Brown; Nic Claxton,Terrence Ross; Mo Bamba; Wendell Carter Jr.; Moritz Wagner; Cole Anthony; R.J. Hampton; Jalen Suggs
+2021,2021-12-20,Jazz,Hornets,home,-11.0,2.94,-1,3.15,1.5,-1,blend+inj,13.94,,Gordon Hayward; Cody Martin
+2021,2021-12-23,Jazz,Timberwolves,home,-9.5,4.52,1,7.2,5.5,-1,blend+inj,14.02,,Patrick Beverley; Karl-Anthony Towns; Taurean Prince; Jarred Vanderbilt; Anthony Edwards
+2021,2021-12-25,Knicks,Hawks,home,-1.0,2.49,1,4.73,4.5,1,blend+inj,3.49,Derrick Rose; Nerlens Noel; Danuel House Jr.; Wayne Selden; Damyean Dotson; Immanuel Quickley,Danilo Gallinari; Lou Williams; Timothe Luwawu-Cabarrot; Wes Iwundu; Trae Young; Kevin Huerter; De'Andre Hunter; Onyeka Okongwu
+2021,2021-12-25,Lakers,Nets,home,-1.5,2.43,-1,6.89,1.0,-1,blend+inj,3.93,Rajon Rondo; Avery Bradley; DeAndre Jordan; Trevor Ariza; Isaiah Thomas; Anthony Davis; Kent Bazemore; Jemerrio Jones; Austin Reaves,Kevin Durant; Kyrie Irving; LaMarcus Aldridge; Andre Drummond; James Ennis III; Cam Thomas; Kessler Edwards; David Duke Jr.
+2021,2021-12-25,Jazz,Mavericks,home,-5.0,5.31,-1,4.93,8.5,-1,blend+inj,10.31,,Reggie Bullock; Tim Hardaway Jr.; Trey Burke; Dorian Finney-Smith; Maxi Kleber; Luka Doncic
+2021,2021-12-26,Heat,Magic,home,-8.5,2.42,1,0.79,2.0,-1,blend+inj,10.92,Kyle Lowry; P.J. Tucker; Dewayne Dedmon; KZ Okpala,Terrence Ross; Mo Bamba; Moritz Wagner; Mychal Mulder; Chuma Okeke; Cole Anthony; Jalen Suggs
+2021,2021-12-26,Wizards,Seventysixers,away,2.0,-2.59,1,-5.8,2.0,1,blend+inj,-4.59,Bradley Beal; Kentavious Caldwell-Pope; Raul Neto; Thomas Bryant; Rui Hachimura,Danny Green; Shake Milton
+2021,2021-12-26,Kings,Grizzlies,home,5.0,2.07,-1,1.31,3.0,-1,blend+inj,-2.93,Alex Len; Davion Mitchell,Dillon Brooks; De'Anthony Melton; Ziaire Williams
+2021,2021-12-26,Bulls,Pacers,away,-8.0,-2.29,0,-1.01,4.0,-1,blend+inj,5.71,Derrick Jones Jr.; Alfonzo McKinnie; Lonzo Ball; Alex Caruso; Tony Bradley,Jeremy Lamb; T.J. McConnell; Malcolm Brogdon
+2021,2021-12-27,Hawks,Bulls,home,6.5,2.86,-1,-0.76,3.5,-1,blend+inj,-3.64,Danilo Gallinari; Lou Williams; Delon Wright; Timothe Luwawu-Cabarrot; John Collins; Wes Iwundu; Kevin Huerter; De'Andre Hunter; Onyeka Okongwu,Derrick Jones Jr.; Alfonzo McKinnie; Lonzo Ball; Alex Caruso; Tony Bradley
+2021,2021-12-27,Clippers,Nets,home,4.5,4.45,-1,5.62,0.5,-1,blend+inj,-0.05,Paul George; Nicolas Batum; Reggie Jackson; Isaiah Hartenstein,Kevin Durant; Kyrie Irving; LaMarcus Aldridge; Andre Drummond; Cam Thomas; Kessler Edwards; David Duke Jr.
+2021,2021-12-28,Pelicans,Cavaliers,home,5.5,2.15,1,0.62,1.0,1,blend+inj,-3.35,Brandon Ingram; Josh Hart; Nickeil Alexander-Walker; Kira Lewis Jr.,Cedi Osman; Jarrett Allen; Brandon Goodwin; Darius Garland; Lamar Stevens
+2021,2021-12-31,Lakers,Trailblazers,away,-5.5,-2.37,-1,-1.32,-0.0,-1,blend+inj,3.13,Rajon Rondo; Dwight Howard; DeAndre Jordan; Darren Collison; Anthony Davis; Jemerrio Jones,Cody Zeller; Robert Covington; Jusuf Nurkic; Anfernee Simons
+2021,2022-01-05,Pacers,Nets,away,3.5,-3.14,1,-4.49,4.5,0,blend+inj,-6.64,Jeremy Lamb; Malcolm Brogdon; Caris LeVert; Torrey Craig; Kelan Martin; Chris Duarte,Langston Galloway; Bruce Brown; Cam Thomas; Kessler Edwards
+2021,2022-01-07,Nuggets,Kings,home,-6.0,2.13,1,1.88,2.0,1,blend+inj,8.13,Davon Reed; Vlatko Cancar,Richaun Holmes; Chimezie Metu; Terence Davis
+2021,2022-01-13,Nuggets,Trailblazers,home,-8.0,2.96,1,6.78,3.5,1,blend+inj,10.96,James Ennis III; JaMychal Green; Vlatko Cancar,Damian Lillard; Cody Zeller; Norman Powell; Larry Nance Jr.; Anfernee Simons; Cameron McGriff
+2021,2022-01-19,Bucks,Grizzlies,home,-4.5,2.61,1,4.66,2.0,1,blend+inj,7.11,DeMarcus Cousins; Rodney Hood; Langston Galloway; Semi Ojeleye; Jordan Nwora; Sandro Mamukelashvili; Javonte Smart,Kyle Anderson; Tyus Jones; Dillon Brooks; DaQuan Jeffries; Desmond Bane; Killian Tillie
+2021,2022-01-20,Warriors,Pacers,home,-10.0,2.92,-1,6.31,7.0,-1,blend+inj,12.92,Draymond Green; Otto Porter Jr.,Justin Anderson; Myles Turner; Malcolm Brogdon; Domantas Sabonis; Caris LeVert; Kelan Martin
+2021,2022-01-21,Celtics,Trailblazers,home,-8.0,2.05,-1,5.09,0.5,-1,blend+inj,10.05,Marcus Smart,Damian Lillard; Tony Snell; Cody Zeller; Norman Powell; Larry Nance Jr.; Cameron McGriff
+2021,2022-01-23,Heat,Lakers,away,-5.0,-2.15,-1,-3.85,1.0,-1,blend+inj,2.85,Kyle Lowry; Nik Stauskas; Tyler Herro; Omer Yurtseven,Darren Collison
+2021,2022-01-23,Mavericks,Grizzlies,home,-2.5,2.52,1,6.92,1.5,1,blend+inj,5.02,Sterling Brown,Kyle Anderson; Tyus Jones; Dillon Brooks; Brandon Clarke; DaQuan Jeffries; Desmond Bane
+2021,2022-01-25,Seventysixers,Pelicans,home,-9.0,2.7,1,6.1,2.5,-1,blend+inj,11.7,Danny Green; Seth Curry; Shake Milton,Jonas Valanciunas; Brandon Ingram; Josh Hart; Devonte' Graham; Kira Lewis Jr.
+2021,2022-01-26,Hawks,Kings,home,-7.5,2.35,1,3.84,3.5,1,blend+inj,9.85,,De'Aaron Fox; Chimezie Metu; Terence Davis
+2021,2022-01-27,Seventysixers,Lakers,home,-2.0,2.4,1,4.18,4.0,1,blend+inj,4.4,Shake Milton,LeBron James; Trevor Ariza
+2021,2022-01-29,Warriors,Nets,home,-5.5,2.25,-1,7.64,5.0,-1,blend+inj,7.75,Andre Iguodala; Draymond Green; Nemanja Bjelica,Kevin Durant; James Harden; Goran Dragic; Day'Ron Sharpe; David Duke Jr.
+2021,2022-01-30,Suns,Spurs,home,-8.5,3.17,-1,3.79,5.0,-1,blend+inj,11.67,Jae Crowder; Cameron Payne; Deandre Ayton; Jalen Smith,Tyler Johnson; Jakob Poeltl; Dejounte Murray; Derrick White; Keita Bates-Diop; Anthony Lamb
+2021,2022-01-31,Cavaliers,Pelicans,away,-8.0,-2.18,1,-1.43,3.5,1,blend+inj,5.82,Lauri Markkanen; Darius Garland,Brandon Ingram
+2021,2022-01-31,Celtics,Heat,home,-3.0,2.31,1,6.36,3.5,1,blend+inj,5.31,,Kyle Lowry; Jimmy Butler; P.J. Tucker; Omer Yurtseven
+2021,2022-02-02,Jazz,Nuggets,home,-2.0,3.73,1,-0.32,4.5,-1,blend+inj,5.73,Hassan Whiteside; Rudy Gobert; Jordan Clarkson; Joe Ingles; Denzel Valentine; Danuel House Jr.; Donovan Mitchell; Zylan Cheatham,DeMarcus Cousins; Aaron Gordon; James Ennis III; Nikola Jokic; Facundo Campazzo
+2021,2022-02-03,Spurs,Heat,away,2.5,-2.14,1,-4.12,6.0,1,blend+inj,-4.64,Doug McDermott; Bryn Forbes; Jakob Poeltl; Dejounte Murray; Keita Bates-Diop,KZ Okpala; Caleb Martin; Omer Yurtseven; Marcus Garrett
+2021,2022-02-06,Nuggets,Nets,home,-5.5,2.3,1,8.75,3.0,1,blend+inj,7.8,James Ennis III; JaMychal Green,Kevin Durant; James Harden; Goran Dragic; LaMarcus Aldridge; Nic Claxton; David Duke Jr.
+2021,2022-02-08,Nuggets,Knicks,home,-6.5,2.42,1,1.57,2.5,1,blend+inj,8.92,DeMarcus Cousins; Austin Rivers; James Ennis III,Nerlens Noel; Mitchell Robinson; Quentin Grimes
+2021,2022-02-09,Hornets,Bulls,home,3.0,2.7,-1,0.87,1.5,-1,blend+inj,-0.3,Gordon Hayward; Cody Martin; Jalen McDaniels; James Bouknight,Tristan Thompson; Derrick Jones Jr.; Alex Caruso; Ayo Dosunmu
+2021,2022-02-09,Trailblazers,Lakers,home,9.0,3.81,1,0.46,0.0,1,blend+inj,-5.19,Tony Snell; CJ McCollum; Nassir Little,Carmelo Anthony; Russell Westbrook; Dwight Howard
+2021,2022-02-10,Wizards,Nets,away,-3.0,-2.2,1,0.62,2.0,0,blend+inj,0.8,Bradley Beal; Spencer Dinwiddie; Montrezl Harrell; Aaron Holiday; Daniel Gafford,James Harden; Goran Dragic; LaMarcus Aldridge; DeAndre' Bembry; Nic Claxton
+2021,2022-02-10,Rockets,Raptors,home,8.0,2.25,-1,3.33,1.0,-1,blend+inj,-5.75,D.J. Augustin; Eric Gordon; Daniel Theis; Armoni Brooks,Thaddeus Young; Fred VanVleet; D.J. Wilson
+2021,2022-02-11,Pacers,Cavaliers,home,7.0,4.22,0,3.71,1.0,-1,blend+inj,-2.78,Torrey Craig; Keifer Sykes; Terry Taylor,Lauri Markkanen; Brandon Goodwin; Darius Garland
+2021,2022-02-12,Wizards,Kings,home,1.5,2.24,-1,0.3,-1.5,-1,blend+inj,0.74,Bradley Beal; Spencer Dinwiddie; Aaron Holiday; Daniel Gafford,Jeremy Lamb; Alex Len; Damian Jones; Marvin Bagley III; Terence Davis
+2021,2022-02-12,Warriors,Lakers,away,-16.0,-3.74,1,1.74,10.0,1,blend+inj,12.26,Andre Iguodala; Moses Moody,Carmelo Anthony; Dwight Howard; Wayne Ellington
+2021,2022-02-14,Nets,Kings,home,4.5,2.04,1,-3.78,3.0,1,blend+inj,-2.46,James Harden; Goran Dragic; Kyrie Irving; DeAndre' Bembry; Nic Claxton,Jeremy Lamb; Alex Len; Damian Jones; Terence Davis
+2021,2022-02-14,Bucks,Trailblazers,away,-15.0,-2.74,1,-4.46,4.0,1,blend+inj,12.26,George Hill; Giannis Antetokounmpo; Pat Connaughton,Tony Snell; Dennis Smith Jr.; Nassir Little
+2021,2022-02-24,Trailblazers,Warriors,away,6.0,-2.47,1,-2.71,4.0,1,blend+inj,-8.47,Jusuf Nurkic; Dennis Smith Jr.,Andre Iguodala
+2021,2022-02-25,Suns,Pelicans,away,-9.0,-2.1,1,-3.75,2.5,1,blend+inj,6.9,Chris Paul; Aaron Holiday,Garrett Temple
+2021,2022-02-26,Heat,Spurs,home,-7.5,5.24,-1,8.26,5.5,-1,blend+inj,12.74,Max Strus; Omer Yurtseven,Jakob Poeltl; Tomas Satoransky; Dejounte Murray; Keldon Johnson
+2021,2022-02-28,Nets,Raptors,away,2.5,-2.14,1,-6.77,0.5,1,blend+inj,-4.64,Kevin Durant; James Harden; Kyrie Irving; DeAndre' Bembry,Fred VanVleet; OG Anunoby
+2021,2022-03-02,Nuggets,Thunder,home,-13.5,2.15,-1,4.38,2.0,-1,blend+inj,15.65,Facundo Campazzo; Zeke Nnaji,Derrick Favors; Mike Muscala; Kenrich Williams; Ty Jerome; Luguentz Dort; Mamadi Diakite; Josh Giddey; Aaron Wiggins
+2021,2022-03-05,Heat,Seventysixers,home,-1.0,2.79,1,2.18,4.5,1,blend+inj,3.79,Kyle Lowry,James Harden
+2021,2022-03-06,Bucks,Suns,home,-7.5,2.66,1,8.63,1.5,1,blend+inj,10.16,Greg Monroe; Wesley Matthews; Pat Connaughton,Chris Paul; Devin Booker; Cameron Johnson
+2021,2022-03-07,Heat,Rockets,home,-15.5,2.53,1,2.77,1.0,1,blend+inj,18.03,,Eric Gordon; Dennis Schroder; Christian Wood
+2021,2022-03-08,Magic,Suns,home,8.0,2.81,1,8.02,2.0,1,blend+inj,-5.19,Robin Lopez; Jalen Suggs,Chris Paul; Devin Booker; Cameron Johnson
+2021,2022-03-09,Hornets,Celtics,away,2.0,-2.17,1,-0.27,5.0,1,blend+inj,-4.17,Jalen McDaniels; James Bouknight,
+2021,2022-03-09,Jazz,Trailblazers,home,-16.5,3.07,1,5.94,3.0,1,blend+inj,19.57,,Jusuf Nurkic; Justise Winslow; Dennis Smith Jr.; Anfernee Simons
+2021,2022-03-10,Nuggets,Warriors,home,3.0,2.03,-1,0.32,1.5,-1,blend+inj,-0.97,Will Barton; Zeke Nnaji,Otto Porter Jr.; Gary Payton II
+2021,2022-03-12,Spurs,Pacers,away,-5.5,-3.06,1,-4.25,4.0,1,blend+inj,2.44,Jakob Poeltl; Dejounte Murray; Romeo Langford; Keldon Johnson,Lance Stephenson; Malcolm Brogdon; Terry Taylor
+2021,2022-03-13,Hawks,Pacers,home,-10.0,2.65,-1,3.44,2.5,-1,blend+inj,12.65,John Collins,Lance Stephenson; Malcolm Brogdon; Goga Bitadze; Chris Duarte
+2021,2022-03-14,Spurs,Timberwolves,home,5.0,2.07,-1,1.83,1.5,-1,blend+inj,-2.93,Doug McDermott; Keita Bates-Diop; Romeo Langford,Jarred Vanderbilt; Jordan McLaughlin; Naz Reid
+2021,2022-03-16,Nets,Mavericks,away,1.5,-2.78,1,-8.88,1.5,-1,blend+inj,-4.28,Blake Griffin; Kyrie Irving; LaMarcus Aldridge; Seth Curry; Day'Ron Sharpe,Reggie Bullock
+2021,2022-03-16,Warriors,Celtics,away,-4.0,-2.17,1,-1.58,2.0,1,blend+inj,1.83,Andrew Wiggins; Nemanja Bjelica; Gary Payton II,
+2021,2022-03-20,Nuggets,Celtics,home,3.0,2.11,-1,-0.31,0.0,-1,blend+inj,-0.89,Zeke Nnaji,
+2021,2022-03-21,Seventysixers,Heat,away,1.5,-3.22,-1,-7.32,6.5,-1,blend+inj,-4.72,James Harden; Joel Embiid,Victor Oladipo; Dewayne Dedmon; Gabe Vincent
+2021,2022-03-24,Bucks,Wizards,away,-12.0,-2.54,0,-5.53,3.5,-1,blend+inj,9.46,Khris Middleton; Giannis Antetokounmpo,Kyle Kuzma; Thomas Bryant
+2021,2022-03-25,Heat,Knicks,home,-5.5,2.07,-1,-0.21,4.0,-1,blend+inj,7.57,Victor Oladipo; Tyler Herro; Gabe Vincent,Julius Randle; Cam Reddish
+2021,2022-03-26,Nuggets,Thunder,home,-13.5,3.06,-1,3.75,3.5,-1,blend+inj,16.56,Zeke Nnaji,Shai Gilgeous-Alexander
+2021,2022-03-30,Cavaliers,Mavericks,home,3.0,2.66,-1,-0.1,0.5,-1,blend+inj,-0.34,Rajon Rondo; Cedi Osman; Dean Wade; Evan Mobley,Spencer Dinwiddie
+2021,2022-03-30,Thunder,Hawks,away,10.0,-2.09,1,-4.39,3.0,1,blend+inj,-12.09,Shai Gilgeous-Alexander; Darius Bazley; Tre Mann,Danilo Gallinari; John Collins
+2021,2022-03-31,Jazz,Lakers,home,-9.0,3.39,1,3.24,4.5,-1,blend+inj,12.39,Rudy Gay; Hassan Whiteside; Trent Forrest,Avery Bradley; LeBron James; Wayne Ellington
+2021,2022-04-01,Bucks,Clippers,away,-8.5,-2.12,1,-5.87,5.0,1,blend+inj,6.38,Wesley Matthews; Jrue Holiday; Brook Lopez; Khris Middleton; Giannis Antetokounmpo; Grayson Allen,Marcus Morris Sr.; Paul George; Nicolas Batum; Reggie Jackson; Brandon Boston Jr.
+2021,2022-04-01,Grizzlies,Suns,away,3.0,-3.16,-1,-9.78,5.0,-1,blend+inj,-6.16,Steven Adams; Tyus Jones; Jaren Jackson Jr.; Ja Morant; Desmond Bane,Aaron Holiday
+2021,2022-04-03,Lakers,Nuggets,away,3.0,-2.31,1,-4.21,2.5,1,blend+inj,-5.31,LeBron James; Trevor Ariza; Wayne Ellington; Austin Reaves,Jeff Green
+2021,2022-04-03,Pacers,Pistons,home,-1.0,2.29,-1,3.84,3.5,-1,blend+inj,3.29,Malcolm Brogdon; Chris Duarte; Keifer Sykes,Cory Joseph; Jerami Grant; Marvin Bagley III; Saben Lee; Jamorko Pickett; Cade Cunningham
+2021,2022-04-03,Spurs,Trailblazers,away,-14.5,-2.02,-1,-1.83,1.0,-1,blend+inj,12.48,Doug McDermott; Jakob Poeltl; Dejounte Murray,Justise Winslow; Josh Hart; Elijah Hughes; Trendon Watford
+2021,2022-04-05,Nuggets,Spurs,home,-6.0,2.64,-1,3.41,3.0,-1,blend+inj,8.64,Jeff Green,Doug McDermott; Dejounte Murray
+2021,2022-04-05,Suns,Lakers,home,-11.5,2.06,-1,4.73,1.5,-1,blend+inj,13.56,,LeBron James; Trevor Ariza; Wayne Ellington
+2021,2022-04-06,Jazz,Thunder,home,-17.0,4.8,1,6.69,-1.5,1,blend+inj,21.8,Mike Conley; Donovan Mitchell; Royce O'Neale,Shai Gilgeous-Alexander; Darius Bazley; Aleksej Pokusevski; Theo Maledon; Tre Mann; Aaron Wiggins; Olivier Sarr
+2021,2022-04-07,Bucks,Celtics,home,-4.5,2.51,1,6.27,4.0,-1,blend+inj,7.01,Serge Ibaka; Grayson Allen; Jordan Nwora,Al Horford; Jayson Tatum; Robert Williams III
+2021,2022-04-07,Warriors,Lakers,home,-10.5,2.03,1,7.33,3.5,1,blend+inj,12.53,Stephen Curry,Carmelo Anthony; Avery Bradley; LeBron James; Russell Westbrook; Trevor Ariza; Anthony Davis
+2021,2022-04-08,Mavericks,Trailblazers,home,-17.5,2.78,1,4.54,2.0,1,blend+inj,20.28,Brandon Knight; Maxi Kleber,Justise Winslow; Kris Dunn; Josh Hart; Trendon Watford
+2021,2022-04-09,Grizzlies,Pelicans,home,-5.0,2.13,1,2.56,3.0,1,blend+inj,7.13,,Brandon Ingram
+2021,2022-04-09,Spurs,Warriors,away,1.5,-2.26,1,-4.46,6.0,-1,blend+inj,-3.76,Jakob Poeltl; Dejounte Murray; Keldon Johnson; Devin Vassell,Stephen Curry; Klay Thompson
+2021,2022-04-10,Grizzlies,Celtics,away,1.5,-5.42,1,-10.44,7.5,1,blend+inj,-6.92,Steven Adams; Tyus Jones; Dillon Brooks; Jaren Jackson Jr.; Ja Morant; Brandon Clarke; Desmond Bane,Robert Williams III
+2021,2022-04-10,Magic,Heat,home,10.5,3.98,1,6.63,4.5,1,blend+inj,-6.52,Terrence Ross; Gary Harris; Wendell Carter Jr.; Cole Anthony; Franz Wagner; Jalen Suggs,Kyle Lowry; Markieff Morris; Jimmy Butler; P.J. Tucker; Dewayne Dedmon; Bam Adebayo; Tyler Herro; Caleb Martin; Max Strus
+2021,2022-04-10,Seventysixers,Pistons,away,-12.0,-2.41,0,-1.9,5.5,-1,blend+inj,9.59,James Harden; Paul Millsap; Joel Embiid; Georges Niang,Cory Joseph; Kelly Olynyk; Jerami Grant; Marvin Bagley III; Cade Cunningham
+2021,2022-04-21,Jazz,Mavericks,home,-7.5,2.14,-1,4.18,1.0,-1,blend+inj,9.64,Rudy Gay; Trent Forrest,Brandon Knight; Luka Doncic
+2021,2022-04-26,Heat,Hawks,away,-7.0,-2.54,1,-3.84,3.0,1,blend+inj,4.46,Kyle Lowry; Markieff Morris; Jimmy Butler; Mychal Mulder; Javonte Smart,Lou Williams; Bogdan Bogdanovic
+2021,2022-05-21,Celtics,Heat,away,-6.0,-2.1,1,-1.26,0.5,1,blend+inj,3.9,Robert Williams III,Markieff Morris

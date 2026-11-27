@@ -1,45 +1,56 @@
 #!/usr/bin/env python3
-"""NBA point-spread model built on the 2011-12 to 2021-22 closing-odds archive.
+"""NBA point-spread model built on the 2011-12 to 2021-22 closing-odds archive,
+with player availability (injuries, rest days, suspensions) from play-by-play.
 
-How it works (all features are computed from information available before tip-off):
+How it works:
 
-1. Two online team ratings, both on a points scale:
-   - performance rating: updated from each game's actual margin;
-   - market rating: updated from each game's *closing spread*, i.e. how the
-     market rated the team in its past games.
-   Both shrink toward 0 between seasons. The update speeds are tuned only on
-   the training seasons.
-2. Schedule features: days of rest for each side and back-to-backs, built from
-   the game dates. Denver and Utah get an altitude flag at home.
-3. A linear regression maps those features to the home team's margin. It is
-   refit walk-forward: to predict season S it is trained only on seasons < S.
-   Two versions are fit:
-     - "stats":  ratings + schedule only (no betting line as input)
-     - "blend":  stats features + the opening spread
-4. Bets: when the predicted margin differs from the line by at least the edge
-   threshold, bet that side at -110. Results are graded against both the
-   opening line (the number you could have bet early) and the closing line.
+1. Two online team ratings on a points scale:
+   - performance rating, updated from each game's actual margin;
+   - market rating, updated from each game's closing spread.
+   Both shrink toward 0 between seasons; update speeds are tuned on 2011-14 only.
+   In the injury-aware version the ratings learn *full-strength* team quality:
+   each game's target is corrected for the players who sat out.
+2. Schedule features from the game dates: back-to-backs, rest difference, and
+   an altitude flag for Denver and Utah at home.
+3. Player availability (model/data/player_games.csv.gz, built from
+   play-by-play by build_player_logs.py). For every player the model keeps a
+   running, exponentially weighted estimate of minutes per game and Game Score
+   per minute, using only past games. A rotation player (recent minutes >= 12,
+   appeared in the team's last 10 games this season) who does not play is
+   counted as absent. Absences are converted to points with weights fitted on
+   the training seasons only.
+4. A linear regression maps the features to the home margin, refit walk-forward
+   (each test season is predicted from earlier seasons only).
+5. Bets: when the predicted margin beats the line by the edge threshold, bet that
+   side at -110, graded against the opening and the closing line.
+
+Look-ahead caveat: "who did not play" is read from the game's own box score.
+Most absences are known before the closing line (injury reports, rest days),
+so tests against the close are fair. Tests against the *opening* line assume
+you knew every absence when the line opened, which overstates a real bettor's
+edge; treat them as an upper bound on reacting to news before the book does.
 
 Usage:
   python3 model/nba_model.py backtest            # writes model/results/
   python3 model/nba_model.py predict games.csv   # rate upcoming games
-
-The archive has no spread prices, so every bet is assumed to be at -110.
 """
 import csv
 import datetime as dt
+import gzip
 import json
 import math
 import os
 import sys
+from collections import defaultdict
 
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data", "nba_archive.json")
+PLAYERS = os.path.join(HERE, "data", "player_games.csv.gz")
 OUT = os.path.join(HERE, "results")
 
-TRAIN_SEASONS = (2011, 2012, 2013)  # used to tune ratings and as first regression window
+TRAIN_SEASONS = (2011, 2012, 2013)  # used to tune ratings / injury weights and as first regression window
 WIN, LOSS = 100 / 110, -1.0          # profit per unit at -110
 BREAK_EVEN = 110 / 210
 ALTITUDE = {"Nuggets", "Jazz"}
@@ -78,17 +89,117 @@ def load_games(path=DATA, extra=None):
         if abs(cs) > 25 or abs(os_) > 25 or not 150 <= tot <= 280:
             continue
         games.append(dict(season=int(r["season"]), date=game_date(int(r["season"]), r["date"]),
-                          home=h, away=a, margin=hs - as_, close=cs, open=os_, total=tot))
+                          home=h, away=a, hpts=int(hs), apts=int(as_), margin=hs - as_,
+                          close=cs, open=os_, total=tot))
     games.sort(key=lambda g: (g["season"], g["date"]))
     return games
 
 
+# ---------------------------------------------------------------- player availability
+class Availability:
+    """Running per-player minutes and Game Score per minute, using past games only."""
+
+    def __init__(self, alpha=0.15, window=10, min_minutes=12.0, prior_rate=0.30, prior_min=40.0):
+        self.alpha, self.window, self.min_minutes = alpha, window, min_minutes
+        self.prior_rate, self.prior_min = prior_rate, prior_min
+        self.p = {}                       # pid -> state
+        self.team_games = defaultdict(int)  # team -> games played (all seasons)
+        self.names = {}
+
+    def rate(self, s):
+        return (s["g"] + self.prior_rate * self.prior_min) / (s["m"] + self.prior_min)
+
+    def roster(self, team, season):
+        """Rotation players expected to be available for `team`."""
+        n = self.team_games[team]
+        return {pid: s for pid, s in self.p.items()
+                if s["team"] == team and s["season"] == season and s["apps"] >= 3
+                and n - s["last"] <= self.window and s["min"] >= self.min_minutes}
+
+    def missing(self, team, season, played):
+        out = [(pid, s) for pid, s in self.roster(team, season).items() if pid not in played]
+        return dict(min=sum(s["min"] for _, s in out),
+                    gs=sum(s["min"] * self.rate(s) for _, s in out),
+                    names=[self.names[pid] for pid, _ in out])
+
+    def missing_by_name(self, team, season, names):
+        want = {n.strip().lower() for n in names if n.strip()}
+        out = [(pid, s) for pid, s in self.p.items()
+               if s["team"] == team and self.names[pid].lower() in want]
+        unknown = want - {self.names[pid].lower() for pid, _ in out}
+        return dict(min=sum(s["min"] for _, s in out),
+                    gs=sum(s["min"] * self.rate(s) for _, s in out),
+                    names=[self.names[pid] for pid, _ in out]), unknown
+
+    def update(self, team, season, players):
+        self.team_games[team] += 1
+        n = self.team_games[team]
+        a = self.alpha
+        for r in players:
+            pid, mins, gs = r["player_id"], r["minutes"], r["gmsc"]
+            self.names[pid] = r["player"]
+            s = self.p.get(pid)
+            if s is None:
+                s = self.p[pid] = dict(team=team, season=season, min=mins, g=0.0, m=0.0, apps=0, last=n)
+            s["min"] = (1 - a) * s["min"] + a * mins if s["apps"] else mins
+            s["g"] = (1 - a) * s["g"] + gs
+            s["m"] = (1 - a) * s["m"] + mins
+            s["team"], s["season"], s["last"] = team, season, n
+            s["apps"] += 1
+
+
+def load_player_games(path=PLAYERS):
+    games = defaultdict(list)
+    for r in csv.DictReader(gzip.open(path, "rt")):
+        if float(r["minutes"]) <= 0:
+            continue
+        games[(int(r["season"]), int(r["playoffs"]), int(r["game_id"]))].append(
+            dict(player_id=int(r["player_id"]), player=r["player"], team=r["team"],
+                 minutes=float(r["minutes"]), gmsc=float(r["gmsc"]), home=r["home"], away=r["away"],
+                 hpts=int(float(r["home_pts"])), apts=int(float(r["away_pts"]))))
+    return games
+
+
+def injury_features(path=PLAYERS):
+    """Absence features for every play-by-play game, keyed by
+    (season, home, away, home points, away points), plus the final player state."""
+    av = Availability()
+    feats = {}
+    for (season, _po, _gid), rows in sorted(load_player_games(path).items()):
+        h, a = rows[0]["home"], rows[0]["away"]
+        key = (season, h, a, rows[0]["hpts"], rows[0]["apts"])
+        played = {r["player_id"] for r in rows}
+        mh, ma = av.missing(h, season, played), av.missing(a, season, played)
+        feats[key] = dict(inj_min_h=mh["min"], inj_gs_h=mh["gs"], inj_min_a=ma["min"], inj_gs_a=ma["gs"],
+                          out_h=mh["names"], out_a=ma["names"])
+        av.update(h, season, [r for r in rows if r["team"] == h])
+        av.update(a, season, [r for r in rows if r["team"] == a])
+    return feats, av
+
+
+def attach_injuries(games, feats):
+    hit = 0
+    for g in games:
+        f = feats.get((g["season"], g["home"], g["away"], g["hpts"], g["apts"]))
+        g["has_inj"] = f is not None
+        hit += f is not None
+        f = f or dict(inj_min_h=0, inj_gs_h=0, inj_min_a=0, inj_gs_a=0, out_h=[], out_a=[])
+        g.update(f)
+        # positive = the away side is missing more (good for home)
+        g["inj_min_diff"] = g["inj_min_a"] - g["inj_min_h"]
+        g["inj_gs_diff"] = g["inj_gs_a"] - g["inj_gs_h"]
+    return hit
+
+
 # -------------------------------------------------------------------------- ratings
 class Ratings:
-    """Online point ratings. perf learns from margins, mkt from closing spreads."""
+    """Online point ratings. perf learns from margins, mkt from closing spreads.
+    If `inj_w` is given, each game's targets are corrected for absences so the
+    ratings describe full-strength teams."""
 
-    def __init__(self, k_perf=0.06, k_mkt=0.12, carry=0.6, k_hca=0.002, cap=25.0):
+    def __init__(self, k_perf=0.06, k_mkt=0.12, carry=0.6, k_hca=0.002, cap=25.0, inj_w=None):
         self.k_perf, self.k_mkt, self.carry, self.k_hca, self.cap = k_perf, k_mkt, carry, k_hca, cap
+        self.inj_w = inj_w
         self.perf, self.mkt, self.last, self.played = {}, {}, {}, {}
         self.hca_perf = self.hca_mkt = 3.0
         self.season = None
@@ -98,6 +209,11 @@ class Ratings:
             for t in d:
                 d[t] *= self.carry
         self.last, self.played, self.season = {}, {}, season
+
+    def inj_pts(self, g):
+        if not self.inj_w:
+            return 0.0
+        return self.inj_w[0] * g.get("inj_min_diff", 0) + self.inj_w[1] * g.get("inj_gs_diff", 0)
 
     def features(self, g):
         if g["season"] != self.season:
@@ -116,6 +232,7 @@ class Ratings:
             b2b_home=float(rh == 0), b2b_away=float(ra == 0),
             rest_diff=float(rh - ra),
             altitude=float(h in ALTITUDE),
+            inj_pts=self.inj_pts(g),
             warm=min(self.played.get(h, 0), self.played.get(a, 0)),
             pred_perf=self.perf.get(h, 0) - self.perf.get(a, 0) + self.hca_perf,
             pred_mkt=self.mkt.get(h, 0) - self.mkt.get(a, 0) + self.hca_mkt,
@@ -123,12 +240,13 @@ class Ratings:
 
     def update(self, g, f):
         h, a = g["home"], g["away"]
-        m = max(min(g["margin"], self.cap), -self.cap)
+        adj = f["inj_pts"]  # points the absences were worth to the home side
+        m = max(min(g["margin"] - adj, self.cap), -self.cap)
         e = m - f["pred_perf"]
         self.perf[h] = self.perf.get(h, 0) + self.k_perf * e
         self.perf[a] = self.perf.get(a, 0) - self.k_perf * e
         self.hca_perf += self.k_hca * e
-        e2 = -g["close"] - f["pred_mkt"]
+        e2 = -g["close"] - adj - f["pred_mkt"]
         self.mkt[h] = self.mkt.get(h, 0) + self.k_mkt * e2
         self.mkt[a] = self.mkt.get(a, 0) - self.k_mkt * e2
         self.hca_mkt += self.k_hca * e2
@@ -166,9 +284,37 @@ def tune(games):
     return dict(k_perf=best_p[1], carry=best_p[2], k_mkt=best_m[1])
 
 
+def fit_injury_weights(games, params, iters=4):
+    """Points per missing minute / per missing Game Score, fitted on the training
+    seasons only. Iterated because the ratings themselves depend on the weights."""
+    train = [g for g in games if g["season"] in TRAIN_SEASONS]
+    w = (0.0, 0.0)
+    for _ in range(iters):
+        feats, _ = run_ratings(train, **params, inj_w=w)
+        rows = [{**g, **f} for g, f in zip(train, feats) if f["warm"] >= 5 and g["has_inj"]]
+        cols = ["perf_diff", "mkt_diff", "b2b_home", "b2b_away", "rest_diff", "altitude",
+                "inj_min_diff", "inj_gs_diff"]
+        beta = fit(rows, cols, ridge=1.0)
+        w = (float(beta[7]), float(beta[8]))  # intercept is column 0
+    return w
+
+
 # ------------------------------------------------------------------------ regression
-STATS_COLS = ["perf_diff", "mkt_diff", "b2b_home", "b2b_away", "rest_diff", "altitude"]
-BLEND_COLS = STATS_COLS + ["open_line"]
+BASE = ["perf_diff", "mkt_diff", "b2b_home", "b2b_away", "rest_diff", "altitude"]
+MODELS = {
+    "stats": (BASE, False),
+    "blend": (BASE + ["open_line"], False),
+    "stats+inj": (BASE + ["inj_pts"], True),
+    "blend+inj": (BASE + ["inj_pts", "open_line"], True),
+}
+LOGGED = {("stats+inj", "close", 2): "bets_stats_inj_vs_close_edge2.csv",
+          ("blend+inj", "open", 2): "bets_blend_inj_vs_open_edge2.csv"}
+MODEL_NAMES = {
+    "stats": "Stats only (no injuries)",
+    "blend": "Stats + opening line (no injuries)",
+    "stats+inj": "Stats + injuries",
+    "blend+inj": "Stats + injuries + opening line",
+}
 
 
 def design(rows, cols):
@@ -196,48 +342,56 @@ def summarize(bets):
     p = n - w - l
     units = w * WIN + l * LOSS
     dec = w + l
-    pct = w / dec if dec else float("nan")
+    pct_ = w / dec if dec else float("nan")
     z = (w - dec * BREAK_EVEN) / math.sqrt(dec * BREAK_EVEN * (1 - BREAK_EVEN)) if dec else float("nan")
     clv = sum(b.get("clv", 0) for b in bets) / n if n else float("nan")
-    return dict(n=n, w=w, l=l, p=p, pct=pct, units=units, roi=units / n if n else float("nan"), z=z, clv=clv)
+    return dict(n=n, w=w, l=l, p=p, pct=pct_, units=units, roi=units / n if n else float("nan"), z=z, clv=clv)
+
+
+def build_rows(games):
+    """Feature rows for both rating runs (plain and injury-corrected)."""
+    params = tune(games)
+    inj_w = fit_injury_weights(games, params)
+    plain, _ = run_ratings(games, **params)
+    injr, _ = run_ratings(games, **params, inj_w=inj_w)
+    rows = []
+    for g, f0, f1 in zip(games, plain, injr):
+        rows.append(dict(g=g, plain={**g, **f0, "open_line": -g["open"]},
+                         inj={**g, **f1, "open_line": -g["open"]}, warm=f0["warm"]))
+    return params, inj_w, rows
 
 
 def backtest(games):
-    params = tune(games)
-    feats, _ = run_ratings(games, **params)
-    rows = []
-    for g, f in zip(games, feats):
-        rows.append({**g, **f, "open_line": -g["open"]})
+    params, inj_w, rows = build_rows(games)
     usable = [r for r in rows if r["warm"] >= 5]
-    seasons = sorted({r["season"] for r in usable})
+    seasons = sorted({r["g"]["season"] for r in usable})
     test_seasons = [s for s in seasons if s not in TRAIN_SEASONS]
 
     preds = []
-    coefs = {}
+    coefs = defaultdict(dict)
     for s in test_seasons:
-        train = [r for r in usable if r["season"] < s]
-        test = [r for r in usable if r["season"] == s]
-        bs, bb = fit(train, STATS_COLS), fit(train, BLEND_COLS)
-        coefs[s] = dict(stats=bs.round(3).tolist(), blend=bb.round(3).tolist())
-        ps, pb = design(test, STATS_COLS) @ bs, design(test, BLEND_COLS) @ bb
-        for r, a, b in zip(test, ps, pb):
-            preds.append({**r, "pred_stats": float(a), "pred_blend": float(b)})
+        train = [r for r in usable if r["g"]["season"] < s]
+        test = [r for r in usable if r["g"]["season"] == s]
+        out = [dict(r["inj"]) for r in test]
+        for name, (cols, injured) in MODELS.items():
+            key = "inj" if injured else "plain"
+            beta = fit([r[key] for r in train], cols)
+            coefs[s][name] = beta.round(3).tolist()
+            p = design([r[key] for r in test], cols) @ beta
+            for o, v in zip(out, p):
+                o["pred_" + name] = float(v)
+        preds += out
 
-    # forecast accuracy
     def mae(key):
         return sum(abs(p["margin"] - key(p)) for p in preds) / len(preds)
 
-    acc = {
-        "closing line": mae(lambda p: -p["close"]),
-        "opening line": mae(lambda p: -p["open"]),
-        "stats model": mae(lambda p: p["pred_stats"]),
-        "blend model": mae(lambda p: p["pred_blend"]),
-    }
+    acc = {"closing line": mae(lambda p: -p["close"]), "opening line": mae(lambda p: -p["open"])}
+    for name in MODELS:
+        acc[MODEL_NAMES[name]] = mae(lambda p, n=name: p["pred_" + n])
 
-    # betting simulations
     results = {}
-    bet_log = []
-    for model in ("stats", "blend"):
+    bet_log = defaultdict(list)
+    for model in MODELS:
         for lk in ("open", "close"):
             for thr in (1, 2, 3, 4, 5):
                 bets = []
@@ -249,40 +403,45 @@ def backtest(games):
                     side = 1 if edge > 0 else -1
                     b = dict(season=p["season"], date=str(p["date"]), home=p["home"], away=p["away"],
                              side="home" if side > 0 else "away", line=line, edge=round(edge, 2),
-                             res=grade(p["margin"], line, side))
+                             res=grade(p["margin"], line, side), inj_pts=round(p["inj_pts"], 2))
                     if lk == "open":
                         b["clv"] = (p["open"] - p["close"]) * side  # points gained vs close
                         b["res_close"] = grade(p["margin"], p["close"], side)
                     bets.append(b)
-                    if model == "blend" and lk == "open" and thr == 2:
-                        bet_log.append({**b, "model": model, "pred_margin": round(p["pred_blend"], 2)})
+                    if (model, lk, thr) in LOGGED:
+                        bet_log[(model, lk, thr)].append({**b, "model": model, "pred_margin": round(p["pred_" + model], 2),
+                                        "home_out": "; ".join(p["out_h"]), "away_out": "; ".join(p["out_a"])})
                 results[(model, lk, thr)] = (summarize(bets), bets)
-    return params, coefs, acc, results, bet_log, preds
+    return params, inj_w, dict(coefs), acc, results, bet_log, preds
 
 
-def situational_check(games):
-    feats, _ = run_ratings(games, **tune(games))
-    rows = [{**g, **f} for g, f in zip(games, feats) if f["warm"] >= 5]
-    names = ["home edge", "home on back-to-back", "away on back-to-back", "rest difference (days)", "altitude home"]
-    X = np.array([[1, r["b2b_home"], r["b2b_away"], r["rest_diff"], r["altitude"]] for r in rows])
+def pct(x):
+    return "—" if x != x else f"{100 * x:.1f}%"
+
+
+def ols_t(X, y):
+    b = np.linalg.lstsq(X, y, rcond=None)[0]
+    e = y - X @ b
+    se = np.sqrt(np.diag(e @ e / (len(y) - X.shape[1]) * np.linalg.inv(X.T @ X)))
+    return b, b / se
+
+
+def situational_check(preds):
+    names = ["home edge", "home on back-to-back", "away on back-to-back", "rest difference (days)",
+             "altitude home", "injury points (model's absence value)"]
+    X = np.array([[1, r["b2b_home"], r["b2b_away"], r["rest_diff"], r["altitude"], r["inj_pts"]] for r in preds])
     out = ["| Feature | vs opening line (pts) | t | vs closing line (pts) | t |", "|---|---|---|---|---|"]
-    stats = []
-    for lk in ("open", "close"):
-        y = np.array([r["margin"] + r[lk] for r in rows])
-        b = np.linalg.lstsq(X, y, rcond=None)[0]
-        e = y - X @ b
-        se = np.sqrt(np.diag(e @ e / (len(y) - X.shape[1]) * np.linalg.inv(X.T @ X)))
-        stats.append((b, b / se))
+    stats = [ols_t(X, np.array([r["margin"] + r[lk] for r in preds])) for lk in ("open", "close")]
     for i, n in enumerate(names):
         out.append(f"| {n} | {stats[0][0][i]:+.2f} | {stats[0][1][i]:+.2f} | {stats[1][0][i]:+.2f} | {stats[1][1][i]:+.2f} |")
 
     def ats(cond, side):
         w = l = 0
-        for r in rows:
+        for r in preds:
             if cond(r):
                 v = (r["margin"] + r["close"]) * side
                 w, l = w + (v > 0), l + (v < 0)
-        return f"{w}-{l} ({pct(w / (w + l))})"
+        return f"{w}-{l} ({pct(w / (w + l))})" if w + l else "—"
 
     out.append("\nClassic angles, graded at the closing line:\n")
     out.append("| Angle | Record |\n|---|---|")
@@ -290,31 +449,51 @@ def situational_check(games):
     out.append(f"| Rested away team vs home team on a back-to-back | {ats(lambda r: r['b2b_home'] and not r['b2b_away'], -1)} |")
     out.append(f"| Home underdog of 10+ points | {ats(lambda r: r['close'] >= 10, 1)} |")
     out.append(f"| Road favorite | {ats(lambda r: r['close'] > 0, -1)} |")
+    out.append(f"| Team missing 4+ points more of players than opponent (bet the healthier side) | "
+               f"{ats(lambda r: r['inj_pts'] >= 4, 1)} home / {ats(lambda r: r['inj_pts'] <= -4, -1)} away |")
     return "\n".join(out)
 
 
-def pct(x):
-    return "—" if x != x else f"{100 * x:.1f}%"
+def line_move_check(preds):
+    """How much of the absence value is already in the opening line, and how much
+    is added between open and close?"""
+    X = np.array([[1, r["inj_pts"]] for r in preds])
+    b_open, t_open = ols_t(X, np.array([-r["open"] for r in preds]))
+    b_move, t_move = ols_t(X, np.array([r["open"] - r["close"] for r in preds]))
+    b_res, t_res = ols_t(X, np.array([r["margin"] + r["close"] for r in preds]))
+    b_mar, t_mar = ols_t(X, np.array([r["margin"] for r in preds]))
+    return ("| Outcome regressed on injury points | Slope | t |\n|---|---|---|\n"
+            f"| Actual home margin | {b_mar[1]:.2f} | {t_mar[1]:.1f} |\n"
+            f"| Opening line (home expected margin) | {b_open[1]:.2f} | {t_open[1]:.1f} |\n"
+            f"| Line move, open to close (toward home) | {b_move[1]:.2f} | {t_move[1]:.1f} |\n"
+            f"| Cover margin vs closing line | {b_res[1]:.2f} | {t_res[1]:.1f} |\n")
 
 
-def write_report(games, params, coefs, acc, results, bet_log, preds):
+def write_report(games, params, inj_w, coefs, acc, results, bet_log, preds, hit):
     os.makedirs(OUT, exist_ok=True)
     seasons = sorted({p["season"] for p in preds})
     L = []
     L.append("# NBA spread model backtest\n")
-    L.append(f"Archive: {len(games):,} games, seasons {games[0]['season']}-{games[-1]['season'] + 1 - 2000:02d}. "
-             f"Ratings tuned and regression first trained on {TRAIN_SEASONS[0]}-{TRAIN_SEASONS[-1] + 1 - 2000:02d}; "
+    L.append(f"Archive: {len(games):,} games, seasons {games[0]['season']}-{games[-1]['season'] + 1 - 2000:02d}; "
+             f"{hit:,} ({hit / len(games):.1%}) matched to play-by-play player data. "
+             f"Ratings and injury weights tuned on {TRAIN_SEASONS[0]}-{TRAIN_SEASONS[-1] + 1 - 2000:02d}; "
              f"walk-forward test on {len(preds):,} games from {seasons[0]}-{seasons[-1] + 1 - 2000:02d}. "
              "All bets assumed at -110 (break-even 52.38%).\n")
+    L.append("**Look-ahead caveat:** absences are read from each game's box score. Tests against the closing "
+             "line are fair because injury news is almost always out before the close. Tests against the "
+             "opening line assume you knew every absence at the open, so treat them as an upper bound.\n")
     L.append(f"Tuned rating parameters: {params}\n")
+    L.append(f"Injury weights (points of home margin per unit, away minus home): "
+             f"{inj_w[0]:+.3f} per missing rotation minute, {inj_w[1]:+.3f} per missing Game Score point\n")
     L.append("## Forecast accuracy (mean absolute error of home margin, test seasons)\n")
     L.append("| Forecast | MAE (points) |\n|---|---|")
     for k, v in acc.items():
         L.append(f"| {k} | {v:.2f} |")
     L.append("")
-    for model in ("stats", "blend"):
-        name = "Stats-only model" if model == "stats" else "Blend model (stats + opening line)"
-        L.append(f"## {name}\n")
+    L.append("## Is injury news priced?\n")
+    L.append(line_move_check(preds))
+    for model in MODELS:
+        L.append(f"## {MODEL_NAMES[model]}\n")
         L.append("| Bet against | Min edge | Bets | W-L-P | Win % | Units | ROI | z vs 52.38% | Avg CLV (pts) | Win % at close |")
         L.append("|---|---|---|---|---|---|---|---|---|---|")
         for lk in ("open", "close"):
@@ -328,67 +507,88 @@ def write_report(games, params, coefs, acc, results, bet_log, preds):
                 L.append(f"| {lk} line | {thr} | {s['n']} | {s['w']}-{s['l']}-{s['p']} | {pct(s['pct'])} | "
                          f"{s['units']:+.1f} | {100 * s['roi']:+.1f}% | {s['z']:+.2f} | {clv} | {atc} |")
         L.append("")
-    L.append("## By season: blend model vs opening line, edge ≥ 2\n")
-    L.append("| Season | Bets | Win % | Units | Avg CLV |\n|---|---|---|---|---|")
-    _, bets = results[("blend", "open", 2)]
+    L.append("## By season: stats + injuries vs closing line, edge ≥ 2\n")
+    L.append("| Season | Bets | Win % | Units |\n|---|---|---|---|")
+    _, bets = results[("stats+inj", "close", 2)]
     for s in seasons:
         sb = [b for b in bets if b["season"] == s]
         if sb:
             x = summarize(sb)
-            L.append(f"| {s}-{s + 1 - 2000:02d} | {x['n']} | {pct(x['pct'])} | {x['units']:+.1f} | {x['clv']:+.2f} |")
+            L.append(f"| {s}-{s + 1 - 2000:02d} | {x['n']} | {pct(x['pct'])} | {x['units']:+.1f} |")
     L.append("")
     L.append("## Does the line already price the situation?\n")
-    L.append("Regression of the cover margin (home margin + home spread) on situational features, all "
-             "games with at least 5 games played by each team (2011-22). A coefficient near 0 means the "
-             "line already accounts for that factor.\n")
-    L.append(situational_check(games))
+    L.append("Regression of the cover margin (home margin + home spread) on situational features, "
+             "test seasons. A coefficient near 0 means the line already accounts for that factor.\n")
+    L.append(situational_check(preds))
     L.append("")
     L.append("## Regression coefficients by test season\n")
-    L.append("Columns: intercept (home edge), " + ", ".join(BLEND_COLS) + "\n")
-    L.append("| Season | Stats model | Blend model |\n|---|---|---|")
-    for s, c in coefs.items():
-        L.append(f"| {s} | {c['stats']} | {c['blend']} |")
+    for name, (cols, _) in MODELS.items():
+        L.append(f"**{MODEL_NAMES[name]}**: intercept, " + ", ".join(cols) + "\n")
+        L.append("| Season | Coefficients |\n|---|---|")
+        for s, c in coefs.items():
+            L.append(f"| {s} | {c[name]} |")
+        L.append("")
     open(os.path.join(OUT, "backtest.md"), "w").write("\n".join(L) + "\n")
 
-    with open(os.path.join(OUT, "bets_blend_open_edge2.csv"), "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(bet_log[0].keys()))
-        w.writeheader()
-        w.writerows(bet_log)
+    for f in os.listdir(OUT):
+        if f.startswith("bets_"):
+            os.remove(os.path.join(OUT, f))
+    for key, fname in LOGGED.items():
+        rows = bet_log[key]
+        with open(os.path.join(OUT, fname), "w", newline="") as fh:
+            w = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+            w.writeheader()
+            w.writerows(rows)
     print("\n".join(L))
 
 
 # --------------------------------------------------------------------------- predict
 def predict(csv_path, extra=None):
     """Rate upcoming games. CSV columns: date (YYYY-MM-DD), home, away, open_spread
-    (home team's spread, e.g. -4.5). Ratings come from every game in the archive
-    (plus `extra`, a JSON file of newer results in the archive's format)."""
+    (home team's spread, e.g. -4.5), and optionally home_out / away_out: players
+    ruled out, separated by ';' (names as on NBA.com). Ratings come from every game in
+    the archive (plus `extra`, a JSON file of newer results in the archive's format)."""
     games = load_games(extra=extra)
-    params = tune(games)
-    feats, r = run_ratings(games, **params)
-    rows = [{**g, **f, "open_line": -g["open"]} for g, f in zip(games, feats) if f["warm"] >= 5]
-    beta = fit(rows, BLEND_COLS)
-    last = games[-1]["date"]
-    print(f"Ratings current through {last}. If that is not yesterday, results are stale.\n")
-    print(f"{'date':<11}{'away':<15}{'home':<15}{'line':>6}{'model':>8}{'edge':>7}  pick")
+    feats, av = injury_features()
+    attach_injuries(games, feats)
+    params, inj_w, rows = build_rows(games)
+    usable = [r["inj"] for r in rows if r["warm"] >= 5]
+    cols = MODELS["blend+inj"][0]
+    beta = fit(usable, cols)
+    _, r = run_ratings(games, **params, inj_w=inj_w)
+    print(f"Ratings current through {games[-1]['date']}. If that is not yesterday, results are stale.\n")
+    print(f"{'date':<11}{'away':<15}{'home':<15}{'line':>6}{'model':>8}{'edge':>7}  pick / notes")
     for row in csv.DictReader(open(csv_path)):
         d = dt.date.fromisoformat(row["date"])
-        g = dict(season=d.year if d.month >= 10 else d.year - 1, date=d, home=row["home"],
-                 away=row["away"], open=float(row["open_spread"]))
+        season = d.year if d.month >= 10 else d.year - 1
+        g = dict(season=season, date=d, home=row["home"], away=row["away"], open=float(row["open_spread"]))
+        mh, uh = av.missing_by_name(g["home"], season, (row.get("home_out") or "").split(";"))
+        ma, ua = av.missing_by_name(g["away"], season, (row.get("away_out") or "").split(";"))
+        g["inj_min_diff"] = ma["min"] - mh["min"]
+        g["inj_gs_diff"] = ma["gs"] - mh["gs"]
         f = r.features(g)
         x = {**f, "open_line": -g["open"]}
-        pred = float((design([x], BLEND_COLS) @ beta)[0])
+        pred = float((design([x], cols) @ beta)[0])
         edge = pred + g["open"]
         pick = ""
         if abs(edge) >= 2:
             pick = f"{g['home']} {g['open']:+g}" if edge > 0 else f"{g['away']} {-g['open']:+g}"
-        print(f"{row['date']:<11}{g['away']:<15}{g['home']:<15}{g['open']:>+6g}{-pred:>+8.1f}{edge:>+7.1f}  {pick}")
+        notes = []
+        if f["inj_pts"]:
+            notes.append(f"injuries worth {f['inj_pts']:+.1f} to home")
+        if uh or ua:
+            notes.append("unknown players: " + ", ".join(sorted(uh | ua)))
+        print(f"{row['date']:<11}{g['away']:<15}{g['home']:<15}{g['open']:>+6g}{-pred:>+8.1f}{edge:>+7.1f}  "
+              + "  ".join(x for x in [pick] + notes if x))
 
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "backtest"
     if cmd == "backtest":
         games = load_games()
-        write_report(games, *backtest(games))
+        feats, _ = injury_features()
+        hit = attach_injuries(games, feats)
+        write_report(games, *backtest(games), hit)
     elif cmd == "predict":
         predict(sys.argv[2], extra=sys.argv[3] if len(sys.argv) > 3 else None)
     else:

@@ -1,4 +1,4 @@
-date,home,away,open_spread
-2022-10-18,Celtics,Seventysixers,-2.5
-2022-10-18,Warriors,Lakers,-7
-2022-10-19,Nuggets,Jazz,-9.5
+date,home,away,open_spread,home_out,away_out
+2022-10-18,Celtics,Seventysixers,-2.5,Robert Williams III,
+2022-10-18,Warriors,Lakers,-7,,LeBron James;Anthony Davis
+2022-10-19,Nuggets,Jazz,-9.5,,
